@@ -1,0 +1,71 @@
+POST  http://localhost:8000/clientes HTTP/1.1
+content-type: application/json
+
+{
+    "cliente": "Dionys Casilla",
+    "documento_tipo": "C",
+    "documento_numero": "0021181888",
+    "correo": "ing.dionisc4@hotmail.com",
+    "nacionalidad": "6102042384551705647d4a71",
+    "idioma": "001",
+    "plan_id": "60b30dec7a195e4ad8d6301a",
+    "terms": "agree"
+}
+
+###
+get  http://localhost:8000/inquilinos/dropdonw HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3Vhcmlvc19pZCI6IjYxNGVhMTYyMmZlYjc2M2VhODMxNzZmMCIsImRvY3VtZW50b19udW1lcm8iOiIwMDItMDE1Mzc4NC00IiwiY2xpZW50ZSI6W3siX2lkIjoiNjE0ZWExNjEyZmViNzYzZWE4MzE3NmVmIiwiY2xpZW50ZSI6IkVsIEdyYW4gSmluZXRlIiwicGxhbl9pZCI6IjYxNGQzZmUyYjYwOGY1NTVjY2Y4NWEzZCJ9XSwiaWF0IjoxNjMzNDg4NzA0LCJleHAiOjE2MzM1MTAzMDR9.S4aLRxRPStGCKyfIrmk5eyzMLC_rhhjr0O8yD9bSfYc
+
+{
+
+}
+
+###
+GET http://localhost:8000/inquilinos/listpop HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3Vhcmlvc19pZCI6IjYxNGVhMTYyMmZlYjc2M2VhODMxNzZmMCIsImRvY3VtZW50b19udW1lcm8iOiIwMDItMDE1Mzc4NC00IiwiY2xpZW50ZSI6W3siX2lkIjoiNjE0ZWExNjEyZmViNzYzZWE4MzE3NmVmIiwiY2xpZW50ZSI6IkVsIEdyYW4gSmluZXRlIiwicGxhbl9pZCI6IjYxNGQzZmUyYjYwOGY1NTVjY2Y4NWEzZCJ9XSwiaWF0IjoxNjMzNzk5NzQ2LCJleHAiOjE2MzM4MjEzNDZ9.BxybFz5e_YJQ-EuTUlsQyhydGCz_3B5UbVodvVSICl4
+
+{
+
+"limit":6
+
+}
+
+
+###
+GET  http://localhost:8000/inquilinos/615fc2bd4760e20f087ef754 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3Vhcmlvc19pZCI6IjYxNGVhMTYyMmZlYjc2M2VhODMxNzZmMCIsImRvY3VtZW50b19udW1lcm8iOiIwMDItMDE1Mzc4NC00IiwiY2xpZW50ZSI6eyJfaWQiOiI2MTRlYTE2MTJmZWI3NjNlYTgzMTc2ZWYiLCJjbGllbnRlIjoiRWwgR3JhbiBKaW5ldGUiLCJwbGFuX2lkIjoiNjE0ZDNmZTJiNjA4ZjU1NWNjZjg1YTNkIn0sImlhdCI6MTYzNDQ0NTI4NSwiZXhwIjoxNjM0NDY2ODg1fQ.Lzhw39cB3lECND7ekLvRsBiuJPlajLL2KRHlaouyJ3A
+
+{
+
+
+
+}
+
+
+###
+POST  http://localhost:8000/inquilinos/update/615fc2bd4760e20f087ef754 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3Vhcmlvc19pZCI6IjYxNGVhMTYyMmZlYjc2M2VhODMxNzZmMCIsImRvY3VtZW50b19udW1lcm8iOiIwMDItMDE1Mzc4NC00IiwiY2xpZW50ZSI6eyJfaWQiOiI2MTRlYTE2MTJmZWI3NjNlYTgzMTc2ZWYiLCJjbGllbnRlIjoiRWwgR3JhbiBKaW5ldGUiLCJwbGFuX2lkIjoiNjE0ZDNmZTJiNjA4ZjU1NWNjZjg1YTNkIn0sImlhdCI6MTYzNDc4NTQxNSwiZXhwIjoxNjM0ODA3MDE1fQ.ZMXDxMTpwVAiaWLqciabI9b9eZH6_oxKYvVnF61-zeA
+
+{
+   "nombre":"aasas",
+   "apodo":"",
+   "documento_tipo":"",
+   "documento_numero":"",
+   "fecha_nacimiento":"",
+   "sexo":"",
+   "correo":"",
+   "direccion":"",
+   "no_casa":"",
+   "telefono_movil":"",
+   "telefono_casa":"",
+   "isActive":"",
+   "tipo_inquilio":"",
+   "usuario_id":"",
+   "foto":""
+  
+
+}

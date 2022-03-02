@@ -1,0 +1,39 @@
+{
+  "name": "itmsrd",
+  "version": "1.0.0",
+  "description": "tsr app",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "mobile",
+    "api"
+  ],
+  "author": "Dionys Casilla",
+  "license": "Private",
+  "homepage": "#",
+  "dependencies": {
+    "@sendgrid/mail": "^6.5.2",
+    "axios": "^0.26.0",
+    "body-parser": "^1.13.3",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "express": "^4.13.3",
+    "formidable": "^1.2.2",
+    "fs": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "md5": "^2.3.0",
+    "moment": "^2.15.1",
+    "moment-timezone": "^0.5.13",
+    "mongoose": "^5.2.15",
+    "mongoose-paginate-v2": "^1.4.2",
+    "morgan": "^1.7.0",
+    "mssql": "^7.1.3",
+    "nodemailer": "^6.6.2",
+    "onesignal-node": "^3.2.1",
+    "request-ip": "^2.1.3",
+    "sendgrid": "^5.2.3"
+  }
+}

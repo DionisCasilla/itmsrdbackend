@@ -1,0 +1,83 @@
+//https://sandbox.viafirma.com/documents/api/v3/
+
+GET https://sandbox.viafirma.com/documents/api/v3/system/alive
+Authorization: "Basic UHJvY3JlZGl0bzpvbGtzck1WTXU="
+
+{
+
+}
+
+
+
+###Login Api
+
+GET http://localhost:8000/procredito/loginapi
+
+{
+	
+}
+
+
+###Lista plantilla
+
+GET https://sandbox.viafirma.com/documents/api/v3/system/alive
+Authorization: "Basic UHJvY3JlZGl0bzpvbGtzck1WTXU="
+
+{
+	
+}
+
+###Lista plantilla
+
+GET https://services.viafirma.com/documents/api/v3/template/list/andreinamejiaparedes@gmail.com
+content-type: application/x-www-form-urlencoded
+authorization: Basic cHJvY3JlZGl0b19kb21pbmljYW5hOk1ENDNTQQ==
+
+{
+	
+}
+
+
+
+###Login Api
+
+POST http://localhost:8000/procredito/submitForm
+content-type: application/json
+
+{
+  "emailDestino": "ing.dionisc@gmail.com",
+  "infoCliente": {
+    "nombre": "Dionys",
+    "cedula": "002-0153781-8",
+    "direccion": "fjhddfg",
+    "celular": "dfgh",
+    "ciudad": "sdfg",
+    "celular2": "",
+    "dia": "",
+    "mes": "",
+    "ano": ""
+  }
+}
+
+
+###Login Api
+
+POST http://jenueva-001-site3.htempurl.com/procredito/submitForm
+content-type: application/json
+
+{
+  "emailDestino": "ing.dionisc@gmail.com",
+  "infoCliente": {
+    "nombre": "Dionys",
+    "cedula": "002-0153781-8",
+    "direccion": "fjhddfg",
+    "celular": "dfgh",
+    "ciudad": "sdfg",
+    "celular2": "",
+    "dia": "",
+    "mes": "",
+    "ano": ""
+  }
+}
+	
+	

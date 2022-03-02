@@ -1,0 +1,13 @@
+POST  http://localhost:8000/clientes HTTP/1.1
+content-type: application/json
+
+{
+    "cliente": "Dionys Casilla",
+    "documento_tipo": "C",
+    "documento_numero": "0021181888",
+    "correo": "ing.dionisc4@hotmail.com",
+    "nacionalidad": "6102042384551705647d4a71",
+    "idioma": "001",
+    "plan_id": "60b30dec7a195e4ad8d6301a",
+    "terms": "agree"
+}
