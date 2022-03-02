@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Con Gonzalo 2020</title>
+		<meta charset="utf-8">
+		<link href="vendors/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<link href="css/main.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="nav-wrapper">
+			<div class="container">
+			</div>
+		</div>
+		<header class="header-top">
+			<img class="no-margin" src="img/logowebgc.jpg" alt="Logotipo de Con Gonzalo">
+		</header>
+		<div class="container">
+			<section class="venue-information">
+				<ul class="nav nav-tabs" id="venueTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="payment-tab" data-toggle="tab" href="#payment" role="tab" aria-controls="payment" aria-selected="true">Registro Votos</a>
+					</li>
+				</ul>
+				<div class="tab-content" id="venueTabContent">
+					<div class="tab-pane fade show active" id="payment" role="tabpanel" aria-labelledby="payment-tab">
+						<section class="venue-wrapper">
+							<table class="table" id="tablaProspectos">
+								<thead>
+									<tr>
+										<th scope="col">Nombres</th>
+										<th scope="col">Apellidos</th>
+										<th scope="col">Cédula</th>
+										<th scope="col">Fecha Registro</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</section>
+					</div>
+				</div>
+			</section>
+		</div>
+		<script type="text/javascript" src="vendors/jquery/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="vendors/popper/popper.min.js"></script>
+		<script type="text/javascript" src="vendors/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/clock.js"></script>
+		<script src="https://cdn.ably.io/lib/ably.min-1.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</body>
+	<script>
+        var prospectos = []
+        jQuery.ajax({
+            url: "https://congonzalo.herokuapp.com/users",
+            type: "GET",
+            contentType: 'application/json; charset=utf-8',
+            success: function (resultData) {
+                $("#tablaProspectos tr").remove();
+                var headerRow = "<tr class='text-dark'><th>Nombres</th><th>Apellidos</th><th>Cédula</th><th>Fecha Registro</th></tr>";
+                $("#tablaProspectos").append(headerRow);
+
+                for (var i = 0; i < resultData.length; i++) {
+                    console.log("el value es: " + resultData[i].document_value)
+                    var row = $("<tr id=" + "row" + resultData[i].document_value + ">")
+                    row.append($("<td>").text(resultData[i].first_name));
+                    row.append($("<td>").text(resultData[i].last_name));
+                    row.append($("<td>").text(resultData[i].document_value));
+                    var date = new Date(resultData[i].date_created)
+                    row.append($("<td>").text((date.getDate()) + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()));
+                    $("#tablaProspectos").append(row);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            },
+
+            timeout: 120000,
+        });
+	</script>
+</html>

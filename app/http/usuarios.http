@@ -1,0 +1,7 @@
+POST  http://localhost:8000/usuarios/login HTTP/1.1
+content-type: application/json
+
+{
+    "documento_numero": "002-0153784-4",
+	"password": "123456"
+}

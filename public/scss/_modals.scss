@@ -1,0 +1,16 @@
+.modal-head {
+	background-color: $blue;
+	color: $white;
+	padding: 15px;
+	h6 {
+		margin: 0;
+	}
+}
+
+.modal-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    h6 {
+        font-weight: bold;
+    }
+}

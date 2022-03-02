@@ -1,0 +1,1963 @@
+GET https://example.com/comments/1 HTTP/1.1
+
+###
+
+GET https://example.com/topics/1 HTTP/1.1
+
+### Crear Planes
+
+POST http://localhost:8000/config/planes HTTP/1.1
+content-type: application/json
+
+{
+    "plan"                : "Plan Basico",
+    "descripcion"         : "Plan basico para administracion de una localidad",
+    "precio"              : "0.00"
+}
+
+
+###
+
+POST http://localhost:8000/config/planessetup HTTP/1.1
+content-type: application/json
+
+{
+    "plan_id"             : "60b30dec7a195e4ad8d6301a",
+    "config_id"           : "60b312213c68115010663048",
+    "parametro"           : 1
+}
+
+### crear parametros configuracion 
+
+POST http://localhost:8000/config/parameters HTTP/1.1
+content-type: application/json
+
+{
+    "configuracion"             : "Cantidad Localidades"
+}
+
+
+### Listar Planes
+
+GET  http://jenueva-001-site3.htempurl.com/config/listpopplanes HTTP/1.1
+content-type: application/json
+
+
+### Crear Nacionalidades
+
+Post  http://localhost:8000/config/nacionalidad HTTP/1.1
+content-type: application/json
+
+{
+    "nacionalidad": [
+        {
+            "ID_NAC": "1",
+            "PAIS_NAC": "Afganistán                                        ",
+            "GENTILICIO_NAC": "AFGANA                                            ",
+            "ALFA3_NAC": "AFG",
+            "ALFA2_NAC": "AF",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "2",
+            "PAIS_NAC": "Albania                                           ",
+            "GENTILICIO_NAC": "ALBANESA                                          ",
+            "ALFA3_NAC": "ALB",
+            "ALFA2_NAC": "AL",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "3",
+            "PAIS_NAC": "Alemania                                          ",
+            "GENTILICIO_NAC": "ALEMANA                                           ",
+            "ALFA3_NAC": "DEU",
+            "ALFA2_NAC": "DE",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "4",
+            "PAIS_NAC": "Andorra                                           ",
+            "GENTILICIO_NAC": "ANDORRANA                                         ",
+            "ALFA3_NAC": "AND",
+            "ALFA2_NAC": "AD",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "5",
+            "PAIS_NAC": "Angola                                            ",
+            "GENTILICIO_NAC": "ANGOLEÑA                                          ",
+            "ALFA3_NAC": "AGO",
+            "ALFA2_NAC": "AO",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "6",
+            "PAIS_NAC": "Antigua y Barbuda                                 ",
+            "GENTILICIO_NAC": "ANTIGUANA                                         ",
+            "ALFA3_NAC": "ATG",
+            "ALFA2_NAC": "AG",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "7",
+            "PAIS_NAC": "Arabia Saudita                                    ",
+            "GENTILICIO_NAC": "SAUDÍ                                             ",
+            "ALFA3_NAC": "SAU",
+            "ALFA2_NAC": "SA",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "8",
+            "PAIS_NAC": "Argelia                                           ",
+            "GENTILICIO_NAC": "ARGELINA                                          ",
+            "ALFA3_NAC": "DZA",
+            "ALFA2_NAC": "DZ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "9",
+            "PAIS_NAC": "Argentina                                         ",
+            "GENTILICIO_NAC": "ARGENTINA                                         ",
+            "ALFA3_NAC": "ARG",
+            "ALFA2_NAC": "AR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "10",
+            "PAIS_NAC": "Armenia                                           ",
+            "GENTILICIO_NAC": "ARMENIA                                           ",
+            "ALFA3_NAC": "ARM",
+            "ALFA2_NAC": "AM",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "11",
+            "PAIS_NAC": "Aruba                                             ",
+            "GENTILICIO_NAC": "ARUBEÑA                                           ",
+            "ALFA3_NAC": "ABW",
+            "ALFA2_NAC": "AW",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "12",
+            "PAIS_NAC": "Australia                                         ",
+            "GENTILICIO_NAC": "AUSTRALIANA                                       ",
+            "ALFA3_NAC": "AUS",
+            "ALFA2_NAC": "AU",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "13",
+            "PAIS_NAC": "Austria                                           ",
+            "GENTILICIO_NAC": "AUSTRIACA                                         ",
+            "ALFA3_NAC": "AUT",
+            "ALFA2_NAC": "AT",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "14",
+            "PAIS_NAC": "Azerbaiyán                                        ",
+            "GENTILICIO_NAC": "AZERBAIYANA                                       ",
+            "ALFA3_NAC": "AZE",
+            "ALFA2_NAC": "AZ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "15",
+            "PAIS_NAC": "Bahamas                                           ",
+            "GENTILICIO_NAC": "BAHAMEÑA                                          ",
+            "ALFA3_NAC": "BHS",
+            "ALFA2_NAC": "BT",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "16",
+            "PAIS_NAC": "Bangladés                                         ",
+            "GENTILICIO_NAC": "BANGLADESÍ                                        ",
+            "ALFA3_NAC": "BGD",
+            "ALFA2_NAC": "BD",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "17",
+            "PAIS_NAC": "Barbados                                          ",
+            "GENTILICIO_NAC": "BARBADENSE                                        ",
+            "ALFA3_NAC": "BRB",
+            "ALFA2_NAC": "BB",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "18",
+            "PAIS_NAC": "Baréin                                            ",
+            "GENTILICIO_NAC": "BAREINÍ                                           ",
+            "ALFA3_NAC": "BHR",
+            "ALFA2_NAC": "BH",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "19",
+            "PAIS_NAC": "Bélgica                                           ",
+            "GENTILICIO_NAC": "BELGA                                             ",
+            "ALFA3_NAC": "BEL",
+            "ALFA2_NAC": "BE",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "20",
+            "PAIS_NAC": "Belice                                            ",
+            "GENTILICIO_NAC": "BELICEÑA                                          ",
+            "ALFA3_NAC": "BLZ",
+            "ALFA2_NAC": "BZ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "21",
+            "PAIS_NAC": "Benín                                             ",
+            "GENTILICIO_NAC": "BENINÉSA                                          ",
+            "ALFA3_NAC": "BEN",
+            "ALFA2_NAC": "BJ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "22",
+            "PAIS_NAC": "Bielorrusia                                       ",
+            "GENTILICIO_NAC": "BIELORRUSA                                        ",
+            "ALFA3_NAC": "BLR",
+            "ALFA2_NAC": "BY",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "23",
+            "PAIS_NAC": "Birmania                                          ",
+            "GENTILICIO_NAC": "BIRMANA                                           ",
+            "ALFA3_NAC": "MMR",
+            "ALFA2_NAC": "MM",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "24",
+            "PAIS_NAC": "Bolivia                                           ",
+            "GENTILICIO_NAC": "BOLIVIANA                                         ",
+            "ALFA3_NAC": "BOL",
+            "ALFA2_NAC": "BO",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "25",
+            "PAIS_NAC": "Bosnia y Herzegovina                              ",
+            "GENTILICIO_NAC": "BOSNIA                                            ",
+            "ALFA3_NAC": "BIH",
+            "ALFA2_NAC": "BA",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "26",
+            "PAIS_NAC": "Botsuana                                          ",
+            "GENTILICIO_NAC": "BOTSUANA                                          ",
+            "ALFA3_NAC": "BWA",
+            "ALFA2_NAC": "BW",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "27",
+            "PAIS_NAC": "Brasil                                            ",
+            "GENTILICIO_NAC": "BRASILEÑA                                         ",
+            "ALFA3_NAC": "BRA",
+            "ALFA2_NAC": "BR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "28",
+            "PAIS_NAC": "Brunéi                                            ",
+            "GENTILICIO_NAC": "BRUNEANA                                          ",
+            "ALFA3_NAC": "BRN",
+            "ALFA2_NAC": "BN",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "29",
+            "PAIS_NAC": "Bulgaria                                          ",
+            "GENTILICIO_NAC": "BÚLGARA                                           ",
+            "ALFA3_NAC": "BGR",
+            "ALFA2_NAC": "BG",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "30",
+            "PAIS_NAC": "Burkina Faso                                      ",
+            "GENTILICIO_NAC": "BURKINÉS                                          ",
+            "ALFA3_NAC": "BFA",
+            "ALFA2_NAC": "BF",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "31",
+            "PAIS_NAC": "Burundi                                           ",
+            "GENTILICIO_NAC": "BURUNDÉSA                                         ",
+            "ALFA3_NAC": "BDI",
+            "ALFA2_NAC": "BI",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "32",
+            "PAIS_NAC": "Bután                                             ",
+            "GENTILICIO_NAC": "BUTANÉSA                                          ",
+            "ALFA3_NAC": "BTN",
+            "ALFA2_NAC": "BS",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "33",
+            "PAIS_NAC": "Cabo Verde                                        ",
+            "GENTILICIO_NAC": "CABOVERDIANA                                      ",
+            "ALFA3_NAC": "CPV",
+            "ALFA2_NAC": "CV",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "34",
+            "PAIS_NAC": "Camboya                                           ",
+            "GENTILICIO_NAC": "CAMBOYANA                                         ",
+            "ALFA3_NAC": "KHM",
+            "ALFA2_NAC": "KH",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "35",
+            "PAIS_NAC": "Camerún                                           ",
+            "GENTILICIO_NAC": "CAMERUNESA                                        ",
+            "ALFA3_NAC": "CMR",
+            "ALFA2_NAC": "CM",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "36",
+            "PAIS_NAC": "Canadá                                            ",
+            "GENTILICIO_NAC": "CANADIENSE                                        ",
+            "ALFA3_NAC": "CAN",
+            "ALFA2_NAC": "CA",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "37",
+            "PAIS_NAC": "Catar                                             ",
+            "GENTILICIO_NAC": "CATARÍ                                            ",
+            "ALFA3_NAC": "QAT",
+            "ALFA2_NAC": "QA",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "38",
+            "PAIS_NAC": "Chad                                              ",
+            "GENTILICIO_NAC": "CHADIANA                                          ",
+            "ALFA3_NAC": "TCD",
+            "ALFA2_NAC": "TD",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "39",
+            "PAIS_NAC": "Chile                                             ",
+            "GENTILICIO_NAC": "CHILENA                                           ",
+            "ALFA3_NAC": "CHL",
+            "ALFA2_NAC": "CL",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "40",
+            "PAIS_NAC": "China                                             ",
+            "GENTILICIO_NAC": "CHINA                                             ",
+            "ALFA3_NAC": "CHN",
+            "ALFA2_NAC": "CN",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "41",
+            "PAIS_NAC": "Chipre                                            ",
+            "GENTILICIO_NAC": "CHIPRIOTA                                         ",
+            "ALFA3_NAC": "CYP",
+            "ALFA2_NAC": "CY",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "42",
+            "PAIS_NAC": "Ciudad del Vaticano                               ",
+            "GENTILICIO_NAC": "VATICANA                                          ",
+            "ALFA3_NAC": "VAT",
+            "ALFA2_NAC": "VA",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "43",
+            "PAIS_NAC": "Colombia                                          ",
+            "GENTILICIO_NAC": "COLOMBIANA                                        ",
+            "ALFA3_NAC": "COL",
+            "ALFA2_NAC": "CO",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "44",
+            "PAIS_NAC": "Comoras                                           ",
+            "GENTILICIO_NAC": "COMORENSE                                         ",
+            "ALFA3_NAC": "COM",
+            "ALFA2_NAC": "KM",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "45",
+            "PAIS_NAC": "Corea del Norte                                   ",
+            "GENTILICIO_NAC": "NORCOREANA                                        ",
+            "ALFA3_NAC": "PRK",
+            "ALFA2_NAC": "KP",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "46",
+            "PAIS_NAC": "Corea del Sur                                     ",
+            "GENTILICIO_NAC": "SURCOREANA                                        ",
+            "ALFA3_NAC": "KOR",
+            "ALFA2_NAC": "KR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "47",
+            "PAIS_NAC": "Costa de Marfil                                   ",
+            "GENTILICIO_NAC": "MARFILEÑA                                         ",
+            "ALFA3_NAC": "CIV",
+            "ALFA2_NAC": "CI",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "48",
+            "PAIS_NAC": "Costa Rica                                        ",
+            "GENTILICIO_NAC": "COSTARRICENSE                                     ",
+            "ALFA3_NAC": "CRI",
+            "ALFA2_NAC": "CR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "49",
+            "PAIS_NAC": "Croacia                                           ",
+            "GENTILICIO_NAC": "CROATA                                            ",
+            "ALFA3_NAC": "HRV",
+            "ALFA2_NAC": "HR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "50",
+            "PAIS_NAC": "Cuba                                              ",
+            "GENTILICIO_NAC": "CUBANA                                            ",
+            "ALFA3_NAC": "CUB",
+            "ALFA2_NAC": "CU",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "51",
+            "PAIS_NAC": "Dinamarca                                         ",
+            "GENTILICIO_NAC": "DANÉSA                                            ",
+            "ALFA3_NAC": "DNK",
+            "ALFA2_NAC": "DK",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "52",
+            "PAIS_NAC": "Dominica                                          ",
+            "GENTILICIO_NAC": "DOMINIQUÉS                                        ",
+            "ALFA3_NAC": "DMA",
+            "ALFA2_NAC": "DM",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "53",
+            "PAIS_NAC": "Ecuador                                           ",
+            "GENTILICIO_NAC": "ECUATORIANA                                       ",
+            "ALFA3_NAC": "ECU",
+            "ALFA2_NAC": "EC",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "54",
+            "PAIS_NAC": "Egipto                                            ",
+            "GENTILICIO_NAC": "EGIPCIA                                           ",
+            "ALFA3_NAC": "EGY",
+            "ALFA2_NAC": "EG",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "55",
+            "PAIS_NAC": "El Salvador                                       ",
+            "GENTILICIO_NAC": "SALVADOREÑA                                       ",
+            "ALFA3_NAC": "SLV",
+            "ALFA2_NAC": "SV",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "56",
+            "PAIS_NAC": "Emiratos Árabes Unidos                            ",
+            "GENTILICIO_NAC": "EMIRATÍ                                           ",
+            "ALFA3_NAC": "ARE",
+            "ALFA2_NAC": "AE",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "57",
+            "PAIS_NAC": "Eritrea                                           ",
+            "GENTILICIO_NAC": "ERITREA                                           ",
+            "ALFA3_NAC": "ERI",
+            "ALFA2_NAC": "ER",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "58",
+            "PAIS_NAC": "Eslovaquia                                        ",
+            "GENTILICIO_NAC": "ESLOVACA                                          ",
+            "ALFA3_NAC": "SVK",
+            "ALFA2_NAC": "SK",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "59",
+            "PAIS_NAC": "Eslovenia                                         ",
+            "GENTILICIO_NAC": "ESLOVENA                                          ",
+            "ALFA3_NAC": "SVN",
+            "ALFA2_NAC": "SI",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "60",
+            "PAIS_NAC": "España                                            ",
+            "GENTILICIO_NAC": "ESPAÑOLA                                          ",
+            "ALFA3_NAC": "ESP",
+            "ALFA2_NAC": "ES",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "61",
+            "PAIS_NAC": "Estados Unidos                                    ",
+            "GENTILICIO_NAC": "ESTADOUNIDENSE                                    ",
+            "ALFA3_NAC": "USA",
+            "ALFA2_NAC": "US",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "62",
+            "PAIS_NAC": "Estonia                                           ",
+            "GENTILICIO_NAC": "ESTONIA                                           ",
+            "ALFA3_NAC": "EST",
+            "ALFA2_NAC": "EE",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "63",
+            "PAIS_NAC": "Etiopía                                           ",
+            "GENTILICIO_NAC": "ETÍOPE                                            ",
+            "ALFA3_NAC": "ETH",
+            "ALFA2_NAC": "ET",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "64",
+            "PAIS_NAC": "Filipinas                                         ",
+            "GENTILICIO_NAC": "FILIPINA                                          ",
+            "ALFA3_NAC": "PHL",
+            "ALFA2_NAC": "PH",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "65",
+            "PAIS_NAC": "Finlandia                                         ",
+            "GENTILICIO_NAC": "FINLANDÉSA                                        ",
+            "ALFA3_NAC": "FIN",
+            "ALFA2_NAC": "FI",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "66",
+            "PAIS_NAC": "Fiyi                                              ",
+            "GENTILICIO_NAC": "FIYIANA                                           ",
+            "ALFA3_NAC": "FJI",
+            "ALFA2_NAC": "FJ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "67",
+            "PAIS_NAC": "Francia                                           ",
+            "GENTILICIO_NAC": "FRANCÉSA                                          ",
+            "ALFA3_NAC": "FRA",
+            "ALFA2_NAC": "FR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "68",
+            "PAIS_NAC": "Gabón                                             ",
+            "GENTILICIO_NAC": "GABONÉSA                                          ",
+            "ALFA3_NAC": "GAB",
+            "ALFA2_NAC": "GA",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "69",
+            "PAIS_NAC": "Gambia                                            ",
+            "GENTILICIO_NAC": "GAMBIANA                                          ",
+            "ALFA3_NAC": "GMB",
+            "ALFA2_NAC": "GM",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "70",
+            "PAIS_NAC": "Georgia                                           ",
+            "GENTILICIO_NAC": "GEORGIANA                                         ",
+            "ALFA3_NAC": "GEO",
+            "ALFA2_NAC": "GE",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "71",
+            "PAIS_NAC": "Gibraltar                                         ",
+            "GENTILICIO_NAC": "GIBRALTAREÑA                                      ",
+            "ALFA3_NAC": "GIB",
+            "ALFA2_NAC": "GI",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "72",
+            "PAIS_NAC": "Ghana                                             ",
+            "GENTILICIO_NAC": "GHANÉSA                                           ",
+            "ALFA3_NAC": "GHA",
+            "ALFA2_NAC": "GH",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "73",
+            "PAIS_NAC": "Granada                                           ",
+            "GENTILICIO_NAC": "GRANADINA                                         ",
+            "ALFA3_NAC": "GRD",
+            "ALFA2_NAC": "GD",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "74",
+            "PAIS_NAC": "Grecia                                            ",
+            "GENTILICIO_NAC": "GRIEGA                                            ",
+            "ALFA3_NAC": "GRC",
+            "ALFA2_NAC": "GR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "75",
+            "PAIS_NAC": "Groenlandia                                       ",
+            "GENTILICIO_NAC": "GROENLANDÉSA                                      ",
+            "ALFA3_NAC": "GRL",
+            "ALFA2_NAC": "GL",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "76",
+            "PAIS_NAC": "Guatemala                                         ",
+            "GENTILICIO_NAC": "GUATEMALTECA                                      ",
+            "ALFA3_NAC": "GTM",
+            "ALFA2_NAC": "GT",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "77",
+            "PAIS_NAC": "Guinea ecuatorial                                 ",
+            "GENTILICIO_NAC": "ECUATOGUINEANA                                    ",
+            "ALFA3_NAC": "GNQ",
+            "ALFA2_NAC": "GQ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "78",
+            "PAIS_NAC": "Guinea                                            ",
+            "GENTILICIO_NAC": "GUINEANA                                          ",
+            "ALFA3_NAC": "GIN",
+            "ALFA2_NAC": "GN",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "79",
+            "PAIS_NAC": "Guinea-Bisáu                                      ",
+            "GENTILICIO_NAC": "GUINEANA                                          ",
+            "ALFA3_NAC": "GNB",
+            "ALFA2_NAC": "GW",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "80",
+            "PAIS_NAC": "Guyana                                            ",
+            "GENTILICIO_NAC": "GUYANESA                                          ",
+            "ALFA3_NAC": "GUY",
+            "ALFA2_NAC": "GY",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "81",
+            "PAIS_NAC": "Haití                                             ",
+            "GENTILICIO_NAC": "HAITIANA                                          ",
+            "ALFA3_NAC": "HTI",
+            "ALFA2_NAC": "HT",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "82",
+            "PAIS_NAC": "Honduras                                          ",
+            "GENTILICIO_NAC": "HONDUREÑA                                         ",
+            "ALFA3_NAC": "HND",
+            "ALFA2_NAC": "HN",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "83",
+            "PAIS_NAC": "Hungría                                           ",
+            "GENTILICIO_NAC": "HÚNGARA                                           ",
+            "ALFA3_NAC": "HUN",
+            "ALFA2_NAC": "HU",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "84",
+            "PAIS_NAC": "India                                             ",
+            "GENTILICIO_NAC": "HINDÚ                                             ",
+            "ALFA3_NAC": "IND",
+            "ALFA2_NAC": "IN",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "85",
+            "PAIS_NAC": "Indonesia                                         ",
+            "GENTILICIO_NAC": "INDONESIA                                         ",
+            "ALFA3_NAC": "IDN",
+            "ALFA2_NAC": "ID",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "86",
+            "PAIS_NAC": "Irak                                              ",
+            "GENTILICIO_NAC": "IRAQUÍ                                            ",
+            "ALFA3_NAC": "IRQ",
+            "ALFA2_NAC": "IQ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "87",
+            "PAIS_NAC": "Irán                                              ",
+            "GENTILICIO_NAC": "IRANÍ                                             ",
+            "ALFA3_NAC": "IRN",
+            "ALFA2_NAC": "IR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "88",
+            "PAIS_NAC": "Irlanda                                           ",
+            "GENTILICIO_NAC": "IRLANDÉSA                                         ",
+            "ALFA3_NAC": "IRL",
+            "ALFA2_NAC": "IE",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "89",
+            "PAIS_NAC": "Islandia                                          ",
+            "GENTILICIO_NAC": "ISLANDÉSA                                         ",
+            "ALFA3_NAC": "ISL",
+            "ALFA2_NAC": "IS",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "90",
+            "PAIS_NAC": "Islas Cook                                        ",
+            "GENTILICIO_NAC": "COOKIANA                                          ",
+            "ALFA3_NAC": "COK",
+            "ALFA2_NAC": "CK",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "91",
+            "PAIS_NAC": "Islas Marshall                                    ",
+            "GENTILICIO_NAC": "MARSHALÉSA                                        ",
+            "ALFA3_NAC": "MHL",
+            "ALFA2_NAC": "FK",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "92",
+            "PAIS_NAC": "Islas Salomón                                     ",
+            "GENTILICIO_NAC": "SALOMONENSE                                       ",
+            "ALFA3_NAC": "SLB",
+            "ALFA2_NAC": "SB",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "93",
+            "PAIS_NAC": "Israel                                            ",
+            "GENTILICIO_NAC": "ISRAELÍ                                           ",
+            "ALFA3_NAC": "ISR",
+            "ALFA2_NAC": "IL",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "94",
+            "PAIS_NAC": "Italia                                            ",
+            "GENTILICIO_NAC": "ITALIANA                                          ",
+            "ALFA3_NAC": "ITA",
+            "ALFA2_NAC": "IT",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "95",
+            "PAIS_NAC": "Jamaica                                           ",
+            "GENTILICIO_NAC": "JAMAIQUINA                                        ",
+            "ALFA3_NAC": "JAM",
+            "ALFA2_NAC": "JM",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "96",
+            "PAIS_NAC": "Japón                                             ",
+            "GENTILICIO_NAC": "JAPONÉSA                                          ",
+            "ALFA3_NAC": "JPN",
+            "ALFA2_NAC": "JP",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "97",
+            "PAIS_NAC": "Jordania                                          ",
+            "GENTILICIO_NAC": "JORDANA                                           ",
+            "ALFA3_NAC": "JOR",
+            "ALFA2_NAC": "JO",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "98",
+            "PAIS_NAC": "Kazajistán                                        ",
+            "GENTILICIO_NAC": "KAZAJA                                            ",
+            "ALFA3_NAC": "KAZ",
+            "ALFA2_NAC": "KZ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "99",
+            "PAIS_NAC": "Kenia                                             ",
+            "GENTILICIO_NAC": "KENIATA                                           ",
+            "ALFA3_NAC": "KEN",
+            "ALFA2_NAC": "KE",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "100",
+            "PAIS_NAC": "Kirguistán                                        ",
+            "GENTILICIO_NAC": "KIRGUISA                                          ",
+            "ALFA3_NAC": "KGZ",
+            "ALFA2_NAC": "KG",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "101",
+            "PAIS_NAC": "Kiribati                                          ",
+            "GENTILICIO_NAC": "KIRIBATIANA                                       ",
+            "ALFA3_NAC": "KIR",
+            "ALFA2_NAC": "KI",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "102",
+            "PAIS_NAC": "Kuwait                                            ",
+            "GENTILICIO_NAC": "KUWAITÍ                                           ",
+            "ALFA3_NAC": "KWT",
+            "ALFA2_NAC": "KW",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "103",
+            "PAIS_NAC": "Laos                                              ",
+            "GENTILICIO_NAC": "LAOSIANA                                          ",
+            "ALFA3_NAC": "LAO",
+            "ALFA2_NAC": "LA",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "104",
+            "PAIS_NAC": "Lesoto                                            ",
+            "GENTILICIO_NAC": "LESOTENSE                                         ",
+            "ALFA3_NAC": "LSO",
+            "ALFA2_NAC": "LS",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "105",
+            "PAIS_NAC": "Letonia                                           ",
+            "GENTILICIO_NAC": "LETÓNA                                            ",
+            "ALFA3_NAC": "LVA",
+            "ALFA2_NAC": "LV",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "106",
+            "PAIS_NAC": "Líbano                                            ",
+            "GENTILICIO_NAC": "LIBANÉSA                                          ",
+            "ALFA3_NAC": "LBN",
+            "ALFA2_NAC": "LB",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "107",
+            "PAIS_NAC": "Liberia                                           ",
+            "GENTILICIO_NAC": "LIBERIANA                                         ",
+            "ALFA3_NAC": "LBR",
+            "ALFA2_NAC": "LR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "108",
+            "PAIS_NAC": "Libia                                             ",
+            "GENTILICIO_NAC": "LIBIA                                             ",
+            "ALFA3_NAC": "LBY",
+            "ALFA2_NAC": "LY",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "109",
+            "PAIS_NAC": "Liechtenstein                                     ",
+            "GENTILICIO_NAC": "LIECHTENSTEINIANA                                 ",
+            "ALFA3_NAC": "LIE",
+            "ALFA2_NAC": "LI",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "110",
+            "PAIS_NAC": "Lituania                                          ",
+            "GENTILICIO_NAC": "LITUANA                                           ",
+            "ALFA3_NAC": "LTU",
+            "ALFA2_NAC": "LT",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "111",
+            "PAIS_NAC": "Luxemburgo                                        ",
+            "GENTILICIO_NAC": "LUXEMBURGUÉSA                                     ",
+            "ALFA3_NAC": "LUX",
+            "ALFA2_NAC": "LU",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "112",
+            "PAIS_NAC": "Madagascar                                        ",
+            "GENTILICIO_NAC": "MALGACHE                                          ",
+            "ALFA3_NAC": "MDG",
+            "ALFA2_NAC": "MG",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "113",
+            "PAIS_NAC": "Malasia                                           ",
+            "GENTILICIO_NAC": "MALASIA                                           ",
+            "ALFA3_NAC": "MYS",
+            "ALFA2_NAC": "MY",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "114",
+            "PAIS_NAC": "Malaui                                            ",
+            "GENTILICIO_NAC": "MALAUÍ                                            ",
+            "ALFA3_NAC": "MWI",
+            "ALFA2_NAC": "MW",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "115",
+            "PAIS_NAC": "Maldivas                                          ",
+            "GENTILICIO_NAC": "MALDIVA                                           ",
+            "ALFA3_NAC": "MDV",
+            "ALFA2_NAC": "MV",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "116",
+            "PAIS_NAC": "Malí                                              ",
+            "GENTILICIO_NAC": "MALIENSE                                          ",
+            "ALFA3_NAC": "MLI",
+            "ALFA2_NAC": "ML",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "117",
+            "PAIS_NAC": "Malta                                             ",
+            "GENTILICIO_NAC": "MALTÉSA                                           ",
+            "ALFA3_NAC": "MLT",
+            "ALFA2_NAC": "MT",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "118",
+            "PAIS_NAC": "Marruecos                                         ",
+            "GENTILICIO_NAC": "MARROQUÍ                                          ",
+            "ALFA3_NAC": "MAR",
+            "ALFA2_NAC": "MA",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "119",
+            "PAIS_NAC": "Martinica                                         ",
+            "GENTILICIO_NAC": "MARTINIQUÉS                                       ",
+            "ALFA3_NAC": "MTQ",
+            "ALFA2_NAC": "MQ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "120",
+            "PAIS_NAC": "Mauricio                                          ",
+            "GENTILICIO_NAC": "MAURICIANA                                        ",
+            "ALFA3_NAC": "MUS",
+            "ALFA2_NAC": "MU",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "121",
+            "PAIS_NAC": "Mauritania                                        ",
+            "GENTILICIO_NAC": "MAURITANA                                         ",
+            "ALFA3_NAC": "MRT",
+            "ALFA2_NAC": "MR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "122",
+            "PAIS_NAC": "México                                            ",
+            "GENTILICIO_NAC": "MEXICANA                                          ",
+            "ALFA3_NAC": "MEX",
+            "ALFA2_NAC": "MX",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "123",
+            "PAIS_NAC": "Micronesia                                        ",
+            "GENTILICIO_NAC": "MICRONESIA                                        ",
+            "ALFA3_NAC": "FSM",
+            "ALFA2_NAC": "FM",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "124",
+            "PAIS_NAC": "Moldavia                                          ",
+            "GENTILICIO_NAC": "MOLDAVA                                           ",
+            "ALFA3_NAC": "MDA",
+            "ALFA2_NAC": "MD",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "125",
+            "PAIS_NAC": "Mónaco                                            ",
+            "GENTILICIO_NAC": "MONEGASCA                                         ",
+            "ALFA3_NAC": "MCO",
+            "ALFA2_NAC": "MC",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "126",
+            "PAIS_NAC": "Mongolia                                          ",
+            "GENTILICIO_NAC": "MONGOLA                                           ",
+            "ALFA3_NAC": "MNG",
+            "ALFA2_NAC": "MN",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "127",
+            "PAIS_NAC": "Montenegro                                        ",
+            "GENTILICIO_NAC": "MONTENEGRINA                                      ",
+            "ALFA3_NAC": "MNE",
+            "ALFA2_NAC": "ME",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "128",
+            "PAIS_NAC": "Mozambique                                        ",
+            "GENTILICIO_NAC": "MOZAMBIQUEÑA                                      ",
+            "ALFA3_NAC": "MOZ",
+            "ALFA2_NAC": "MZ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "129",
+            "PAIS_NAC": "Namibia                                           ",
+            "GENTILICIO_NAC": "NAMIBIA                                           ",
+            "ALFA3_NAC": "NAM",
+            "ALFA2_NAC": "NA",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "130",
+            "PAIS_NAC": "Nauru                                             ",
+            "GENTILICIO_NAC": "NAURUANA                                          ",
+            "ALFA3_NAC": "NRU",
+            "ALFA2_NAC": "NR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "131",
+            "PAIS_NAC": "Nepal                                             ",
+            "GENTILICIO_NAC": "NEPALÍ                                            ",
+            "ALFA3_NAC": "NPL",
+            "ALFA2_NAC": "NP",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "132",
+            "PAIS_NAC": "Nicaragua                                         ",
+            "GENTILICIO_NAC": "NICARAGÜENSE                                      ",
+            "ALFA3_NAC": "NIC",
+            "ALFA2_NAC": "NI",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "133",
+            "PAIS_NAC": "Níger                                             ",
+            "GENTILICIO_NAC": "NIGERINA                                          ",
+            "ALFA3_NAC": "NER",
+            "ALFA2_NAC": "NE",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "134",
+            "PAIS_NAC": "Nigeria                                           ",
+            "GENTILICIO_NAC": "NIGERIANA                                         ",
+            "ALFA3_NAC": "NGA",
+            "ALFA2_NAC": "NG",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "135",
+            "PAIS_NAC": "Noruega                                           ",
+            "GENTILICIO_NAC": "NORUEGA                                           ",
+            "ALFA3_NAC": "NOR",
+            "ALFA2_NAC": "NO",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "136",
+            "PAIS_NAC": "Nueva Zelanda                                     ",
+            "GENTILICIO_NAC": "NEOZELANDÉSA                                      ",
+            "ALFA3_NAC": "NZL",
+            "ALFA2_NAC": "NZ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "137",
+            "PAIS_NAC": "Omán                                              ",
+            "GENTILICIO_NAC": "OMANÍ                                             ",
+            "ALFA3_NAC": "OMN",
+            "ALFA2_NAC": "OM",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "138",
+            "PAIS_NAC": "Países Bajos                                      ",
+            "GENTILICIO_NAC": "NEERLANDÉSA                                       ",
+            "ALFA3_NAC": "NLD",
+            "ALFA2_NAC": "NL",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "139",
+            "PAIS_NAC": "Pakistán                                          ",
+            "GENTILICIO_NAC": "PAKISTANÍ                                         ",
+            "ALFA3_NAC": "PAK",
+            "ALFA2_NAC": "PK",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "140",
+            "PAIS_NAC": "Palaos                                            ",
+            "GENTILICIO_NAC": "PALAUANA                                          ",
+            "ALFA3_NAC": "PLW",
+            "ALFA2_NAC": "PW",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "141",
+            "PAIS_NAC": "Palestina                                         ",
+            "GENTILICIO_NAC": "PALESTINA                                         ",
+            "ALFA3_NAC": "PSE",
+            "ALFA2_NAC": "PS",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "142",
+            "PAIS_NAC": "Panamá                                            ",
+            "GENTILICIO_NAC": "PANAMEÑA                                          ",
+            "ALFA3_NAC": "PAN",
+            "ALFA2_NAC": "PA",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "143",
+            "PAIS_NAC": "Papúa Nueva Guinea                                ",
+            "GENTILICIO_NAC": "PAPÚ                                              ",
+            "ALFA3_NAC": "PNG",
+            "ALFA2_NAC": "PG",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "144",
+            "PAIS_NAC": "Paraguay                                          ",
+            "GENTILICIO_NAC": "PARAGUAYA                                         ",
+            "ALFA3_NAC": "PRY",
+            "ALFA2_NAC": "PY",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "145",
+            "PAIS_NAC": "Perú                                              ",
+            "GENTILICIO_NAC": "PERUANA                                           ",
+            "ALFA3_NAC": "PER",
+            "ALFA2_NAC": "PE",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "146",
+            "PAIS_NAC": "Polonia                                           ",
+            "GENTILICIO_NAC": "POLACA                                            ",
+            "ALFA3_NAC": "POL",
+            "ALFA2_NAC": "PL",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "147",
+            "PAIS_NAC": "Portugal                                          ",
+            "GENTILICIO_NAC": "PORTUGUÉSA                                        ",
+            "ALFA3_NAC": "PRT",
+            "ALFA2_NAC": "PT",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "148",
+            "PAIS_NAC": "Puerto Rico                                       ",
+            "GENTILICIO_NAC": "PUERTORRIQUEÑA                                    ",
+            "ALFA3_NAC": "PRI",
+            "ALFA2_NAC": "PR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "149",
+            "PAIS_NAC": "Reino Unido                                       ",
+            "GENTILICIO_NAC": "BRITÁNICA                                         ",
+            "ALFA3_NAC": "GBR",
+            "ALFA2_NAC": "GB",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "150",
+            "PAIS_NAC": "República Centroafricana                          ",
+            "GENTILICIO_NAC": "CENTROAFRICANA                                    ",
+            "ALFA3_NAC": "CAF",
+            "ALFA2_NAC": "CF",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "151",
+            "PAIS_NAC": "República Checa                                   ",
+            "GENTILICIO_NAC": "CHECA                                             ",
+            "ALFA3_NAC": "CZE",
+            "ALFA2_NAC": "CZ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "152",
+            "PAIS_NAC": "República de Macedonia                            ",
+            "GENTILICIO_NAC": "MACEDONIA                                         ",
+            "ALFA3_NAC": "MKD",
+            "ALFA2_NAC": "MK",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "153",
+            "PAIS_NAC": "República del Congo                               ",
+            "GENTILICIO_NAC": "CONGOLEÑA                                         ",
+            "ALFA3_NAC": "COG",
+            "ALFA2_NAC": "CG",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "154",
+            "PAIS_NAC": "República Democrática del Congo                   ",
+            "GENTILICIO_NAC": "CONGOLEÑA                                         ",
+            "ALFA3_NAC": "COD",
+            "ALFA2_NAC": "CD",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "155",
+            "PAIS_NAC": "República Dominicana                              ",
+            "GENTILICIO_NAC": "DOMINICANA                                        ",
+            "ALFA3_NAC": "DOM",
+            "ALFA2_NAC": "DO",
+            "BANDERA_NAC": "NULL",
+            "isActive": "1"
+        },
+        {
+            "ID_NAC": "156",
+            "PAIS_NAC": "República Sudafricana                             ",
+            "GENTILICIO_NAC": "SUDAFRICANA                                       ",
+            "ALFA3_NAC": "ZAF",
+            "ALFA2_NAC": "ZA",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "157",
+            "PAIS_NAC": "Ruanda                                            ",
+            "GENTILICIO_NAC": "RUANDÉSA                                          ",
+            "ALFA3_NAC": "RWA",
+            "ALFA2_NAC": "RW",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "158",
+            "PAIS_NAC": "Rumanía                                           ",
+            "GENTILICIO_NAC": "RUMANA                                            ",
+            "ALFA3_NAC": "ROU",
+            "ALFA2_NAC": "RO",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "159",
+            "PAIS_NAC": "Rusia                                             ",
+            "GENTILICIO_NAC": "RUSA                                              ",
+            "ALFA3_NAC": "RUS",
+            "ALFA2_NAC": "RU",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "160",
+            "PAIS_NAC": "Samoa                                             ",
+            "GENTILICIO_NAC": "SAMOANA                                           ",
+            "ALFA3_NAC": "WSM",
+            "ALFA2_NAC": "WS",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "161",
+            "PAIS_NAC": "San Cristóbal y Nieves                            ",
+            "GENTILICIO_NAC": "CRISTOBALEÑA                                      ",
+            "ALFA3_NAC": "KNA",
+            "ALFA2_NAC": "KN",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "162",
+            "PAIS_NAC": "San Marino                                        ",
+            "GENTILICIO_NAC": "SANMARINENSE                                      ",
+            "ALFA3_NAC": "SMR",
+            "ALFA2_NAC": "SM",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "163",
+            "PAIS_NAC": "San Vicente y las Granadinas                      ",
+            "GENTILICIO_NAC": "SANVICENTINA                                      ",
+            "ALFA3_NAC": "VCT",
+            "ALFA2_NAC": "VC",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "164",
+            "PAIS_NAC": "Santa Lucía                                       ",
+            "GENTILICIO_NAC": "SANTALUCENSE                                      ",
+            "ALFA3_NAC": "LCA",
+            "ALFA2_NAC": "LC",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "165",
+            "PAIS_NAC": "Santo Tomé y Príncipe                             ",
+            "GENTILICIO_NAC": "SANTOTOMENSE                                      ",
+            "ALFA3_NAC": "STP",
+            "ALFA2_NAC": "ST",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "166",
+            "PAIS_NAC": "Senegal                                           ",
+            "GENTILICIO_NAC": "SENEGALÉSA                                        ",
+            "ALFA3_NAC": "SEN",
+            "ALFA2_NAC": "SN",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "167",
+            "PAIS_NAC": "Serbia                                            ",
+            "GENTILICIO_NAC": "SERBIA                                            ",
+            "ALFA3_NAC": "SRB",
+            "ALFA2_NAC": "RS",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "168",
+            "PAIS_NAC": "Seychelles                                        ",
+            "GENTILICIO_NAC": "SEYCHELLENSE                                      ",
+            "ALFA3_NAC": "SYC",
+            "ALFA2_NAC": "SC",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "169",
+            "PAIS_NAC": "Sierra Leona                                      ",
+            "GENTILICIO_NAC": "SIERRALEONÉSA                                     ",
+            "ALFA3_NAC": "SLE",
+            "ALFA2_NAC": "SL",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "170",
+            "PAIS_NAC": "Singapur                                          ",
+            "GENTILICIO_NAC": "SINGAPURENSE                                      ",
+            "ALFA3_NAC": "SGP",
+            "ALFA2_NAC": "SG",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "171",
+            "PAIS_NAC": "Siria                                             ",
+            "GENTILICIO_NAC": "SIRIA                                             ",
+            "ALFA3_NAC": "SYR",
+            "ALFA2_NAC": "SY",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "172",
+            "PAIS_NAC": "Somalia                                           ",
+            "GENTILICIO_NAC": "SOMALÍ                                            ",
+            "ALFA3_NAC": "SOM",
+            "ALFA2_NAC": "SO",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "173",
+            "PAIS_NAC": "Sri Lanka                                         ",
+            "GENTILICIO_NAC": "CEILANÉSA                                         ",
+            "ALFA3_NAC": "LKA",
+            "ALFA2_NAC": "LK",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "174",
+            "PAIS_NAC": "Suazilandia                                       ",
+            "GENTILICIO_NAC": "SUAZI                                             ",
+            "ALFA3_NAC": "SWZ",
+            "ALFA2_NAC": "SZ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "175",
+            "PAIS_NAC": "Sudán del Sur                                     ",
+            "GENTILICIO_NAC": "SURSUDANÉSA                                       ",
+            "ALFA3_NAC": "SSD",
+            "ALFA2_NAC": "SS",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "176",
+            "PAIS_NAC": "Sudán                                             ",
+            "GENTILICIO_NAC": "SUDANÉSA                                          ",
+            "ALFA3_NAC": "SDN",
+            "ALFA2_NAC": "SD",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "177",
+            "PAIS_NAC": "Suecia                                            ",
+            "GENTILICIO_NAC": "SUECA                                             ",
+            "ALFA3_NAC": "SWE",
+            "ALFA2_NAC": "SE",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "178",
+            "PAIS_NAC": "Suiza                                             ",
+            "GENTILICIO_NAC": "SUIZA                                             ",
+            "ALFA3_NAC": "CHE",
+            "ALFA2_NAC": "CH",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "179",
+            "PAIS_NAC": "Surinam                                           ",
+            "GENTILICIO_NAC": "SURINAMESA                                        ",
+            "ALFA3_NAC": "SUR",
+            "ALFA2_NAC": "SR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "180",
+            "PAIS_NAC": "Tailandia                                         ",
+            "GENTILICIO_NAC": "TAILANDÉSA                                        ",
+            "ALFA3_NAC": "THA",
+            "ALFA2_NAC": "TH",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "181",
+            "PAIS_NAC": "Tanzania                                          ",
+            "GENTILICIO_NAC": "TANZANA                                           ",
+            "ALFA3_NAC": "TZA",
+            "ALFA2_NAC": "TZ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "182",
+            "PAIS_NAC": "Tayikistán                                        ",
+            "GENTILICIO_NAC": "TAYIKA                                            ",
+            "ALFA3_NAC": "TJK",
+            "ALFA2_NAC": "TJ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "183",
+            "PAIS_NAC": "Timor Oriental                                    ",
+            "GENTILICIO_NAC": "TIMORENSE                                         ",
+            "ALFA3_NAC": "TLS",
+            "ALFA2_NAC": "TP",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "184",
+            "PAIS_NAC": "Togo                                              ",
+            "GENTILICIO_NAC": "TOGOLÉSA                                          ",
+            "ALFA3_NAC": "TGO",
+            "ALFA2_NAC": "TG",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "185",
+            "PAIS_NAC": "Tonga                                             ",
+            "GENTILICIO_NAC": "TONGANA                                           ",
+            "ALFA3_NAC": "TON",
+            "ALFA2_NAC": "TO",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "186",
+            "PAIS_NAC": "Trinidad y Tobago                                 ",
+            "GENTILICIO_NAC": "TRINITENSE                                        ",
+            "ALFA3_NAC": "TTO",
+            "ALFA2_NAC": "TT",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "187",
+            "PAIS_NAC": "Túnez                                             ",
+            "GENTILICIO_NAC": "TUNECINA                                          ",
+            "ALFA3_NAC": "TUN",
+            "ALFA2_NAC": "TN",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "188",
+            "PAIS_NAC": "Turkmenistán                                      ",
+            "GENTILICIO_NAC": "TURCOMANA                                         ",
+            "ALFA3_NAC": "TKM",
+            "ALFA2_NAC": "TM",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "189",
+            "PAIS_NAC": "Turquía                                           ",
+            "GENTILICIO_NAC": "TURCA                                             ",
+            "ALFA3_NAC": "TUR",
+            "ALFA2_NAC": "TR",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "190",
+            "PAIS_NAC": "Tuvalu                                            ",
+            "GENTILICIO_NAC": "TUVALUANA                                         ",
+            "ALFA3_NAC": "TUV",
+            "ALFA2_NAC": "TV",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "191",
+            "PAIS_NAC": "Ucrania                                           ",
+            "GENTILICIO_NAC": "UCRANIANA                                         ",
+            "ALFA3_NAC": "UKR",
+            "ALFA2_NAC": "UA",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "192",
+            "PAIS_NAC": "Uganda                                            ",
+            "GENTILICIO_NAC": "UGANDÉSA                                          ",
+            "ALFA3_NAC": "UGA",
+            "ALFA2_NAC": "UG",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "193",
+            "PAIS_NAC": "Uruguay                                           ",
+            "GENTILICIO_NAC": "URUGUAYA                                          ",
+            "ALFA3_NAC": "URY",
+            "ALFA2_NAC": "UY",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "194",
+            "PAIS_NAC": "Uzbekistán                                        ",
+            "GENTILICIO_NAC": "UZBEKA                                            ",
+            "ALFA3_NAC": "UZB",
+            "ALFA2_NAC": "UZ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "195",
+            "PAIS_NAC": "Vanuatu                                           ",
+            "GENTILICIO_NAC": "VANUATUENSE                                       ",
+            "ALFA3_NAC": "VUT",
+            "ALFA2_NAC": "VU",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "196",
+            "PAIS_NAC": "Venezuela                                         ",
+            "GENTILICIO_NAC": "VENEZOLANA                                        ",
+            "ALFA3_NAC": "VEN",
+            "ALFA2_NAC": "VE",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "197",
+            "PAIS_NAC": "Vietnam                                           ",
+            "GENTILICIO_NAC": "VIETNAMITA                                        ",
+            "ALFA3_NAC": "VNM",
+            "ALFA2_NAC": "VN",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "198",
+            "PAIS_NAC": "Yemen                                             ",
+            "GENTILICIO_NAC": "YEMENÍ                                            ",
+            "ALFA3_NAC": "YEM",
+            "ALFA2_NAC": "YE",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "199",
+            "PAIS_NAC": "Yibuti                                            ",
+            "GENTILICIO_NAC": "YIBUTIANA                                         ",
+            "ALFA3_NAC": "DJI",
+            "ALFA2_NAC": "DJ",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "200",
+            "PAIS_NAC": "Zambia                                            ",
+            "GENTILICIO_NAC": "ZAMBIANA                                          ",
+            "ALFA3_NAC": "ZMB",
+            "ALFA2_NAC": "ZM",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        },
+        {
+            "ID_NAC": "201",
+            "PAIS_NAC": "Zimbabue                                          ",
+            "GENTILICIO_NAC": "ZIMBABUENSE                                       ",
+            "ALFA3_NAC": "ZWE",
+            "ALFA2_NAC": "ZW",
+            "BANDERA_NAC": "NULL",
+            "isActive": "0"
+        }
+    ]
+}
+
+### Listar Nacionalidades
+
+GET  http://localhost:8000/config/listpopnacionalidad HTTP/1.1
+content-type: application/json
+
+
+### crear tipousuario
+POST http://localhost:8000/usuarios/tipousuarios HTTP/1.1
+content-type: application/json
+
+{
+    "DescrpTipos"         : "Seguridad"
+}
+
+### lista tipousuario
+GET http://localhost:8000/usuarios/tipousuarios HTTP/1.1
+content-type: application/json
+
+
+### crear clientes
+POST http://localhost:8000/clientes HTTP/1.1
+content-type: application/json
+
+{
+    "cliente"             : "AdminSys",
+    "documento_tipo"      : "C",
+    "documento_numero"    : "00201537818",
+    "tipo"                : "60b590865e58c45660827c1f",
+    "correo"              : "ing.dionisc@gmail.com",
+    "nacionalidad"        : "60b4594314aa5d0bb07b1e1c",
+    "idioma"              : "es",
+    "plan_id"             : "60b30dec7a195e4ad8d6301a"
+ 
+}
+
+###
+post http://192.168.8.189:8000/tsrapi/citas/9DF0DD3B-789C-4491-9114-4F0251AB14F7  HTTP/1.1
+content-type: application/json
+
+{
+    "cliente"             : "AdminSys",
+    "documento_tipo"      : "C",
+    "documento_numero"    : "00201537818",
+    "tipo"                : "60b590865e58c45660827c1f",
+    "correo"              : "ing.dionisc@gmail.com",
+    "nacionalidad"        : "60b4594314aa5d0bb07b1e1c",
+    "idioma"              : "es",
+    "plan_id"             : "60b30dec7a195e4ad8d6301a"
+ 
+}
+
+
+###
+post http://192.168.8.189:8000/tsrapi/listas HTTP/1.1
+content-type: application/json
+
+{
+    "cliente"             : "AdminSys",
+    "documento_tipo"      : "C",
+    "documento_numero"    : "00201537818",
+    "tipo"                : "60b590865e58c45660827c1f",
+    "correo"              : "ing.dionisc@gmail.com",
+    "nacionalidad"        : "60b4594314aa5d0bb07b1e1c",
+    "idioma"              : "es",
+    "plan_id"             : "60b30dec7a195e4ad8d6301a"
+ 
+}
+
+###
+post http://192.168.8.189:8000/tsrapi/schedule HTTP/1.1
+content-type: application/json
+
+{
+
+	"userId":"TRS-0002",
+	"rolId":"T"
+ 
+}
+
+###
+post http://192.168.8.50:8000/tsrapi/login HTTP/1.1
+content-type: application/json
+
+{
+
+	"user":"p.aybar",
+	"password":"peter7603"
+ 
+}
+
+###
+GET http://jenueva-001-site3.htempurl.com/tsrapi/empresas HTTP/1.1
+content-type: application/json
+
+{
+
+
+ 
+}
