@@ -28,13 +28,13 @@ exports.submitForm = async function (req, res, next) {
   let _sharedLink={};
   
   
-  if (tipoenvio==1){//SMS
+  if (_tipoenvio==1){//SMS
     _sharedLink.phone=infoCliente.celular;
-  }else if(tipoenvio==2){//email
+  }else if(_tipoenvio==2){//email
     // _sharedLink.phone=infoCliente.celular;
     _sharedLink.email= emailDestino;
     _sharedLink.subject= "Procredito Dominicana: firma de contrato";
-  }else if(tipoenvio==0);{
+  }else if(_tipoenvio==0);{
     _sharedLink.phone=infoCliente.celular;
     _sharedLink.email= emailDestino;
     _sharedLink.subject= "Procredito Dominicana: firma de contrato";

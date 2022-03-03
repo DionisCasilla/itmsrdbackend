@@ -41,11 +41,11 @@ authorization: Basic cHJvY3JlZGl0b19kb21pbmljYW5hOk1ENDNTQQ==
 
 ###Login Api
 
-POST http://localhost:8000/procredito/submitForm
+POST https://itmsrdbackend.herokuapp.com/procredito/submitForm
 content-type: application/json
 
 {
-
+ "tipoenvio":"1",
   "emailDestino": "soriano.marvin@gmail.com",
   "infoCliente": {
     "nombre": "Dionys",
@@ -63,7 +63,7 @@ content-type: application/json
 
 ###Login Api
 
-POST http://jenueva-001-site3.htempurl.com/procredito/submitForm
+POST https://itmsrdbackend.herokuapp.com/procredito/submitForm
 content-type: application/json
 
 {
