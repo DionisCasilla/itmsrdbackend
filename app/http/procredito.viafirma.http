@@ -45,12 +45,13 @@ POST http://localhost:8000/procredito/submitForm
 content-type: application/json
 
 {
-  "emailDestino": "ing.dionisc@gmail.com",
+
+  "emailDestino": "soriano.marvin@gmail.com",
   "infoCliente": {
     "nombre": "Dionys",
     "cedula": "002-0153781-8",
     "direccion": "fjhddfg",
-    "celular": "dfgh",
+    "celular": "+18096579005",
     "ciudad": "sdfg",
     "celular2": "",
     "dia": "",
@@ -66,6 +67,7 @@ POST http://jenueva-001-site3.htempurl.com/procredito/submitForm
 content-type: application/json
 
 {
+  "tipoenvio":"1",
   "emailDestino": "ing.dionisc@gmail.com",
   "infoCliente": {
     "nombre": "Dionys",
