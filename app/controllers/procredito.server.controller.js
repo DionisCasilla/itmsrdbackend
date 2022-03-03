@@ -104,7 +104,7 @@ exports.submitForm = async function (req, res, next) {
 
 
   payload.notification=notification;//["sharedLink"]=_sharedLink;
-  //console.log(payload);
+  console.log(payload);
   let _resp = await axios.post("messages/dispatch", payload);
   const { scheme, link } = _resp.data.notification.sharedLink;
 
