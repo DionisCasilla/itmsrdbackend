@@ -66,20 +66,52 @@ content-type: application/json
 POST https://itmsrdbackend.herokuapp.com/procredito/submitForm
 content-type: application/json
 
-{
-  "tipoenvio":"1",
-  "emailDestino": "ing.dionisc@gmail.com",
-  "infoCliente": {
-    "nombre": "Dionys",
-    "cedula": "002-0153781-8",
-    "direccion": "fjhddfg",
-    "celular": "dfgh",
-    "ciudad": "sdfg",
-    "celular2": "",
-    "dia": "",
-    "mes": "",
-    "ano": ""
-  }
+{ 
+"tipoenvio":"1",
+"emailDestino":"",
+"infoCliente": {
+      "nombre":"",
+      "cedula":"",
+      "direccion":"",
+      "celular":"+18096579005",
+      "ciudad":"",
+      "celular2":"",
+      "dia":"2",
+      "mes":"3",
+      "ano":"2022"
+      } 
 }
-	
-	
+
+
+#{
+#  "tipoenvio":"1",
+#  "emailDestino": "ing.dionisc@gmail.com",
+#  "infoCliente": {
+#    "nombre": "Dionys",
+#    "cedula": "002-0153781-8",
+#    "direccion": "fjhddfg",
+#    "celular": "+18096579005",
+#    "ciudad": "sdfg",
+#    "celular2": "",
+#    "dia": "",
+#    "mes": "",
+#    "ano": ""
+#  }
+#}
+
+###
+GET http://localhost:8000/procredito/bcedula/002-0129406-3
+content-type: application/json
+
+{ 
+
+}
+
+
+###
+GET http://localhost:8000/procredito/loaddata
+content-type: application/json
+
+{ 
+
+}

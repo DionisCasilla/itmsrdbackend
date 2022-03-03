@@ -1,4 +1,25 @@
 const axios = require("axios");
+const sql = require("mssql");
+
+const sqlConfig = {
+  user: "DB_A3F291_PCDClientes_admin",
+  password: "Pr0Credit0@dmin",
+  database: "DB_A3F291_PCDClientes",
+  server: "sql5008.site4now.net",
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 30000,
+  },
+  options: {
+    encrypt: false, // for azure
+    trustServerCertificate: false, // change to true for local dev / self-signed certs
+  },
+};
+
+/*
+@"Data Source=sql5008.site4now.net;Initial Catalog=DB_A3F291_PCDClientes;User Id=DB_A3F291_PCDClientes_admin;Password=Pr0Credit0@dmin;"
+*/
 
 exports.loginApi = async function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -15,6 +36,97 @@ exports.loginApi = async function (req, res, next) {
   res.json({ success: true, result: auth, message: "." });
 };
 
+
+exports.bCedula = async function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+
+  let { cedula } = req.params;
+
+
+  let pool = await sql.connect(sqlConfig);
+  let _sqlquery = `select	CEDULA		= ClienteID,
+                NOMBRE		= UPPER(ClienteNombre),
+                TELEFONO	= ClienteTel2,
+                DIRECCION	= ClienteDireccion,
+                FECHA		= GETDATE(),
+                DD			= DAY(GETDATE()),
+                MM			= MONTH(GETDATE()),
+                YY			= YEAR(GETDATE())
+                from	clientes 
+                where	clienteid = '${cedula}'`;
+
+  // let _sqlSectores = `select	*  from	Sectores`;
+  // let _sqlCiudades = `select	*  from	Ciudades`;
+
+
+
+
+
+    let data={};
+  let result2 = await pool.query(_sqlquery);
+  // let sectores = await pool.query(_sqlSectores);
+  // let ciudades = await pool.query(_sqlCiudades);
+
+
+  console.log(result2.recordset[0]);
+  data.cliente= result2.recordset[0];
+  // data.sectores= sectores.recordset;
+  // data.ciudades= ciudades.recordset;
+
+  
+
+
+  res.json({ success: !isEmptyObject(data.cliente), result: data, message: !isEmptyObject(data.cliente)?"Consulta Exitosa!":"Cliente no encontrado!" });
+};
+
+
+exports.loaddata = async function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+
+  let { cedula } = req.params;
+
+
+  let pool = await sql.connect(sqlConfig);
+  // let _sqlquery = `select	CEDULA		= ClienteID,
+  //               NOMBRE		= UPPER(ClienteNombre),
+  //               TELEFONO	= ClienteTel2,
+  //               DIRECCION	= ClienteDireccion,
+  //               FECHA		= GETDATE(),
+  //               DD			= DAY(GETDATE()),
+  //               MM			= MONTH(GETDATE()),
+  //               YY			= YEAR(GETDATE())
+  //               from	clientes 
+  //               where	clienteid = '${cedula}'`;
+
+  let _sqlSectores = `select	*  from	Sectores`;
+  let _sqlCiudades = `select	*  from	Ciudades`;
+
+
+
+
+
+    let data={};
+  // let result2 = await pool.query(_sqlquery);
+  let sectores = await pool.query(_sqlSectores);
+  let ciudades = await pool.query(_sqlCiudades);
+
+
+  // console.log(result2.recordset[0]);
+  // data.cliente= result2.recordset[0];
+  data.sectores= sectores.recordset;
+  data.ciudades= ciudades.recordset;
+
+
+  res.json({ success: true, result: data, message: "." });
+};
 exports.submitForm = async function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -22,27 +134,27 @@ exports.submitForm = async function (req, res, next) {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
 
-  let { emailDestino, infoCliente,tipoenvio } = req.body;
-  let _tipoenvio=tipoenvio??0;
-  let notification={};
-  let _sharedLink={};
-  
-  
-  if (_tipoenvio==1){//SMS
-    _sharedLink.phone=infoCliente.celular;
-  }else if(_tipoenvio==2){//email
+  let { emailDestino, infoCliente, tipoenvio } = req.body;
+  let _tipoenvio = tipoenvio ?? 0;
+  let notification = {};
+  let _sharedLink = {};
+
+
+  if (_tipoenvio == 1) {//SMS
+    _sharedLink.phone = infoCliente.celular;
+  } else if (_tipoenvio == 2) {//email
     // _sharedLink.phone=infoCliente.celular;
-    _sharedLink.email= emailDestino;
-    _sharedLink.subject= "Procredito Dominicana: firma de contrato";
-  }else if(_tipoenvio==0);{
-    _sharedLink.phone=infoCliente.celular;
-    _sharedLink.email= emailDestino;
-    _sharedLink.subject= "Procredito Dominicana: firma de contrato";
+    _sharedLink.email = emailDestino;
+    _sharedLink.subject = "Procredito Dominicana: firma de contrato";
+  } else if (_tipoenvio == 0); {
+    _sharedLink.phone = infoCliente.celular;
+    _sharedLink.email = emailDestino;
+    _sharedLink.subject = "Procredito Dominicana: firma de contrato";
   }
 
-  notification.sharedLink=_sharedLink;
+  notification.sharedLink = _sharedLink;
 
- 
+
 
   let payload = {
     groupCode: "procredito_dominicana",
@@ -54,7 +166,7 @@ exports.submitForm = async function (req, res, next) {
     document: {
       templateCode: "Contratosparaclientes",
       readRequired: false,
-     watermarkText: "Borrador",
+      watermarkText: "Borrador",
       formRequired: true,
       formDisabled: true,
     },
@@ -103,10 +215,20 @@ exports.submitForm = async function (req, res, next) {
   };
 
 
-  payload.notification=notification;//["sharedLink"]=_sharedLink;
-  console.log(payload);
+  payload.notification = notification;//["sharedLink"]=_sharedLink;
+  //  console.log(payload);
   let _resp = await axios.post("messages/dispatch", payload);
   const { scheme, link } = _resp.data.notification.sharedLink;
 
   res.json({ success: true, result: link, message: "." });
 };
+
+
+function isEmptyObject(obj) {
+  for(var prop in obj) {
+    if(obj.hasOwnProperty(prop))
+      return false;
+  }
+
+  return true;
+}
