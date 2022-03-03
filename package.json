@@ -1,7 +1,7 @@
 {
   "name": "itmsrd",
   "version": "1.0.0",
-  "description": "tsr app",
+  "description": "itmsrd webservices",
   "main": "server.js",
   "scripts": {
     "test": "mocha",
