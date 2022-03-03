@@ -54,6 +54,9 @@ exports.validaciondeAuthenticacion = function (req, res, next) {
     "/tsrapi/actualizarpin",
     "/procredito/loginapi",
     "/procredito/submitForm",
+    "/procredito/bcedula",
+    "/procredito/loaddata"
+
   ];
   // _printConsole(whiteListUrl.includes(req.originalUrl));
 
