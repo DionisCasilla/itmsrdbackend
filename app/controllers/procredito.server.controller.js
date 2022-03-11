@@ -1,6 +1,13 @@
 const axios = require("axios");
 const sql = require("mssql");
-
+const {
+  _getDataModel,
+  _printConsole,
+  _insertDataModel,
+  _sendEmail,
+  _validarEmpty,
+  _isNumber,
+} = require("../utils/utils");
 const sqlConfig = {
   user: "DB_A3F291_PCDClientes_admin",
   password: "Pr0Credit0@dmin",
@@ -134,6 +141,8 @@ exports.submitForm = async function (req, res, next) {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
 
+  _printConsole("body",req.body);
+
   let { emailDestino, infoCliente, tipoenvio } = req.body;
   let _tipoenvio = tipoenvio ?? 0;
   let notification = {};
@@ -216,6 +225,9 @@ exports.submitForm = async function (req, res, next) {
 
 
   payload.notification = notification;//["sharedLink"]=_sharedLink;
+
+
+  _printConsole("payload",payload);
   //  console.log(payload);
   let _resp = await axios.post("messages/dispatch", payload);
   const { scheme, link } = _resp.data.notification.sharedLink;
