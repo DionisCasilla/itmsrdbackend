@@ -59,8 +59,7 @@ exports.bCedula = async function (req, res, next) {
                 from	clientes 
                 where	clienteid = '${cedula}'`;
 
-  // let _sqlSectores = `select	*  from	Sectores`;
-  // let _sqlCiudades = `select	*  from	Ciudades`;
+
 
 
 
@@ -68,14 +67,12 @@ exports.bCedula = async function (req, res, next) {
 
     let data={};
   let result2 = await pool.query(_sqlquery);
-  // let sectores = await pool.query(_sqlSectores);
-  // let ciudades = await pool.query(_sqlCiudades);
+
 
 
   console.log(result2.recordset[0]);
   data.cliente= result2.recordset[0];
-  // data.sectores= sectores.recordset;
-  // data.ciudades= ciudades.recordset;
+
 
   
 
@@ -95,16 +92,7 @@ exports.loaddata = async function (req, res, next) {
 
 
   let pool = await sql.connect(sqlConfig);
-  // let _sqlquery = `select	CEDULA		= ClienteID,
-  //               NOMBRE		= UPPER(ClienteNombre),
-  //               TELEFONO	= ClienteTel2,
-  //               DIRECCION	= ClienteDireccion,
-  //               FECHA		= GETDATE(),
-  //               DD			= DAY(GETDATE()),
-  //               MM			= MONTH(GETDATE()),
-  //               YY			= YEAR(GETDATE())
-  //               from	clientes 
-  //               where	clienteid = '${cedula}'`;
+
 
   let _sqlSectores = `select	*  from	Sectores`;
   let _sqlCiudades = `select	*  from	Ciudades`;
@@ -195,10 +183,7 @@ exports.submitForm = async function (req, res, next) {
         key: "celular2",
         value: infoCliente.celular2 ?? "",
       },
-      {
-        key: "celular2",
-        value: infoCliente.celular2 ?? "",
-      },
+    
       {
         key: "dia",
         value: infoCliente.dia ?? "",
@@ -220,7 +205,7 @@ exports.submitForm = async function (req, res, next) {
   let _resp = await axios.post("messages/dispatch", payload);
   const { scheme, link } = _resp.data.notification.sharedLink;
 
-  res.json({ success: true, result: link, message: "." });
+  res.json({ success: true, result: link, message: "." ,moredata:_resp.data});
 };
 
 

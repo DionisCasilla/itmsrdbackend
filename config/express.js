@@ -30,8 +30,8 @@ module.exports = function() {
     setupAxios();
     app.use(bodyParser.json());
     app.use(validaciondeAuthenticacion);
-    app.use(loggerserver);
-    app.use(loggerResponseserver);
+    // app.use(loggerserver);
+    // app.use(loggerResponseserver);
 
     // console.log(axios)
   

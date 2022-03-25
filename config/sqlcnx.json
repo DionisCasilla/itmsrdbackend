@@ -1,0 +1,15 @@
+{
+
+	"OPENSEASSHIPPING":{
+		"user": "db_a4454e_itmsplus2_admin",
+		"password": "sa@1234567890",
+		"database": "db_a4454e_itmsplus2",
+		"server": "sql5107.site4now.net"
+	},
+	"PLUS":{
+		"user": "DB_A4454E_ITMSPLUS_admin",
+		"password": "sa@1234567890",
+		"database": "DB_A4454E_ITMSPLUS",
+		"server": "sql5053.site4now.net"
+	}
+}
