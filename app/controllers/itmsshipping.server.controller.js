@@ -228,9 +228,7 @@ exports.saveForm = async function (req, res, next) {
       .execute("spCouApp_SignForm");
 
 
-    let result = result2.recordset;
-
-
+    let result = result2.recordsets;
     if (result.length>0) {
 
       console.log(result[1][0]);
