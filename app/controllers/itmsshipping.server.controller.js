@@ -155,19 +155,7 @@ exports.createForm = async function (req, res, next) {
 
 
   try {
-    // // make sure that any items are correctly URL encoded in the connection string
-    // let pool = await sql.connect(getcnn(interId));
-    // let result2 = await pool
-    //   .request()
-    //   .input("InterID", sql.VarChar(50), interId)
-    //   execute("spCouApp_Secuence");
 
-
-    // let result = result2.recordset;
-
-
-
-    // if (result.length>0) {
     res.json({
       success: true,
       message: "Create Formulario",
@@ -242,15 +230,26 @@ exports.saveForm = async function (req, res, next) {
 
     let result = result2.recordset;
 
-    if (result.length > 0) {
-      res.json({
-        success: true,
-        message: result[0].Result,
-        result: {},
-      });
-    } else {
-      res.json({ success: false, message: "Not User", result: [] });
-    }
+
+    if (result.length>0) {
+
+      console.log(result[1][0]);
+      result[2][0].InterEmail="Email: info@openseasvi.com";
+      result[2][0].InterDireccion="Mapony Building, Bldg 1, Unit 2 Duff Bottom, Tortola British Virgin Islands";
+      result[2][0].InterTelefono="Tel.:BVI: 284-441-3019 Rep. Dom.: 1-829-704-1067";
+      result[2][0].EmpresaName="Open Seas Shipping";
+      let respuesta={
+        empresa:result[2][0],
+        ordenInfo:result[1][0]
+      }
+          res.json({
+            success: true,
+            message:result[0][0].Result,
+            result: respuesta
+          });
+        } else {
+          res.json({ success: false, message: "Not User", result: [] });
+        }
   } catch (err) {
     console.log(err);
     res.json({ success: false, message: err });
@@ -331,7 +330,7 @@ exports.getconfig = async function (req, res, next) {
   const interId = req.params.interID;
 
   try {
-    _printConsole("a", interId)
+   // _printConsole("a", interId)
 
     res.json({
       success: true,
