@@ -8,7 +8,7 @@ GET http://192.168.0.3:8000/itmsshipping/apptoken/OPENSEASSHIPPING
 
 ###- Get Config
 GET http://192.168.0.3:8000/itmsshipping/userlist 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0ODI1NjY4NiwiZXhwIjoxNjQ4Mjc4Mjg2fQ.r2_9PCyF-ttsJ24-FEo7g2cIyLn9C7YBIh9BVQFKRx8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTIyMjY1NywiZXhwIjoxNjQ5MjQ0MjU3fQ.TFb5-OuU9WwVVu5YLkWoplzBJe80OQJk1hZVIxnUf5o
 
 {
 
@@ -26,16 +26,16 @@ GET http://192.168.0.3:8000/itmsshipping/config/OPENSEASSHIPPING
 ###- Find Form
 GET  http://192.168.0.3:8000/itmsshipping/findForm/000000013/1 
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0ODI1NjY4NiwiZXhwIjoxNjQ4Mjc4Mjg2fQ.r2_9PCyF-ttsJ24-FEo7g2cIyLn9C7YBIh9BVQFKRx8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTIyMjY1NywiZXhwIjoxNjQ5MjQ0MjU3fQ.TFb5-OuU9WwVVu5YLkWoplzBJe80OQJk1hZVIxnUf5o
 
 {
 
 }
 
-###- Find Form
+###- Save Form
 post  http://192.168.0.3:8000/itmsshipping/saveForm
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0ODI5NjQ0NywiZXhwIjoxNjQ4MzE4MDQ3fQ.fotyjfI5AsRV2ew6w6hB6Lz7pJ3hdCTdLMqNOvanobc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTIyMjY1NywiZXhwIjoxNjQ5MjQ0MjU3fQ.TFb5-OuU9WwVVu5YLkWoplzBJe80OQJk1hZVIxnUf5o
 
 {
  "FormID": "91AB8A05-C867-4E64-AB98-AD2C8D3EA517", 
@@ -43,3 +43,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
  "SignName": "JUAN ARELIS RODRIGUEZ", 
  "SignUrl": "https://res.cloudinary.com/dfbwtygxk/image/upload/v1648179601/itms/shipping/firmas/hfjq6zzkwta8ot2mxdsz.png"
  }
+
+
+###- create Form
+get  http://192.168.0.3:8000/itmsshipping/createForm
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTIyMjY1NywiZXhwIjoxNjQ5MjQ0MjU3fQ.TFb5-OuU9WwVVu5YLkWoplzBJe80OQJk1hZVIxnUf5o
+
+{
+
+}
