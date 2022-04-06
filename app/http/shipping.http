@@ -1,5 +1,5 @@
 ###
-GET http://192.168.0.3:8000/itmsshipping/apptoken/OPENSEASSHIPPING 
+GET http://192.168.10.235:8000/itmsshipping/apptoken/OPENSEASSHIPPING 
 
 {
 
@@ -7,7 +7,7 @@ GET http://192.168.0.3:8000/itmsshipping/apptoken/OPENSEASSHIPPING
 
 
 ###- Get Config
-GET http://192.168.0.3:8000/itmsshipping/userlist 
+GET http://192.168.10.235:8000/itmsshipping/userlist 
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTIyMjY1NywiZXhwIjoxNjQ5MjQ0MjU3fQ.TFb5-OuU9WwVVu5YLkWoplzBJe80OQJk1hZVIxnUf5o
 
 {
@@ -16,7 +16,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 
 
 ###- Get User
-GET http://192.168.0.3:8000/itmsshipping/config/OPENSEASSHIPPING 
+GET http://192.168.10.235:8000/itmsshipping/config/OPENSEASSHIPPING 
 
 {
 
@@ -24,7 +24,7 @@ GET http://192.168.0.3:8000/itmsshipping/config/OPENSEASSHIPPING
 
 
 ###- Find Form
-GET  http://192.168.0.3:8000/itmsshipping/findForm/000000013/1 
+GET  http://192.168.10.235:8000/itmsshipping/findForm/000000013/1 
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTIyMjY1NywiZXhwIjoxNjQ5MjQ0MjU3fQ.TFb5-OuU9WwVVu5YLkWoplzBJe80OQJk1hZVIxnUf5o
 
@@ -33,7 +33,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 }
 
 ###- Save Form
-post  http://192.168.0.3:8000/itmsshipping/saveForm
+post  http://192.168.10.235:8000/itmsshipping/saveForm
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTIyMjY1NywiZXhwIjoxNjQ5MjQ0MjU3fQ.TFb5-OuU9WwVVu5YLkWoplzBJe80OQJk1hZVIxnUf5o
 
@@ -46,7 +46,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 
 
 ###- create Form
-get  http://192.168.0.3:8000/itmsshipping/createForm
+get  http://192.168.10.235:8000/itmsshipping/createForm
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTIyMjY1NywiZXhwIjoxNjQ5MjQ0MjU3fQ.TFb5-OuU9WwVVu5YLkWoplzBJe80OQJk1hZVIxnUf5o
 
