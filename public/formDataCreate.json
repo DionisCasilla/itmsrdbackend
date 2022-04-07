@@ -40,12 +40,12 @@
             "enabled": true,
             "order": 4,
             "values": "",
-            "type": "STRING",
+            "type": "NUMBER",
             "id": "shippingform-01-04",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
           {
-            "description": "DocumentType",
+            "description": "Document Type",
             "enabled": true,
             "order": 7,
             "values": "ID OR PASSPORT|DRIVERS LICENSE",
@@ -54,7 +54,7 @@
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
           {
-            "description": "DocumentNumber",
+            "description": "Document Number",
             "enabled": true,
             "order": 8,
             "values": "",
@@ -63,7 +63,7 @@
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
           {
-            "description": "DocumentExpires",
+            "description": "Document Expires",
             "enabled": true,
             "order": 9,
             "values": "",
