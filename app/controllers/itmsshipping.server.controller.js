@@ -261,50 +261,70 @@ exports.saveNewForm = async function (req, res, next) {
   let _tokenDecode = validatetoken(req.headers.authorization.replace("Bearer ", ""));
   const { interId } = _tokenDecode.token;
 
+  const {formbody,RowUsr}=req.body;
+
+  _printConsole("body" ,formbody);
 
   try {
     // make sure that any items are correctly URL encoded in the connection string
+
+    let pool2 = await sql.connect(getcnn(interId));
+    let result2sq = await pool2
+      .request()
+      .input("InterID", sql.VarChar(50), interId)
+      .execute("spCouApp_Secuence");
+
+
+// _printConsole("seq",result2sq.recordset);
+const{ PackNumber,PackID}= result2sq.recordset[0];
+
+console.log(PackNumber);
+
+
     let pool = await sql.connect(getcnn(interId));
     let result2 = await pool
       .request()
       .input("InterID", sql.VarChar(50), interId)   /*						varchar(50)		-- */
-      .input("PaqueteID", sql.VarChar(50), interId) /*						varchar(50)		--*/
-      .input("PaqueteNumero", sql.VarChar(50), interId) /*					varchar(50)		--*/
-      .input("RowUsr", sql.VarChar(50), interId) /*						varchar(50)		--*/
+      .input("PaqueteID", sql.VarChar(50), PackID) /*						varchar(50)		--*/
+      .input("PaqueteNumero", sql.VarChar(50), PackNumber) /*					varchar(50)		--*/
+      .input("RowUsr", sql.VarChar(50), RowUsr) /*						varchar(50)		--*/
 
    /* --SenderInfo*/
-      .input("PaqueteSenderID", sql.VarChar(50), interId) /*				varchar(50)		-- shippingform-01-01*/
-      .input("PaqueteSenderNombre", sql.VarChar(50), interId) /*			varchar(100)	-- shippingform-01-02*/
-      .input("PaqueteSenderDireccion", sql.VarChar(50), interId) /*		varchar(4000)	-- shippingform-01-03*/
-      .input("PaqueteSenderTel1", sql.VarChar(50), interId) /*				varchar(50)		-- shippingform-01-04*/
-      .input("PaqueteSenderIdetificacionID", sql.VarChar(50), interId) /*	varchar(50)		-- shippingform-01-06*/
-      .input("PaqueteSenderIdetificacionVence", sql.VarChar(50), interId) /*varchar(20)		-- shippingform-01-07*/
+      .input("PaqueteSenderID", sql.VarChar(50), formbody["shippingform-01-01"]) /*				varchar(50)		-- shippingform-01-01*/
+      .input("PaqueteSenderNombre", sql.VarChar(100), formbody["shippingform-01-02"]) /*			varchar(100)	-- shippingform-01-02*/
+      .input("PaqueteSenderDireccion", sql.VarChar(4000), formbody["shippingform-01-03"]) /*		varchar(4000)	-- shippingform-01-03*/
+      .input("PaqueteSenderTel1", sql.VarChar(50), formbody["shippingform-01-04"]) /*				varchar(50)		-- shippingform-01-04*/
+      .input("PaqueteSenderIdetificacionID", sql.VarChar(50), formbody["shippingform-01-06"]) /*	varchar(50)		-- shippingform-01-06*/
+      .input("PaqueteSenderIdetificacionVence", sql.VarChar(50), formbody["shippingform-01-07"]) /*varchar(20)		-- shippingform-01-07*/
 
   /*  --RecieverInfo*/
-      .input("PaqueteRecieverID", sql.VarChar(50), interId) /*				varchar(50)		-- shippingform-02-01*/
-      .input("PaqueteRecieverNombre", sql.VarChar(50), interId) /*			varchar(100)	-- shippingform-02-02*/
-      .input("PaqueteRecieverDireccion", sql.VarChar(50), interId) /*	varchar(4000)	-- shippingform-02-03*/
-      .input("PaqueteRecieverTel1", sql.VarChar(50), interId) /*			varchar(50)		-- shippingform-02-04*/
+      .input("PaqueteRecieverID", sql.VarChar(50), formbody["shippingform-02-01"]) /*				varchar(50)		-- shippingform-02-01*/
+      .input("PaqueteRecieverNombre", sql.VarChar(100), formbody["shippingform-02-02"]) /*			varchar(100)	-- shippingform-02-02*/
+      .input("PaqueteRecieverDireccion", sql.VarChar(4000), formbody["shippingform-02-03"]) /*	varchar(4000)	-- shippingform-02-03*/
+      .input("PaqueteRecieverTel1", sql.VarChar(50), formbody["shippingform-02-04"]) /*			varchar(50)		-- shippingform-02-04*/
 
    /* --Destination*/
-      .input("PaqueteCiudadID", sql.VarChar(50), interId) /*				varchar(50)		-- shippingform-02-05*/
-      .input("PaqueteCiudadTexto", sql.VarChar(50), interId) /*		varchar(50)		-- shippingform-02-06*/
+      .input("PaqueteCiudadID", sql.VarChar(50), formbody["shippingform-02-05"]) /*				varchar(50)		-- shippingform-02-05*/
+      .input("PaqueteCiudadTexto", sql.VarChar(50), formbody["shippingform-02-06"]) /*		varchar(50)		-- shippingform-02-06*/
 
    /* --PackageDescription*/
-      .input("PaqueteContenido", sql.VarChar(50), interId) /*			varchar(max)	-- shippingform-03-01 + shippingform-03-02*/
-      .input("PaqueteContenidoBalance", sql.VarChar(50), interId) /*		decimal(18,2)	-- shippingform-04-03*/
+      .input("PaqueteContenido", sql.VarChar(4000), `${formbody['shippingform-03-01']} ${formbody['shippingform-03-02']}`) /*			varchar(max)	-- shippingform-03-01 + shippingform-03-02*/
+      .input("PaqueteContenidoBalance", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-03"])) /*		decimal(18,2)	-- shippingform-04-03*/
 
   /*  --ShippingOptions*/
-      .input("PaqueteContenidoTipoCantidad", sql.VarChar(50), interId) /*	decimal(18,2)	-- shippingform-04-01*/
-      .input("PaqueteContenidoTipo", sql.VarChar(50), interId) /*			varchar(100)	-- shippingform-04-02*/
-      .input("PaqueteContenidoL", sql.VarChar(50), interId) /*				decimal(18,2)	-- shippingform-04-03*/
-      .input("PaqueteContenidoW", sql.VarChar(50), interId) /*				decimal(18,2)	-- shippingform-04-04*/
-      .input("PaqueteContenidoH", sql.VarChar(50), interId) /*				decimal(18,2)	-- shippingform-04-05*/
+      .input("PaqueteContenidoTipoCantidad", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-01"])) /*	decimal(18,2)	-- shippingform-04-01*/
+      .input("PaqueteContenidoTipo", sql.VarChar(100), formbody["shippingform-04-02"]) /*			varchar(100)	-- shippingform-04-02*/
+      .input("PaqueteContenidoL", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-03"])) /*				decimal(18,2)	-- shippingform-04-03*/
+      .input("PaqueteContenidoW", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-04"])) /*				decimal(18,2)	-- shippingform-04-04*/
+      .input("PaqueteContenidoH", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-05"])) /*				decimal(18,2)	-- shippingform-04-05*/
 
-      .input("PaqueteContenidoTipoValor", sql.Decimal(18,2), paqueteContenidoTipoValor) /*		decimal(18,2)	-- shippingform-04-06*/
-      .input("PaqueteContenidoManejo", sql.VarChar(100), paqueteContenidoManejo) /*		varchar(100)	-- sshippingform-04-07*/
-      .input("PaqueteAsegurado", sql.Int, paqueteAsegurado)  /*				int				-- shippingform-04-08*/
+      .input("PaqueteContenidoTipoValor", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-06"])) /*		decimal(18,2)	-- shippingform-04-06*/
+      .input("PaqueteContenidoManejo", sql.VarChar(100),formbody["shippingform-04-07"]) /*		varchar(100)	-- sshippingform-04-07*/
+      .input("PaqueteAsegurado", sql.Int, parseInt(formbody["shippingform-04-08"]))  /*				int				-- shippingform-04-08*/
       .execute("spCouApp_SignForm");
+
+
+      _printConsole("asas");
 
 
     let result = result2.recordset;

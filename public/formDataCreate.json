@@ -219,7 +219,7 @@
             "requered": true,
             "order": 1,
             "values": "",
-            "type": "INT",
+            "type": "NUMBER",
             "id": "shippingform-04-01",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
@@ -239,7 +239,7 @@
             "requered": true,
             "order": 4,
             "values": "0",
-            "type": "INT",
+            "type": "NUMBER",
             "id": "shippingform-04-03",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
@@ -249,7 +249,7 @@
             "requered": true,
             "order": 4,
             "values": "0",
-            "type": "INT",
+            "type": "NUMBER",
             "id": "shippingform-04-04",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },       
@@ -259,7 +259,7 @@
             "requered": true,
             "order": 4,
             "values": "0",
-            "type": "INT",
+            "type": "NUMBER",
             "id": "shippingform-04-05",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
@@ -269,7 +269,7 @@
             "requered": true,
             "order": 4,
             "values": "0",
-            "type": "DECIMAL",
+            "type": "NUMBER",
             "id": "shippingform-04-06",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
@@ -289,7 +289,7 @@
             "requered": true,
             "order": 5,
             "values": "0",
-            "type": "INT",
+            "type": "NUMBER",
             "id": "shippingform-04-08",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           }
