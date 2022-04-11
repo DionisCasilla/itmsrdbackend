@@ -8,7 +8,7 @@ GET http://192.168.10.235:8000/itmsshipping/apptoken/OPENSEASSHIPPING
 
 ###- Get Config
 GET http://192.168.10.235:8000/itmsshipping/userlist 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTY4ODk1MSwiZXhwIjoxNjQ5NzEwNTUxfQ.Xfx4r38wFLFsaQG3ys7uorTHAV_O1RdFQyjnjc7BDLI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTcxMjQ1NCwiZXhwIjoxNjQ5NzM0MDU0fQ.3fBwVS4XWKqeaSHJSkU-I11CZnzINtofP86U9oxc_48
 {
 
 }
@@ -25,7 +25,8 @@ GET http://192.168.10.235:8000/itmsshipping/config/OPENSEASSHIPPING
 ###- Find Form
 GET  http://192.168.10.235:8000/itmsshipping/findForm/000000013/1 
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTY4ODk1MSwiZXhwIjoxNjQ5NzEwNTUxfQ.Xfx4r38wFLFsaQG3ys7uorTHAV_O1RdFQyjnjc7BDLI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTcxMjQ1NCwiZXhwIjoxNjQ5NzM0MDU0fQ.3fBwVS4XWKqeaSHJSkU-I11CZnzINtofP86U9oxc_48
+
 {
 
 }
@@ -33,7 +34,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 ###- Save Form
 post  http://192.168.10.235:8000/itmsshipping/saveForm
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTY4ODk1MSwiZXhwIjoxNjQ5NzEwNTUxfQ.Xfx4r38wFLFsaQG3ys7uorTHAV_O1RdFQyjnjc7BDLI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTcxMjQ1NCwiZXhwIjoxNjQ5NzM0MDU0fQ.3fBwVS4XWKqeaSHJSkU-I11CZnzINtofP86U9oxc_48
 {
  "FormID": "91AB8A05-C867-4E64-AB98-AD2C8D3EA517", 
  "UserID": "0003" ,
@@ -45,7 +46,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 ###- create Form
 get  http://192.168.10.235:8000/itmsshipping/createForm
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTY4ODk1MSwiZXhwIjoxNjQ5NzEwNTUxfQ.Xfx4r38wFLFsaQG3ys7uorTHAV_O1RdFQyjnjc7BDLI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTcxMjQ1NCwiZXhwIjoxNjQ5NzM0MDU0fQ.3fBwVS4XWKqeaSHJSkU-I11CZnzINtofP86U9oxc_48
 {
 
 }
@@ -53,7 +54,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 ###- create Form
 POST   http://192.168.10.235:8000/itmsshipping/saveNewForm
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTY4ODk1MSwiZXhwIjoxNjQ5NzEwNTUxfQ.Xfx4r38wFLFsaQG3ys7uorTHAV_O1RdFQyjnjc7BDLI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTcxMjQ1NCwiZXhwIjoxNjQ5NzM0MDU0fQ.3fBwVS4XWKqeaSHJSkU-I11CZnzINtofP86U9oxc_48
 
 {
 "RowUsr":"dfsdfsdfsdfs",
@@ -73,7 +74,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
   "shippingform-02-06": "uioyuioyuoyuio",
   "shippingform-03-01": "COOKWAVRE",
   "shippingform-03-02": "jhkghkgjhk89",
-  "shippingform-03-03": "8989",
+  "shippingform-03-03": "898",
   "shippingform-03-04": "DOOR TO DOOR DELIVERY REQUIRED",
   "shippingform-04-01": "10",
   "shippingform-04-02": "gjhkgk",
@@ -82,7 +83,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
   "shippingform-04-05": "8",
   "shippingform-04-06": "678",
   "shippingform-04-07": "hjkjhgkghjk hjk",
-  "shippingform-04-08": "5"
+  "shippingform-04-08": "YES"
 }
 
 }
