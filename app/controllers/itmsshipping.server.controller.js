@@ -263,7 +263,7 @@ exports.saveNewForm = async function (req, res, next) {
 
   const {formbody,RowUsr}=req.body;
 
-  _printConsole("body" ,formbody);
+  _printConsole("body" ,req.body);
 
   try {
     // make sure that any items are correctly URL encoded in the connection string
@@ -276,18 +276,24 @@ exports.saveNewForm = async function (req, res, next) {
 
 
 // _printConsole("seq",result2sq.recordset);
+
 const{ PackNumber,PackID}= result2sq.recordset[0];
 
-console.log(PackNumber);
+// console.log(PackNumber);
+// console.log(PackID);
 
 
     let pool = await sql.connect(getcnn(interId));
+    let _PaqueteContenido=  `${formbody['shippingform-03-01']} ${formbody['shippingform-03-02']}`
+    console.log(_PaqueteContenido);
+
+
     let result2 = await pool
       .request()
       .input("InterID", sql.VarChar(50), interId)   /*						varchar(50)		-- */
-      .input("PaqueteID", sql.VarChar(50), PackID) /*						varchar(50)		--*/
-      .input("PaqueteNumero", sql.VarChar(50), PackNumber) /*					varchar(50)		--*/
-      .input("RowUsr", sql.VarChar(50), RowUsr) /*						varchar(50)		--*/
+      .input("PaqueteID", sql.VarChar(50), PackNumber) /*						varchar(50)		--*/
+      .input("PaqueteNumero", sql.VarChar(50), PackID) /*					varchar(50)		--*/
+      .input("RowUsr", sql.VarChar(50), "DB") /*						varchar(50)		--*/
 
    /* --SenderInfo*/
       .input("PaqueteSenderID", sql.VarChar(50), formbody["shippingform-01-01"]) /*				varchar(50)		-- shippingform-01-01*/
@@ -308,8 +314,9 @@ console.log(PackNumber);
       .input("PaqueteCiudadTexto", sql.VarChar(50), formbody["shippingform-02-06"]) /*		varchar(50)		-- shippingform-02-06*/
 
    /* --PackageDescription*/
-      .input("PaqueteContenido", sql.VarChar(4000), `${formbody['shippingform-03-01']} ${formbody['shippingform-03-02']}`) /*			varchar(max)	-- shippingform-03-01 + shippingform-03-02*/
-      .input("PaqueteContenidoBalance", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-03"])) /*		decimal(18,2)	-- shippingform-04-03*/
+
+      .input("PaqueteContenido", sql.VarChar(sql.MAX),_PaqueteContenido.toString()) /*			varchar(max)	-- shippingform-03-01 + shippingform-03-02*/
+      .input("PaqueteContenidoBalance", sql.Decimal(18,2), parseFloat(formbody["shippingform-03-03"])) /*		decimal(18,2)	-- shippingform-04-03*/
 
   /*  --ShippingOptions*/
       .input("PaqueteContenidoTipoCantidad", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-01"])) /*	decimal(18,2)	-- shippingform-04-01*/
@@ -320,20 +327,20 @@ console.log(PackNumber);
 
       .input("PaqueteContenidoTipoValor", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-06"])) /*		decimal(18,2)	-- shippingform-04-06*/
       .input("PaqueteContenidoManejo", sql.VarChar(100),formbody["shippingform-04-07"]) /*		varchar(100)	-- sshippingform-04-07*/
-      .input("PaqueteAsegurado", sql.Int, parseInt(formbody["shippingform-04-08"]))  /*				int				-- shippingform-04-08*/
-      .execute("spCouApp_SignForm");
+      .input("PaqueteAsegurado", sql.Int, parseInt(formbody["shippingform-04-08"]==='YES'?1:0))  /*				int				-- shippingform-04-08*/
+      .execute("spCouPaquetes");
 
 
-      _printConsole("asas");
 
 
     let result = result2.recordset;
 
+    // _printConsole("asas",result[0]);
     if (result.length > 0) {
       res.json({
         success: true,
-        message: result[0].Result,
-        result: {},
+        message: "Order Complete.",
+        result: result[0],
       });
     } else {
       res.json({ success: false, message: "Not User", result: [] });

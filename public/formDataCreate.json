@@ -288,8 +288,8 @@
             "enabled": true,
             "requered": true,
             "order": 5,
-            "values": "0",
-            "type": "NUMBER",
+            "values": "YES|NO",
+            "type": "LIST",
             "id": "shippingform-04-08",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           }
