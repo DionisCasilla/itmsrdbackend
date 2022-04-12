@@ -9,7 +9,9 @@ const { max } = require("moment");
 var configEmpresas = {
   "OPENSEASSHIPPING": {
     "btnshippingform": false,
-    "active": true
+    "active": true,
+    "appversion":"1.0.0",
+    "urldonwload":"dsd"
   }
 }
 
@@ -347,7 +349,7 @@ const{ PackNumber,PackID}= result2sq.recordset[0];
     }
   } catch (err) {
     console.log(err);
-    res.json({ success: false, message: err });
+    res.json({ success: false, message: "Please Try again." });
   }
 };
 
