@@ -75,7 +75,7 @@
             "requered": true,
             "order": 9,
             "values": "",
-            "type": "STRING",
+            "type": "DATE",
             "id": "shippingform-01-07",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           }

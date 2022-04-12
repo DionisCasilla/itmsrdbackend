@@ -35,6 +35,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 post  http://192.168.10.235:8000/itmsshipping/saveForm
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTcxMjQ1NCwiZXhwIjoxNjQ5NzM0MDU0fQ.3fBwVS4XWKqeaSHJSkU-I11CZnzINtofP86U9oxc_48
+
 {
  "FormID": "91AB8A05-C867-4E64-AB98-AD2C8D3EA517", 
  "UserID": "0003" ,
@@ -47,6 +48,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 get  http://192.168.10.235:8000/itmsshipping/createForm
 content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTcxMjQ1NCwiZXhwIjoxNjQ5NzM0MDU0fQ.3fBwVS4XWKqeaSHJSkU-I11CZnzINtofP86U9oxc_48
+
 {
 
 }
@@ -58,32 +60,32 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 
 {
 "RowUsr":"dfsdfsdfsdfs",
-"formbody":{
-  "shippingform-01-01": "hkjhk",
-  "shippingform-01-02": "yiytuityuit",
-  "shippingform-01-03": "iityuity",
-  "shippingform-01-04": "8967896789",
-  "shippingform-01-05": "ID OR PASSPORT",
-  "shippingform-01-06": "yuityui",
-  "shippingform-01-07": "yuityi",
-  "shippingform-02-01": "tityuity",
-  "shippingform-02-02": "uitiut",
-  "shippingform-02-03": "uitiu",
-  "shippingform-02-04": "987976896",
-  "shippingform-02-05": "SDQ - REP.DOM",
-  "shippingform-02-06": "uioyuioyuoyuio",
-  "shippingform-03-01": "COOKWAVRE",
-  "shippingform-03-02": "jhkghkgjhk89",
-  "shippingform-03-03": "898",
-  "shippingform-03-04": "DOOR TO DOOR DELIVERY REQUIRED",
-  "shippingform-04-01": "10",
-  "shippingform-04-02": "gjhkgk",
-  "shippingform-04-03": "789",
-  "shippingform-04-04": "8",
-  "shippingform-04-05": "8",
-  "shippingform-04-06": "678",
-  "shippingform-04-07": "hjkjhgkghjk hjk",
-  "shippingform-04-08": "YES"
-}
+  "formbody":{
+    "shippingform-01-01": "hkjhk",
+    "shippingform-01-02": "yiytuityuit",
+    "shippingform-01-03": "iityuity",
+    "shippingform-01-04": "8967896789",
+    "shippingform-01-05": "ID OR PASSPORT",
+    "shippingform-01-06": "yuityui",
+    "shippingform-01-07": "yuityi",
+    "shippingform-02-01": "tityuity",
+    "shippingform-02-02": "uitiut",
+    "shippingform-02-03": "uitiu",
+    "shippingform-02-04": "987976896",
+    "shippingform-02-05": "SDQ - REP.DOM",
+    "shippingform-02-06": "uioyuioyuoyuio",
+    "shippingform-03-01": "COOKWAVRE",
+    "shippingform-03-02": "jhkghkgjhk89",
+    "shippingform-03-03": "898",
+    "shippingform-03-04": "DOOR TO DOOR DELIVERY REQUIRED",
+    "shippingform-04-01": "10",
+    "shippingform-04-02": "gjhkgk",
+    "shippingform-04-03": "789",
+    "shippingform-04-04": "8",
+    "shippingform-04-05": "8",
+    "shippingform-04-06": "678",
+    "shippingform-04-07": "hjkjhgkghjk hjk",
+    "shippingform-04-08": "YES"
+  }
 
 }
