@@ -44,7 +44,7 @@ function getcnn(interID) {
 exports.apptoken = async function (req, res, next) {
   const interId = req.params.interID;
 
-  console.log(interId);
+  // console.log(interId);
 
   try {
 
@@ -102,7 +102,7 @@ exports.getUserDelivery = async function (req, res, next) {
         "InterID": "OPENSEASSHIPPING",
         "UserID": "1000",
         "UserName": "Dev",
-        "UserRole": "ITMS`",
+        "UserRole": "ITMS",
         "KeyRequered": "true"
       });
 
@@ -335,6 +335,7 @@ exports.saveNewForm = async function (req, res, next) {
 // _printConsole("seq",result2sq.recordset);
 
 const{ PackNumber,PackID}= result2sq.recordset[0];
+const {RowUsr,formbody }=req.body;
 
 // console.log(PackNumber);
 // console.log(PackID);
@@ -350,7 +351,7 @@ const{ PackNumber,PackID}= result2sq.recordset[0];
       .input("InterID", sql.VarChar(50), interId)   /*						varchar(50)		-- */
       .input("PaqueteID", sql.VarChar(50), PackNumber) /*						varchar(50)		--*/
       .input("PaqueteNumero", sql.VarChar(50), PackID) /*					varchar(50)		--*/
-      .input("RowUsr", sql.VarChar(50), "DB") /*						varchar(50)		--*/
+      .input("RowUsr", sql.VarChar(50), RowUsr) /*						varchar(50)		--*/
 
    /* --SenderInfo*/
       .input("PaqueteSenderID", sql.VarChar(50), formbody["shippingform-01-01"]) /*				varchar(50)		-- shippingform-01-01*/
