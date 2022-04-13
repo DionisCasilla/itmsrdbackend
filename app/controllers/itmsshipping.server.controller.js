@@ -290,7 +290,7 @@ exports.saveForm = async function (req, res, next) {
     let result = result2.recordsets;
     if (result.length>0) {
 
-      console.log(result[1][0]);
+    // console.log(result[1][0]);
       result[2][0].InterEmail="Email: info@openseasvi.com";
       result[2][0].InterDireccion="Mapony Building, Bldg 1, Unit 2 Duff Bottom, Tortola British Virgin Islands";
       result[2][0].InterTelefono="Tel.:BVI: 284-441-3019 Rep. Dom.: 1-829-704-1067";
@@ -393,12 +393,23 @@ const {RowUsr,formbody }=req.body;
 
     let result = result2.recordset;
 
-    // _printConsole("asas",result[0]);
+    _printConsole("asas",result[0]);
     if (result.length > 0) {
+      let _empresa={};
+     _empresa.InterEmail="Email: info@openseasvi.com";
+     _empresa.InterDireccion="Mapony Building, Bldg 1, Unit 2 Duff Bottom, Tortola British Virgin Islands";
+     _empresa.InterTelefono="Tel.:BVI: 284-441-3019 Rep. Dom.: 1-829-704-1067";
+     _empresa.EmpresaName="Open Seas Shipping";
+      let respuesta={
+        empresa:_empresa,
+        ordenInfo:result[0]
+      }
+
+      console.log(respuesta);
       res.json({
         success: true,
         message: "Order Complete.",
-        result: result[0],
+        result: respuesta,
       });
     } else {
       res.json({ success: false, message: "Not User", result: [] });
