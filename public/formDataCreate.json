@@ -59,7 +59,7 @@
             "id": "shippingform-01-05",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
-          {
+                   {
             "description": "Document Number",
             "enabled": true,
             "requered": true,
@@ -75,7 +75,7 @@
             "requered": true,
             "order": 9,
             "values": "",
-            "type": "STRING",
+            "type": "DATE",
             "id": "shippingform-01-07",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           }
@@ -269,7 +269,7 @@
             "requered": true,
             "order": 4,
             "values": "0",
-            "type": "DECIMAL",
+            "type": "NUMBER",
             "id": "shippingform-04-06",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
@@ -288,8 +288,13 @@
             "enabled": true,
             "requered": true,
             "order": 5,
+<<<<<<< HEAD
             "values": "0",
             "type": "NUMBER",
+=======
+            "values": "YES|NO",
+            "type": "LIST",
+>>>>>>> e3b58f8abc39b19caef58c96bba19f601017f4ad
             "id": "shippingform-04-08",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           }
