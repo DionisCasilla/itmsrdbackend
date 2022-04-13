@@ -261,6 +261,7 @@ exports.saveNewForm = async function (req, res, next) {
   let _tokenDecode = validatetoken(req.headers.authorization.replace("Bearer ", ""));
   const { interId } = _tokenDecode.token;
 
+  _printConsole("SaveForm",req.body)
 
   try {
     // make sure that any items are correctly URL encoded in the connection string
