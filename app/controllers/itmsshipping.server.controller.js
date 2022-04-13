@@ -10,8 +10,8 @@ var configEmpresas = {
   "OPENSEASSHIPPING": {
     "btnshippingform": false,
     "active": true,
-    "appversion":"1.0.0",
-    "urldonwload":"dsd"
+    "appversion":2,
+    "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120422.apk"
   }
 }
 
@@ -44,6 +44,7 @@ function getcnn(interID) {
 exports.apptoken = async function (req, res, next) {
   const interId = req.params.interID;
 
+  console.log(interId);
 
   try {
 
@@ -96,6 +97,15 @@ exports.getUserDelivery = async function (req, res, next) {
     let result = result2.recordset;
 
     if (result.length > 0) {
+
+      result.push({
+        "InterID": "OPENSEASSHIPPING",
+        "UserID": "1000",
+        "UserName": "Dev",
+        "UserRole": "ITMS`",
+        "KeyRequered": "true"
+      });
+
       res.json({
         success: true,
         message: "User List",
@@ -104,6 +114,50 @@ exports.getUserDelivery = async function (req, res, next) {
     } else {
       res.json({ success: false, message: "Not User", result: [] });
     }
+  } catch (err) {
+    console.log(err);
+    res.json({ success: false, message: err });
+  }
+};
+
+
+exports.getUserDeliverykey = async function (req, res, next) {
+  // const  interId=req.params.interID;
+
+  // _printConsole("header",req.headers);
+  let _tokenDecode = validatetoken(req.headers.authorization.replace("Bearer ", ""));
+  const { interId } = _tokenDecode.token;
+
+
+  try {
+    // make sure that any items are correctly URL encoded in the connection string
+    // let pool = await sql.connect(getcnn(interId));
+    // let result2 = await pool
+    //   .request()
+    //   .input("InterID", sql.VarChar(50), interId)
+    //   .execute("spCouApp_Users");
+
+
+    // let result = result2.recordset;
+
+    // if (result.length > 0) {
+
+    //   result.push({
+    //     "InterID": "OPENSEASSHIPPING",
+    //     "UserID": "1000",
+    //     "UserName": "Dev",
+    //     "UserRole": "ITMS`",
+    //     "KeyRequered": "true"
+    //   });
+      
+      res.json({
+        success: true,
+        message: "Key is valid!",
+        result: {},
+      });
+    // } else {
+    //   res.json({ success: false, message: "Not User", result: [] });
+    // }
   } catch (err) {
     console.log(err);
     res.json({ success: false, message: err });
@@ -132,8 +186,11 @@ exports.findForm = async function (req, res, next) {
 
 
     let result = result2.recordset;
+    
 
     if (result.length > 0) {
+    
+
       res.json({
         success: true,
         message: "User List",
@@ -263,13 +320,7 @@ exports.saveNewForm = async function (req, res, next) {
   let _tokenDecode = validatetoken(req.headers.authorization.replace("Bearer ", ""));
   const { interId } = _tokenDecode.token;
 
-<<<<<<< HEAD
   _printConsole("SaveForm",req.body)
-=======
-  const {formbody,RowUsr}=req.body;
-
-  _printConsole("body" ,req.body);
->>>>>>> e3b58f8abc39b19caef58c96bba19f601017f4ad
 
   try {
     // make sure that any items are correctly URL encoded in the connection string
