@@ -354,7 +354,7 @@ const {RowUsr,formbody }=req.body;
       .input("RowUsr", sql.VarChar(50), RowUsr) /*						varchar(50)		--*/
 
    /* --SenderInfo*/
-      .input("PaqueteSenderID", sql.VarChar(50), formbody["shippingform-01-01"]) /*				varchar(50)		-- shippingform-01-01*/
+      .input("PaqueteSenderID", sql.VarChar(50), "001") /*				varchar(50)		-- shippingform-01-01*/
       .input("PaqueteSenderNombre", sql.VarChar(100), formbody["shippingform-01-02"]) /*			varchar(100)	-- shippingform-01-02*/
       .input("PaqueteSenderDireccion", sql.VarChar(4000), formbody["shippingform-01-03"]) /*		varchar(4000)	-- shippingform-01-03*/
       .input("PaqueteSenderTel1", sql.VarChar(50), formbody["shippingform-01-04"]) /*				varchar(50)		-- shippingform-01-04*/
@@ -362,7 +362,7 @@ const {RowUsr,formbody }=req.body;
       .input("PaqueteSenderIdetificacionVence", sql.VarChar(50), formbody["shippingform-01-07"]) /*varchar(20)		-- shippingform-01-07*/
 
   /*  --RecieverInfo*/
-      .input("PaqueteRecieverID", sql.VarChar(50), formbody["shippingform-02-01"]) /*				varchar(50)		-- shippingform-02-01*/
+      .input("PaqueteRecieverID", sql.VarChar(50), "001") /*				varchar(50)		-- shippingform-02-01*/
       .input("PaqueteRecieverNombre", sql.VarChar(100), formbody["shippingform-02-02"]) /*			varchar(100)	-- shippingform-02-02*/
       .input("PaqueteRecieverDireccion", sql.VarChar(4000), formbody["shippingform-02-03"]) /*	varchar(4000)	-- shippingform-02-03*/
       .input("PaqueteRecieverTel1", sql.VarChar(50), formbody["shippingform-02-04"]) /*			varchar(50)		-- shippingform-02-04*/
