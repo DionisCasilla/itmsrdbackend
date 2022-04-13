@@ -5,12 +5,14 @@
         "description": "Sender Info",
         "code": "01",
         "enabled": true,
+        "requered": true,
         "id": "shippingform-01",
         "createdDate": "2022-13-00T00:00:00.0000000-00:00",
         "information": [
           {
             "description": "Code",
             "enabled": true,
+            "requered": true,
             "order": 1,
             "values": "",
             "type": "STRING",
@@ -20,6 +22,7 @@
           {
             "description": "Name",
             "enabled": true,
+            "requered": true,
             "order": 2,
             "values": "",
             "type": "STRING",
@@ -29,6 +32,7 @@
           {
             "description": "Address",
             "enabled": true,
+            "requered": true,
             "order": 3,
             "values": "",
             "type": "STRING",
@@ -38,6 +42,7 @@
           {
             "description": "Phone",
             "enabled": true,
+            "requered": true,
             "order": 4,
             "values": "",
             "type": "NUMBER",
@@ -47,6 +52,7 @@
           {
             "description": "Document Type",
             "enabled": true,
+            "requered": true,
             "order": 7,
             "values": "ID OR PASSPORT|DRIVERS LICENSE",
             "type": "LIST",
@@ -56,6 +62,7 @@
           {
             "description": "Document Number",
             "enabled": true,
+            "requered": true,
             "order": 8,
             "values": "",
             "type": "STRING",
@@ -65,6 +72,7 @@
           {
             "description": "Document Expires",
             "enabled": true,
+            "requered": true,
             "order": 9,
             "values": "",
             "type": "STRING",
@@ -78,12 +86,14 @@
         "description": "Reciever Info",
         "code": "02",
         "enabled": true,
+        "requered": true,
         "id": "shippingform-02",
         "createdDate": "2022-13-00T00:00:00.0000000-00:00",
         "information": [
           {
             "description": "Code",
             "enabled": true,
+            "requered": true,
             "order": 1,
             "values": "",
             "type": "STRING",
@@ -93,6 +103,7 @@
           {
             "description": "Name",
             "enabled": true,
+            "requered": true,
             "order": 2,
             "values": "",
             "type": "STRING",
@@ -102,24 +113,27 @@
           {
             "description": "Address",
             "enabled": true,
+            "requered": true,
             "order": 3,
             "values": "",
-            "type": "STRING",
+            "type": "TEXT",
             "id": "shippingform-02-03",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
           {
             "description": "Phone",
             "enabled": true,
+            "requered": true,
             "order": 4,
             "values": "",
-            "type": "STRING",
+            "type": "NUMBER",
             "id": "shippingform-02-04",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
           {
             "description": "Destination",
             "enabled": true,
+            "requered": true,
             "order": 5,
             "values": "SDQ - REP.DOM|TOR - TORTOLA",
             "type": "LIST",
@@ -129,6 +143,7 @@
           {
             "description": "City",
             "enabled": true,
+            "requered": true,
             "order": 6,
             "values": "",
             "type": "STRING",
@@ -143,12 +158,14 @@
         "description": "Package Description",
         "code": "03",
         "enabled": true,
+        "requered": true,
         "id": "shippingform-03",
         "createdDate": "2022-13-00T00:00:00.0000000-00:00",
         "information": [
           {
             "description": "Items",
             "enabled": true,
+            "requered": true,
             "order": 1,
             "values": "NEW CLOTHES|USED CLOTHES|SHOES|FRUITS AND VEGETABLES|LINGERIE|COOKWAVRE|AUTOMOTIVE PARTS|BEAUTY PRODUCTS|HOME APPLIANCES|WOODEN BOARDS|DRINKS|OTHERS",
             "type": "CHECKBOXLIST",
@@ -158,6 +175,7 @@
           {
             "description": "Specifications",
             "enabled": true,
+            "requered": true,
             "order": 2,
             "values": "",
             "type": "STRING",
@@ -167,6 +185,7 @@
           {
             "description": "Value",
             "enabled": true,
+            "requered": true,
             "order": 2,
             "values": "",
             "type": "DECIMAL",
@@ -176,6 +195,7 @@
           {
             "description": "Terms",
             "enabled": true,
+            "requered": true,
             "order": 4,
             "values": "DOOR TO DOOR DELIVERY REQUIRED|WILL PICK UP AT LOCATION",
             "type": "LIST",
@@ -189,21 +209,24 @@
         "description": "Shipping Options",
         "code": "04",
         "enabled": true,
+        "requered": true,
         "id": "shippingform-04",
         "createdDate": "2022-13-00T00:00:00.0000000-00:00",
         "information": [
           {
             "description": "Num Packages",
             "enabled": true,
+            "requered": true,
             "order": 1,
             "values": "",
-            "type": "INT",
+            "type": "NUMBER",
             "id": "shippingform-04-01",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
           {
             "description": "Packaging Type",
             "enabled": true,
+            "requered": true,
             "order": 2,
             "values": "",
             "type": "STRING",
@@ -213,33 +236,37 @@
           {
             "description": "L",
             "enabled": true,
+            "requered": true,
             "order": 4,
             "values": "0",
-            "type": "INT",
+            "type": "NUMBER",
             "id": "shippingform-04-03",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
           {
             "description": "W",
             "enabled": true,
+            "requered": true,
             "order": 4,
             "values": "0",
-            "type": "INT",
+            "type": "NUMBER",
             "id": "shippingform-04-04",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },       
           {
             "description": "H",
             "enabled": true,
+            "requered": true,
             "order": 4,
             "values": "0",
-            "type": "INT",
+            "type": "NUMBER",
             "id": "shippingform-04-05",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
           {
             "description": "Value",
             "enabled": true,
+            "requered": true,
             "order": 4,
             "values": "0",
             "type": "DECIMAL",
@@ -249,6 +276,7 @@
           {
             "description": "Special Handling",
             "enabled": true,
+            "requered": true,
             "order": 3,
             "values": "",
             "type": "STRING",
@@ -258,9 +286,10 @@
           {
             "description": "Insured",
             "enabled": true,
+            "requered": true,
             "order": 5,
             "values": "0",
-            "type": "INT",
+            "type": "NUMBER",
             "id": "shippingform-04-08",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           }
