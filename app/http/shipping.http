@@ -1,5 +1,5 @@
 ###
-GET http://192.168.10.235:8000/itmsshipping/apptoken/OPENSEASSHIPPING 
+GET http://192.168.0.3:8000/itmsshipping/apptoken/OPENSEASSHIPPING 
 
 {
 
@@ -7,15 +7,16 @@ GET http://192.168.10.235:8000/itmsshipping/apptoken/OPENSEASSHIPPING
 
 
 ###- Get Config
-GET http://192.168.10.235:8000/itmsshipping/userlist 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTcxMjQ1NCwiZXhwIjoxNjQ5NzM0MDU0fQ.3fBwVS4XWKqeaSHJSkU-I11CZnzINtofP86U9oxc_48
+GET http://192.168.0.3:8000/itmsshipping/userlist 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTgxMzgyOSwiZXhwIjoxNjQ5ODM1NDI5fQ.KUaanxsEvZPMEDAvLd0KKBIg2BVvcMtS0Xs67ctpvWA
+
 {
 
 }
 
 
 ###- Get User
-GET http://192.168.10.235:8000/itmsshipping/config/OPENSEASSHIPPING 
+GET http://192.168.0.3:8000/itmsshipping/config/OPENSEASSHIPPING 
 
 {
 
@@ -23,18 +24,18 @@ GET http://192.168.10.235:8000/itmsshipping/config/OPENSEASSHIPPING
 
 
 ###- Find Form
-GET  http://192.168.10.235:8000/itmsshipping/findForm/000000013/1 
+GET  http://192.168.0.3:8000/itmsshipping/findForm/000000013/1 
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTcxMjQ1NCwiZXhwIjoxNjQ5NzM0MDU0fQ.3fBwVS4XWKqeaSHJSkU-I11CZnzINtofP86U9oxc_48
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTgxMzgyOSwiZXhwIjoxNjQ5ODM1NDI5fQ.KUaanxsEvZPMEDAvLd0KKBIg2BVvcMtS0Xs67ctpvWA
 
 {
 
 }
 
 ###- Save Form
-post  http://192.168.10.235:8000/itmsshipping/saveForm
+post  http://192.168.0.3:8000/itmsshipping/saveForm
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTcxMjQ1NCwiZXhwIjoxNjQ5NzM0MDU0fQ.3fBwVS4XWKqeaSHJSkU-I11CZnzINtofP86U9oxc_48
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTgxMzgyOSwiZXhwIjoxNjQ5ODM1NDI5fQ.KUaanxsEvZPMEDAvLd0KKBIg2BVvcMtS0Xs67ctpvWA
 
 {
  "FormID": "91AB8A05-C867-4E64-AB98-AD2C8D3EA517", 
@@ -45,18 +46,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 
 
 ###- create Form
-get  http://192.168.10.235:8000/itmsshipping/createForm
+get  http://192.168.0.3:8000/itmsshipping/createForm
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTcxMjQ1NCwiZXhwIjoxNjQ5NzM0MDU0fQ.3fBwVS4XWKqeaSHJSkU-I11CZnzINtofP86U9oxc_48
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTgxMzgyOSwiZXhwIjoxNjQ5ODM1NDI5fQ.KUaanxsEvZPMEDAvLd0KKBIg2BVvcMtS0Xs67ctpvWA
 
 {
 
 }
 
 ###- create Form
-POST   http://192.168.10.235:8000/itmsshipping/saveNewForm
+POST   http://192.168.0.3:8000/itmsshipping/saveNewForm
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTcxMjQ1NCwiZXhwIjoxNjQ5NzM0MDU0fQ.3fBwVS4XWKqeaSHJSkU-I11CZnzINtofP86U9oxc_48
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY0OTgxMzgyOSwiZXhwIjoxNjQ5ODM1NDI5fQ.KUaanxsEvZPMEDAvLd0KKBIg2BVvcMtS0Xs67ctpvWA
 
 {
 "RowUsr":"dfsdfsdfsdfs",
