@@ -386,6 +386,7 @@ const {RowUsr,formbody }=req.body;
       .input("PaqueteContenidoTipoValor", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-06"])) /*		decimal(18,2)	-- shippingform-04-06*/
       .input("PaqueteContenidoManejo", sql.VarChar(100),formbody["shippingform-04-07"]) /*		varchar(100)	-- sshippingform-04-07*/
       .input("PaqueteAsegurado", sql.Int, parseInt(formbody["shippingform-04-08"]==='YES'?1:0))  /*				int				-- shippingform-04-08*/
+      .input("PaqueteFirmado", sql.NVarChar(sql.MAX), formbody["shippingform-04-09"].toString())  /*				int				-- shippingform-04-08*/
       .execute("spCouPaquetes");
 
 
