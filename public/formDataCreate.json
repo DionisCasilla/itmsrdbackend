@@ -65,7 +65,7 @@
             "enabled": true,
             "requered": true,
             "order": 9,
-            "values": "",
+            "values": "0",
             "type": "DATE",
             "id": "shippingform-01-07",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
@@ -218,7 +218,7 @@
           {
             "description": "L",
             "enabled": true,
-            "requered": true,
+            "requered": false,
             "order": 4,
             "values": "0",
             "type": "NUMBER",
@@ -228,7 +228,7 @@
           {
             "description": "W",
             "enabled": true,
-            "requered": true,
+            "requered": false,
             "order": 4,
             "values": "0",
             "type": "NUMBER",
@@ -238,7 +238,7 @@
           {
             "description": "H",
             "enabled": true,
-            "requered": true,
+            "requered": false,
             "order": 4,
             "values": "0",
             "type": "NUMBER",
@@ -248,7 +248,7 @@
           {
             "description": "Value",
             "enabled": true,
-            "requered": true,
+            "requered": false,
             "order": 4,
             "values": "0",
             "type": "NUMBER",
@@ -258,7 +258,7 @@
           {
             "description": "Special Handling",
             "enabled": true,
-            "requered": true,
+            "requered": false,
             "order": 3,
             "values": "",
             "type": "STRING",
@@ -272,6 +272,16 @@
             "order": 5,
             "values": "YES|NO",
             "type": "LIST",
+            "id": "shippingform-04-08",
+            "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+          },
+          {
+            "description": "Signature",
+            "enabled": true,
+            "requered": true,
+            "order": 6,
+            "values": "",
+            "type": "Signature",
             "id": "shippingform-04-08",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           }
