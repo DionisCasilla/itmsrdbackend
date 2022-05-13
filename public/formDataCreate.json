@@ -157,7 +157,7 @@
           {
             "description": "Specifications",
             "enabled": true,
-            "requered": true,
+            "requered": false,
             "order": 2,
             "values": "",
             "type": "STRING",
