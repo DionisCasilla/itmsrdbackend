@@ -10,7 +10,7 @@ var configEmpresas = {
   "OPENSEASSHIPPING": {
     "btnshippingform": false,
     "active": true,
-    "appversion":1,
+    "appversion":3,
     "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120422.apk"
   }
 }
@@ -249,16 +249,58 @@ exports.findForm = async function (req, res, next) {
       .execute("spCouApp_GetForm");
 
 
+
     let result = result2.recordset;
 
+ //  if(result==0) return  res.json({ success: false, message: "Not User", result: [] });
     if (result.length > 0) {
+  
       res.json({
         success: true,
         message: "User List",
         result: result,
       });
     } else {
-      res.json({ success: false, message: "Not User", result: [] });
+      res.json({ success: false, message: "Record not found", result: [] });
+    }
+  } catch (err) {
+    console.log(err);
+    res.json({ success: false, message: err });
+  }
+};
+
+exports.findFormPendientes = async function (req, res, next) {
+  // const  interId=req.params.interID;
+
+  // _printConsole("header",req.headers);
+  let _tokenDecode = validatetoken(req.headers.authorization.replace("Bearer ", ""));
+  const { interId } = _tokenDecode.token;
+
+
+  try {
+    // make sure that any items are correctly URL encoded in the connection string
+    let pool = await sql.connect(getcnn(interId));
+    let result2 = await pool
+      .request()
+      .input("InterID", sql.VarChar(50), interId)
+      .input("FormID", sql.VarChar(50),'')
+      .input("ModeID", sql.VarChar(50), 2)
+      .execute("spCouApp_GetForm");
+
+
+
+    let result = result2.recordset;
+
+ //  if(result==0) return  res.json({ success: false, message: "Not User", result: [] });
+    if (result.length > 0) {
+  
+      res.json({
+        success: true,
+        message: "Form Pending Signature",
+        result: result,
+      });
+    } else {
+      res.json({ success: false, message: "Records not found", result: [] });
     }
   } catch (err) {
     console.log(err);
@@ -343,7 +385,7 @@ const {RowUsr,formbody }=req.body;
 
     let pool = await sql.connect(getcnn(interId));
     let _PaqueteContenido=  `${formbody['shippingform-03-01']} ${formbody['shippingform-03-02']}`
-    console.log(_PaqueteContenido);
+    // console.log(_PaqueteContenido);
 
 
     let result2 = await pool
@@ -386,7 +428,8 @@ const {RowUsr,formbody }=req.body;
       .input("PaqueteContenidoTipoValor", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-06"])) /*		decimal(18,2)	-- shippingform-04-06*/
       .input("PaqueteContenidoManejo", sql.VarChar(100),formbody["shippingform-04-07"]) /*		varchar(100)	-- sshippingform-04-07*/
       .input("PaqueteAsegurado", sql.Int, parseInt(formbody["shippingform-04-08"]==='YES'?1:0))  /*				int				-- shippingform-04-08*/
-      .input("PaqueteFirmado", sql.NVarChar(sql.MAX), formbody["shippingform-04-09"].toString())  /*				int				-- shippingform-04-08*/
+      .input("PaqueteFirmado", sql.NVarChar(sql.MAX), formbody["shippingform-04-09"])  /*				int				-- shippingform-04-08*/
+      //.input("PaqueteContenidoPaquetes", sql.NVarChar(sql.MAX), "")  /*				int				-- shippingform-04-08*/
       .execute("spCouPaquetes");
 
 
