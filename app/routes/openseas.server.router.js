@@ -6,6 +6,7 @@ module.exports = function(app) {
     app.route('/itmsshipping/userkeyvalidate/:userkey').get(shipping.getUserDeliverykey);
     app.route('/itmsshipping/config/:interID').get(shipping.getconfig);
     app.route('/itmsshipping/findForm/:formId/:type').get(shipping.findForm);
+    app.route('/itmsshipping/findFormPending').get(shipping.findFormPendientes);
     app.route('/itmsshipping/saveForm').post(shipping.saveForm);
     app.route('/itmsshipping/saveNewForm').post(shipping.saveNewForm);
     app.route('/itmsshipping/createForm').get(shipping.createForm);
