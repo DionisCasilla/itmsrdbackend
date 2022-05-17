@@ -10,8 +10,8 @@ var configEmpresas = {
   "OPENSEASSHIPPING": {
     "btnshippingform": false,
     "active": true,
-    "appversion":3,
-    "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120422.apk"
+    "appversion":60,
+    "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120425.apk"
   }
 }
 
@@ -433,11 +433,12 @@ const {RowUsr,formbody }=req.body;
       .execute("spCouPaquetes");
 
 
-
+      _printConsole("asas",result2);
 
     let result = result2.recordset;
 
     _printConsole("asas",result[0]);
+
     if (result.length > 0) {
       let _empresa={};
      _empresa.InterEmail="Email: info@openseasvi.com";
