@@ -10,7 +10,7 @@ var configEmpresas = {
   "OPENSEASSHIPPING": {
     "btnshippingform": false,
     "active": true,
-    "appversion":60,
+    "appversion":5,
     "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120425.apk"
   }
 }
@@ -126,38 +126,41 @@ exports.getUserDeliverykey = async function (req, res, next) {
 
   // _printConsole("header",req.headers);
   let _tokenDecode = validatetoken(req.headers.authorization.replace("Bearer ", ""));
-  const { interId } = _tokenDecode.token;
+  const { interId, } = _tokenDecode.token;
 
 
   try {
     // make sure that any items are correctly URL encoded in the connection string
-    // let pool = await sql.connect(getcnn(interId));
-    // let result2 = await pool
-    //   .request()
-    //   .input("InterID", sql.VarChar(50), interId)
-    //   .execute("spCouApp_Users");
+    let pool = await sql.connect(getcnn(interId));
+    let result2 = await pool
+      .request()
+      .input("InterID", sql.VarChar(50), interId)
+      .input("Tipo", sql.Int, 1)
+      .input("UserID", sql.VarChar(50), req.params.userId)
+      .input("KeyValue", sql.VarChar(50), req.params.userkey)
+      .execute("spCouApp_Users");
 
 
-    // let result = result2.recordset;
+    let result = result2.recordset;
+console.log(result2);
+    if (result.length > 0) {
 
-    // if (result.length > 0) {
-
-    //   result.push({
-    //     "InterID": "OPENSEASSHIPPING",
-    //     "UserID": "1000",
-    //     "UserName": "Dev",
-    //     "UserRole": "ITMS`",
-    //     "KeyRequered": "true"
-    //   });
+      // result.push({
+      //   "InterID": "OPENSEASSHIPPING",
+      //   "UserID": "1000",
+      //   "UserName": "Dev",
+      //   "UserRole": "ITMS`",
+      //   "KeyRequered": "true"
+      // });
       
       res.json({
         success: true,
         message: "Key is valid!",
-        result: {},
+        result:{},
       });
-    // } else {
-    //   res.json({ success: false, message: "Not User", result: [] });
-    // }
+    } else {
+      res.json({ success: false, message: "Not User", result: [] });
+    }
   } catch (err) {
     console.log(err);
     res.json({ success: false, message: err });
