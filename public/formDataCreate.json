@@ -1,5 +1,7 @@
 {
   "OPENSEASSHIPPING":
+  {
+    "ENU":
 [
     {
         "description": "Sender Info",
@@ -118,14 +120,14 @@
             "requered": true,
             "order": 5,
             "values": "SDQ - REP.DOM|TOR - TORTOLA",
-            "type": "LIST",
+            "type": "LIST 2",
             "id": "shippingform-02-05",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
           {
             "description": "City",
-            "enabled": true,
-            "requered": true,
+            "enabled": false,
+            "requered": false,
             "order": 6,
             "values": "",
             "type": "STRING",
@@ -217,7 +219,7 @@
           },
           {
             "description": "L",
-            "enabled": true,
+            "enabled": false,
             "requered": false,
             "order": 4,
             "values": "0",
@@ -227,7 +229,7 @@
           },
           {
             "description": "W",
-            "enabled": true,
+            "enabled": false,
             "requered": false,
             "order": 4,
             "values": "0",
@@ -237,7 +239,7 @@
           },       
           {
             "description": "H",
-            "enabled": true,
+            "enabled": false,
             "requered": false,
             "order": 4,
             "values": "0",
@@ -288,6 +290,295 @@
         ]
       }
     ]
+  ,
+
+  "ES":[
+      {
+          "description": "Info de Envio",
+          "code": "01",
+          "enabled": true,
+          "requered": true,
+          "id": "shippingform-01",
+          "createdDate": "2022-13-00T00:00:00.0000000-00:00",
+          "information": [
+          
+            {
+              "description": "Nombre",
+              "enabled": true,
+              "requered": true,
+              "order": 2,
+              "values": "",
+              "type": "STRING",
+              "id": "shippingform-01-02",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Direccion",
+              "enabled": true,
+              "requered": true,
+              "order": 3,
+              "values": "",
+              "type": "TEXT",
+              "id": "shippingform-01-03",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Telefono",
+              "enabled": true,
+              "requered": true,
+              "order": 4,
+              "values": "",
+              "type": "NUMBER",
+              "id": "shippingform-01-04",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Tipo documento",
+              "enabled": true,
+              "requered": true,
+              "order": 7,
+              "values": "ID OR PASSPORTE|LICENCIA DE CONDUCIR",
+              "type": "LIST",
+              "id": "shippingform-01-05",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+                     {
+              "description": "Numero de documento",
+              "enabled": true,
+              "requered": true,
+              "order": 8,
+              "values": "",
+              "type": "STRING",
+              "id": "shippingform-01-06",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Fecha Expiracion Documento",
+              "enabled": true,
+              "requered": true,
+              "order": 9,
+              "values": "0",
+              "type": "DATE",
+              "id": "shippingform-01-07",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            }
+          ]
+        },
+  
+        {
+          "description": "Info del Receptor",
+          "code": "02",
+          "enabled": true,
+          "requered": true,
+          "id": "shippingform-02",
+          "createdDate": "2022-13-00T00:00:00.0000000-00:00",
+          "information": [
+     
+            {
+              "description": "Nombre",
+              "enabled": true,
+              "requered": true,
+              "order": 2,
+              "values": "",
+              "type": "STRING",
+              "id": "shippingform-02-02",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Direccion",
+              "enabled": true,
+              "requered": true,
+              "order": 3,
+              "values": "",
+              "type": "TEXT",
+              "id": "shippingform-02-03",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Telefono",
+              "enabled": true,
+              "requered": true,
+              "order": 4,
+              "values": "",
+              "type": "NUMBER",
+              "id": "shippingform-02-04",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Destino",
+              "enabled": true,
+              "requered": true,
+              "order": 5,
+              "values": "SDQ - REP.DOM|TOR - TORTOLA",
+              "type": "LIST",
+              "id": "shippingform-02-05",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Ciudad",
+              "enabled": false,
+              "requered": false,
+              "order": 6,
+              "values": "",
+              "type": "STRING",
+              "id": "shippingform-02-06",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            }
+          ]
+        },
+  
+  
+        {
+          "description": "Descripcion del paquete",
+          "code": "03",
+          "enabled": true,
+          "requered": true,
+          "id": "shippingform-03",
+          "createdDate": "2022-13-00T00:00:00.0000000-00:00",
+          "information": [
+            {
+              "description": "Elementos",
+              "enabled": true,
+              "requered": true,
+              "order": 1,
+              "values": "NEW CLOTHES|USED CLOTHES|SHOES|FRUITS AND VEGETABLES|LINGERIE|COOKWAVRE|AUTOMOTIVE PARTS|BEAUTY PRODUCTS|HOME APPLIANCES|WOODEN BOARDS|DRINKS|OTHERS",
+              "type": "CHECKBOXLIST",
+              "id": "shippingform-03-01",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Specifications",
+              "enabled": false,
+              "requered": false,
+              "order": 2,
+              "values": "",
+              "type": "STRING",
+              "id": "shippingform-03-02",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Valor",
+              "enabled": true,
+              "requered": true,
+              "order": 2,
+              "values": "",
+              "type": "DECIMAL",
+              "id": "shippingform-03-03",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Terminos",
+              "enabled": true,
+              "requered": true,
+              "order": 4,
+              "values": "DOOR TO DOOR DELIVERY REQUIRED|WILL PICK UP AT LOCATION",
+              "type": "LIST",
+              "id": "shippingform-03-04",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            }
+          ]
+        },
+  
+        {
+          "description": "Opciones de envío",
+          "code": "04",
+          "enabled": true,
+          "requered": true,
+          "id": "shippingform-04",
+          "createdDate": "2022-13-00T00:00:00.0000000-00:00",
+          "information": [
+            {
+              "description": "Número de paquetes",
+              "enabled": true,
+              "requered": true,
+              "order": 1,
+              "values": "",
+              "type": "NUMBER",
+              "id": "shippingform-04-01",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Tipo de embalaje",
+              "enabled": true,
+              "requered": true,
+              "order": 2,
+              "values": "",
+              "type": "STRING",
+              "id": "shippingform-04-02",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "L",
+              "enabled": true,
+              "requered": false,
+              "order": 4,
+              "values": "0",
+              "type": "NUMBER",
+              "id": "shippingform-04-03",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "W",
+              "enabled": false,
+              "requered": false,
+              "order": 4,
+              "values": "0",
+              "type": "NUMBER",
+              "id": "shippingform-04-04",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },       
+            {
+              "description": "H",
+              "enabled": false,
+              "requered": false,
+              "order": 4,
+              "values": "0",
+              "type": "NUMBER",
+              "id": "shippingform-04-05",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Valor",
+              "enabled": false,
+              "requered": false,
+              "order": 4,
+              "values": "0",
+              "type": "NUMBER",
+              "id": "shippingform-04-06",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Manejo especial",
+              "enabled": true,
+              "requered": false,
+              "order": 3,
+              "values": "",
+              "type": "STRING",
+              "id": "shippingform-04-07",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Asegurada",
+              "enabled": true,
+              "requered": true,
+              "order": 5,
+              "values": "YES|NO",
+              "type": "LIST",
+              "id": "shippingform-04-08",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Firma",
+              "enabled": true,
+              "requered": true,
+              "order": 6,
+              "values": "",
+              "type": "Signature",
+              "id": "shippingform-04-09",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            }
+          ]
+        }
+      ]
+    }
   }
-
-

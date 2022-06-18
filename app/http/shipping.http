@@ -8,7 +8,7 @@ GET http://192.168.8.189:8000/itmsshipping/apptoken/OPENSEASSHIPPING
 
 ###- Get Config
 GET http://192.168.8.189:8000/itmsshipping/userlist 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1MjQzOTk2OCwiZXhwIjoxNjUyNDYxNTY4fQ.0Jdc_-9Xs3FS_DFW6aRk4l1H9RkcGCd1PKV2pceq2VY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1NTU4NTY2MSwiZXhwIjoxNjU1NjA3MjYxfQ.rkm5KPfPhtbQHGuyGeGXdfS1yxxRMkKZZFUx86O3luQ
 
 {
 
@@ -26,7 +26,7 @@ GET http://192.168.8.189:8000/itmsshipping/config/OPENSEASSHIPPING
 ###- Find Form
 GET  http://192.168.8.189:8000/itmsshipping/findForm/000000013/1 
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1MjQzOTk2OCwiZXhwIjoxNjUyNDYxNTY4fQ.0Jdc_-9Xs3FS_DFW6aRk4l1H9RkcGCd1PKV2pceq2VY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1NTU4NTY2MSwiZXhwIjoxNjU1NjA3MjYxfQ.rkm5KPfPhtbQHGuyGeGXdfS1yxxRMkKZZFUx86O3luQ
 
 {
 
@@ -35,7 +35,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 ###- Find Form
 GET  http://192.168.8.189:8000/itmsshipping/findFormPending 
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1MjQzOTk2OCwiZXhwIjoxNjUyNDYxNTY4fQ.0Jdc_-9Xs3FS_DFW6aRk4l1H9RkcGCd1PKV2pceq2VY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1NTU4NTY2MSwiZXhwIjoxNjU1NjA3MjYxfQ.rkm5KPfPhtbQHGuyGeGXdfS1yxxRMkKZZFUx86O3luQ
 
 {
 
@@ -55,9 +55,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 
 
 ###- create Form
-get  http://192.168.8.189:8000/itmsshipping/createForm
+get  http://192.168.8.189:8000/itmsshipping/createForm/ENU
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1MjQzOTk2OCwiZXhwIjoxNjUyNDYxNTY4fQ.0Jdc_-9Xs3FS_DFW6aRk4l1H9RkcGCd1PKV2pceq2VY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1NTU4NTY2MSwiZXhwIjoxNjU1NjA3MjYxfQ.rkm5KPfPhtbQHGuyGeGXdfS1yxxRMkKZZFUx86O3luQ
 
 {
 
@@ -66,7 +66,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 ###- create Form
 POST   http://192.168.8.189:8000/itmsshipping/saveNewForm
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1MjQzOTk2OCwiZXhwIjoxNjUyNDYxNTY4fQ.0Jdc_-9Xs3FS_DFW6aRk4l1H9RkcGCd1PKV2pceq2VY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1NTU4NTY2MSwiZXhwIjoxNjU1NjA3MjYxfQ.rkm5KPfPhtbQHGuyGeGXdfS1yxxRMkKZZFUx86O3luQ
 
 {
 "RowUsr":"dfsdfsdfsdfs",
@@ -95,7 +95,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
     "shippingform-04-05": "8",
     "shippingform-04-06": "678",
     "shippingform-04-07": "hjkjhgkghjk hjk",
-    "shippingform-04-08": "YES"
+    "shippingform-04-08": "YES",
+    "shippingform-04-09":  "https://res.cloudinary.com/dfbwtygxk/image/upload/v1648179601/itms/shipping/firmas/hfjq6zzkwta8ot2mxdsz.png"
   }
 
 }
