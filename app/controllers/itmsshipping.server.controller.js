@@ -10,8 +10,8 @@ var configEmpresas = {
   "OPENSEASSHIPPING": {
     "btnshippingform": false,
     "active": true,
-    "appversion":3,
-    "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120422.apk"
+    "appversion":5,
+    "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120425.apk"
   }
 }
 
@@ -103,7 +103,8 @@ exports.getUserDelivery = async function (req, res, next) {
         "UserID": "1000",
         "UserName": "Dev",
         "UserRole": "ITMS",
-        "KeyRequered": "true"
+        "KeyRequered": "true",
+        "UserLangID": "ES"
       });
 
       res.json({
@@ -124,40 +125,43 @@ exports.getUserDelivery = async function (req, res, next) {
 exports.getUserDeliverykey = async function (req, res, next) {
   // const  interId=req.params.interID;
 
-  // _printConsole("header",req.headers);
+  _printConsole("header",req.headers);
   let _tokenDecode = validatetoken(req.headers.authorization.replace("Bearer ", ""));
-  const { interId } = _tokenDecode.token;
+  const { interId, } = _tokenDecode.token;
 
 
   try {
     // make sure that any items are correctly URL encoded in the connection string
-    // let pool = await sql.connect(getcnn(interId));
-    // let result2 = await pool
-    //   .request()
-    //   .input("InterID", sql.VarChar(50), interId)
-    //   .execute("spCouApp_Users");
+    let pool = await sql.connect(getcnn(interId));
+    let result2 = await pool
+      .request()
+      .input("InterID", sql.VarChar(50), interId)
+      .input("Tipo", sql.Int, 1)
+      .input("UserID", sql.VarChar(50), req.params.userId)
+      .input("KeyValue", sql.VarChar(50), req.params.userkey)
+      .execute("spCouApp_Users");
 
 
-    // let result = result2.recordset;
+    let result = result2.recordset;
 
-    // if (result.length > 0) {
+    if (result.length > 0) {
 
-    //   result.push({
-    //     "InterID": "OPENSEASSHIPPING",
-    //     "UserID": "1000",
-    //     "UserName": "Dev",
-    //     "UserRole": "ITMS`",
-    //     "KeyRequered": "true"
-    //   });
+      // result.push({
+      //   "InterID": "OPENSEASSHIPPING",
+      //   "UserID": "1000",
+      //   "UserName": "Dev",
+      //   "UserRole": "ITMS`",
+      //   "KeyRequered": "true"
+      // });
       
       res.json({
         success: true,
         message: "Key is valid!",
-        result: {},
+        result:{},
       });
-    // } else {
-    //   res.json({ success: false, message: "Not User", result: [] });
-    // }
+    } else {
+      res.json({ success: false, message: "Not User", result: [] });
+    }
   } catch (err) {
     console.log(err);
     res.json({ success: false, message: err });
@@ -211,6 +215,47 @@ exports.createForm = async function (req, res, next) {
   // _printConsole("header",req.headers);
   let _tokenDecode = validatetoken(req.headers.authorization.replace("Bearer ", ""));
   const { interId } = _tokenDecode.token;
+  const { language }=req.params;
+
+
+  let newForm=createformData[interId][language];
+
+
+  let pool = await sql.connect(getcnn(interId));
+
+  let result2 = await pool
+    .request()
+    .input("InterID", sql.VarChar(50), interId)
+    .execute("spCouApp_Cities");
+
+
+
+
+    
+  let result = result2.recordset;
+
+  let infoCiudades=[];
+   result.forEach(element => {
+    infoCiudades.push(
+      {
+        "description":element.CityText,
+        "enabled": true,
+        "requered": true,
+        "order": 0,
+        "values": element.CityText,
+        "type": "String",
+        "id": element.CityID,
+        "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+      },
+    )
+   }); 
+
+
+ _printConsole("Cliudades",infoCiudades)
+
+ let indexFormP =newForm.findIndex(form=>form.id==="shippingform-02");
+let newCityes= newForm[indexFormP].information.findIndex(info=>info.id==='shippingform-02-05');
+newForm[indexFormP].information[newCityes].information=infoCiudades;
 
 
   try {
@@ -218,7 +263,7 @@ exports.createForm = async function (req, res, next) {
     res.json({
       success: true,
       message: "Create Formulario",
-      result: createformData[interId],
+      result: newForm,
     });
     // } else {
     //   res.json({ success: false, message: "Not User", result: [] });
@@ -379,8 +424,7 @@ exports.saveNewForm = async function (req, res, next) {
 const{ PackNumber,PackID}= result2sq.recordset[0];
 const {RowUsr,formbody }=req.body;
 
-// console.log(PackNumber);
-// console.log(PackID);
+
 
 
     let pool = await sql.connect(getcnn(interId));
@@ -411,7 +455,7 @@ const {RowUsr,formbody }=req.body;
 
    /* --Destination*/
       .input("PaqueteCiudadID", sql.VarChar(50), formbody["shippingform-02-05"]) /*				varchar(50)		-- shippingform-02-05*/
-      .input("PaqueteCiudadTexto", sql.VarChar(50), formbody["shippingform-02-06"]) /*		varchar(50)		-- shippingform-02-06*/
+      .input("PaqueteCiudadTexto", sql.VarChar(50), /*formbody["shippingform-02-06"]*/"") /*		varchar(50)		-- shippingform-02-06*/
 
    /* --PackageDescription*/
 
@@ -421,9 +465,9 @@ const {RowUsr,formbody }=req.body;
   /*  --ShippingOptions*/
       .input("PaqueteContenidoTipoCantidad", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-01"])) /*	decimal(18,2)	-- shippingform-04-01*/
       .input("PaqueteContenidoTipo", sql.VarChar(100), formbody["shippingform-04-02"]) /*			varchar(100)	-- shippingform-04-02*/
-      .input("PaqueteContenidoL", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-03"])) /*				decimal(18,2)	-- shippingform-04-03*/
-      .input("PaqueteContenidoW", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-04"])) /*				decimal(18,2)	-- shippingform-04-04*/
-      .input("PaqueteContenidoH", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-05"])) /*				decimal(18,2)	-- shippingform-04-05*/
+      .input("PaqueteContenidoL", sql.Decimal(18,2), /*parseFloat(formbody["shippingform-04-03"])->EL cliente pidio quitar estos campos*/parseFloat( 0.0)) /*				decimal(18,2)	-- shippingform-04-03*/
+      .input("PaqueteContenidoW", sql.Decimal(18,2),  /*parseFloat(formbody["shippingform-04-04"])->EL cliente pidio quitar estos campos */parseFloat(0.0)) /*				decimal(18,2)	-- shippingform-04-04*/
+      .input("PaqueteContenidoH", sql.Decimal(18,2), /*parseFloat(formbody["shippingform-04-05"])->EL cliente pidio quitar estos campos*/parseFloat(0.0)) /*				decimal(18,2)	-- shippingform-04-05*/
 
       .input("PaqueteContenidoTipoValor", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-06"])) /*		decimal(18,2)	-- shippingform-04-06*/
       .input("PaqueteContenidoManejo", sql.VarChar(100),formbody["shippingform-04-07"]) /*		varchar(100)	-- sshippingform-04-07*/
@@ -432,12 +476,13 @@ const {RowUsr,formbody }=req.body;
       //.input("PaqueteContenidoPaquetes", sql.NVarChar(sql.MAX), "")  /*				int				-- shippingform-04-08*/
       .execute("spCouPaquetes");
 
-
-
+    _printConsole("Data",pool.query)
+      // _printConsole("asas",result2);
 
     let result = result2.recordset;
 
-    _printConsole("asas",result[0]);
+    // _printConsole("asas",result[0]);
+
     if (result.length > 0) {
       let _empresa={};
      _empresa.InterEmail="Email: info@openseasvi.com";
