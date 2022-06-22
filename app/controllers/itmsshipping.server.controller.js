@@ -10,8 +10,8 @@ var configEmpresas = {
   "OPENSEASSHIPPING": {
     "btnshippingform": false,
     "active": true,
-    "appversion":5,
-    "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120425.apk"
+    "appversion":7,
+    "urldonwload":"http://plus.itmsrd.com/apk/app-release-1.0.7.apk"
   }
 }
 
