@@ -4,7 +4,7 @@ const cnxConfig = require('../../config/sqlcnx.json')
 const createformData = require('../../public/formDataCreate.json')
 const sql = require("mssql");
 const { _crearToken, validatetoken } = require("../utils/token.server.utils");
-const { max } = require("moment");
+const { max, now } = require("moment");
 
 var configEmpresas = {
   "OPENSEASSHIPPING": {
@@ -218,44 +218,22 @@ exports.createForm = async function (req, res, next) {
   const { language }=req.params;
 
 
-  let newForm=createformData[interId][language];
+let newForm=createformData[interId][language];
 
-
-  let pool = await sql.connect(getcnn(interId));
-
-  let result2 = await pool
-    .request()
-    .input("InterID", sql.VarChar(50), interId)
-    .execute("spCouApp_Cities");
-
-
-
-
-    
-  let result = result2.recordset;
-
-  let infoCiudades=[];
-   result.forEach(element => {
-    infoCiudades.push(
-      {
-        "description":element.CityText,
-        "enabled": true,
-        "requered": true,
-        "order": 0,
-        "values": element.CityText,
-        "type": "String",
-        "id": element.CityID,
-        "createdDate": "2022-13-00T00:00:00.0000000-00:00"
-      },
-    )
-   }); 
-
-
- _printConsole("Cliudades",infoCiudades)
-
- let indexFormP =newForm.findIndex(form=>form.id==="shippingform-02");
+//LISTADO DE Ciudades
+let indexFormP =newForm.findIndex(form=>form.id==="shippingform-02");
 let newCityes= newForm[indexFormP].information.findIndex(info=>info.id==='shippingform-02-05');
-newForm[indexFormP].information[newCityes].information=infoCiudades;
+newForm[indexFormP].information[newCityes].information=await getCiudades(interId);
+
+//formas de pago   
+let indexPForma =newForm.findIndex(form=>form.id==="shippingform-04");
+let fpa= newForm[indexPForma].information.findIndex(info=>info.id==='shippingform-04-11');
+newForm[indexPForma].information[fpa].information=await getformasPago();
+
+//Lista Items
+let indexItems =newForm.findIndex(form=>form.id==="shippingform-03");
+let itemsindex= newForm[indexItems].information.findIndex(info=>info.id==='shippingform-03-01');
+newForm[indexItems].information[itemsindex].values=await getListadoItems(interId);
 
 
   try {
@@ -412,17 +390,23 @@ exports.saveNewForm = async function (req, res, next) {
   try {
     // make sure that any items are correctly URL encoded in the connection string
 
+    const {RowUsr,formbody }=req.body;
+
+    if(formbody["shippingform-04-11"]!="0" &&formbody["shippingform-04-10"]===""){
+    return  res.json({ success: false, message: "Amount Paid is requered", result: [] });
+    }
+    
+
+
     let pool2 = await sql.connect(getcnn(interId));
     let result2sq = await pool2
       .request()
       .input("InterID", sql.VarChar(50), interId)
       .execute("spCouApp_Secuence");
-
+    const{ PackNumber,PackID}= result2sq.recordset[0];
 
 // _printConsole("seq",result2sq.recordset);
 
-const{ PackNumber,PackID}= result2sq.recordset[0];
-const {RowUsr,formbody }=req.body;
 
 
 
@@ -472,6 +456,8 @@ const {RowUsr,formbody }=req.body;
       .input("PaqueteContenidoTipoValor", sql.Decimal(18,2), parseFloat(formbody["shippingform-04-06"])) /*		decimal(18,2)	-- shippingform-04-06*/
       .input("PaqueteContenidoManejo", sql.VarChar(100),formbody["shippingform-04-07"]) /*		varchar(100)	-- sshippingform-04-07*/
       .input("PaqueteAsegurado", sql.Int, parseInt(formbody["shippingform-04-08"]==='YES'?1:0))  /*				int				-- shippingform-04-08*/
+      .input("PaquetePagado",sql.Decimal(18,2), parseFloat(formbody["shippingform-04-10"]===""?0:formbody["shippingform-04-10"]))  /*				int				-- shippingform-04-08*/
+      .input("PaquetePagadoTipo", sql.Int, parseInt(formbody["shippingform-04-11"]))  /*				int				-- shippingform-04-08*/
       .input("PaqueteFirmado", sql.NVarChar(sql.MAX), formbody["shippingform-04-09"])  /*				int				-- shippingform-04-08*/
       //.input("PaqueteContenidoPaquetes", sql.NVarChar(sql.MAX), "")  /*				int				-- shippingform-04-08*/
       .execute("spCouPaquetes");
@@ -526,3 +512,85 @@ exports.getconfig = async function (req, res, next) {
   }
 
 };
+
+getCiudades=async (interId) =>{
+  let pool = await sql.connect(getcnn(interId));
+
+  let result2 = await pool
+    .request()
+    .input("InterID", sql.VarChar(50), interId)
+    .execute("spCouApp_Cities");
+
+
+
+
+    
+  let result = result2.recordset;
+
+  let infoCiudades=[];
+   result.forEach(element => {
+    infoCiudades.push(
+      {
+        "description":element.CityText,
+        "enabled": true,
+        "requered": true,
+        "order": 0,
+        "values": element.CityText,
+        "type": "String",
+        "id": element.CityID,
+        "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+      },
+    )
+   }); 
+
+   return infoCiudades;
+}
+
+getListadoItems=async (interId) =>{
+  let pool = await sql.connect(getcnn(interId));
+
+  let result2 = await pool
+    .request()
+    .input("InterID", sql.VarChar(50), interId)
+    .execute("spCouApp_Items");
+    
+  let result = result2.recordset;
+
+  let infoItems="";
+   result.forEach(element => {
+   infoItems+=`${element.ItemText}|`
+   }); 
+ 
+ //  _printConsole("Items",infoItems)
+   return infoItems.slice(0,-1);
+}
+
+
+getformasPago=async () =>{
+  let _formasPago=[];
+  formasPago.forEach(fp => {
+    _formasPago.push(
+        {
+          "description":fp.descripcion,
+          "enabled": true,
+          "requered": true,
+          "order":  fp.id,
+          "values": fp.descripcion,
+          "type": "String",
+          "id": fp.id,
+          "createdDate":now()
+        },
+      )
+     }); 
+
+   return _formasPago;
+}
+
+let formasPago = [
+  { id: 0, descripcion: "NONE" },
+  { id: 1, descripcion: "CASH" },
+  { id: 2, descripcion: "CREDIT CARD" },
+  { id: 3, descripcion: "CHECK" },
+  { id: 4, descripcion: "CASHAPP" },
+  { id: 5, descripcion: "BANK TRANSFFER" },
+];

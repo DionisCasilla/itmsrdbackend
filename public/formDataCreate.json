@@ -152,13 +152,13 @@
             "requered": true,
             "order": 1,
             "values": "NEW CLOTHES|USED CLOTHES|SHOES|FRUITS AND VEGETABLES|LINGERIE|COOKWAVRE|AUTOMOTIVE PARTS|BEAUTY PRODUCTS|HOME APPLIANCES|WOODEN BOARDS|DRINKS|OTHERS",
-            "type": "CHECKBOXLIST",
+            "type": "LISTMULTISELECT",
             "id": "shippingform-03-01",
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
           {
             "description": "Specifications",
-            "enabled": true,
+            "enabled": false,
             "requered": false,
             "order": 2,
             "values": "",
@@ -278,10 +278,30 @@
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
           {
-            "description": "Signature",
+            "description": "Way to pay",
             "enabled": true,
             "requered": true,
             "order": 6,
+            "values": "",
+            "type": "LIST 2",
+            "id": "shippingform-04-11",
+            "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+          },
+          {
+            "description": "Amount Paid",
+            "enabled": true,
+            "requered": false,
+            "order": 7,
+            "values": "",
+            "type": "DECIMAL",
+            "id": "shippingform-04-10",
+            "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+          },
+          {
+            "description": "Signature",
+            "enabled": true,
+            "requered": true,
+            "order": 8,
             "values": "",
             "type": "Signature",
             "id": "shippingform-04-09",
@@ -442,7 +462,7 @@
               "requered": true,
               "order": 1,
               "values": "NEW CLOTHES|USED CLOTHES|SHOES|FRUITS AND VEGETABLES|LINGERIE|COOKWAVRE|AUTOMOTIVE PARTS|BEAUTY PRODUCTS|HOME APPLIANCES|WOODEN BOARDS|DRINKS|OTHERS",
-              "type": "CHECKBOXLIST",
+              "type": "LISTMULTISELECT",
               "id": "shippingform-03-01",
               "createdDate": "2022-13-00T00:00:00.0000000-00:00"
             },
@@ -565,6 +585,26 @@
               "values": "YES|NO",
               "type": "LIST",
               "id": "shippingform-04-08",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Forma de Pago",
+              "enabled": true,
+              "requered": true,
+              "order": 6,
+              "values": "",
+              "type": "LIST 2",
+              "id": "shippingform-04-11",
+              "createdDate": "2022-13-00T00:00:00.0000000-00:00"
+            },
+            {
+              "description": "Monto Pagado",
+              "enabled": true,
+              "requered": true,
+              "order": 7,
+              "values": "",
+              "type": "DECIMAL",
+              "id": "shippingform-04-10",
               "createdDate": "2022-13-00T00:00:00.0000000-00:00"
             },
             {
