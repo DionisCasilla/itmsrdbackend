@@ -10,8 +10,8 @@ var configEmpresas = {
   "OPENSEASSHIPPING": {
     "btnshippingform": false,
     "active": true,
-    "appversion":7,
-    "urldonwload":"http://plus.itmsrd.com/apk/app-release-1.0.7.apk"
+    "appversion":8,
+    "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120422.apk"
   }
 }
 
@@ -412,7 +412,7 @@ exports.saveNewForm = async function (req, res, next) {
 
 
     let pool = await sql.connect(getcnn(interId));
-    let _PaqueteContenido=  `${formbody['shippingform-03-01']} ${formbody['shippingform-03-02']}`
+    let _PaqueteContenido=  `${formbody['shippingform-03-01']}`
     // console.log(_PaqueteContenido);
 
 
