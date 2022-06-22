@@ -248,7 +248,7 @@
             "createdDate": "2022-13-00T00:00:00.0000000-00:00"
           },
           {
-            "description": "Value",
+            "description": "Amount to Collect",
             "enabled": true,
             "requered": false,
             "order": 4,
@@ -558,7 +558,7 @@
               "createdDate": "2022-13-00T00:00:00.0000000-00:00"
             },
             {
-              "description": "Valor",
+              "description": "Cantidad a cobrar",
               "enabled": false,
               "requered": false,
               "order": 4,
