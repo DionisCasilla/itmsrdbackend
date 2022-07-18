@@ -106,7 +106,7 @@ exports.getUserDelivery = async function (req, res, next) {
         "KeyRequered": "true",
         "UserLangID": "ES"
       });
-
+console.log(result);
       res.json({
         success: true,
         message: "User List",
@@ -405,12 +405,6 @@ exports.saveNewForm = async function (req, res, next) {
       .execute("spCouApp_Secuence");
     const{ PackNumber,PackID}= result2sq.recordset[0];
 
-// _printConsole("seq",result2sq.recordset);
-
-
-
-
-
     let pool = await sql.connect(getcnn(interId));
     let _PaqueteContenido=  `${formbody['shippingform-03-01']}`
     // console.log(_PaqueteContenido);
@@ -458,7 +452,8 @@ exports.saveNewForm = async function (req, res, next) {
       .input("PaqueteAsegurado", sql.Int, parseInt(formbody["shippingform-04-08"]==='YES'?1:0))  /*				int				-- shippingform-04-08*/
       .input("PaquetePagado",sql.Decimal(18,2), parseFloat(formbody["shippingform-04-10"]===""?0:formbody["shippingform-04-10"]))  /*				int				-- shippingform-04-08*/
       .input("PaquetePagadoTipo", sql.Int, parseInt(formbody["shippingform-04-11"]))  /*				int				-- shippingform-04-08*/
-      .input("PaqueteFirmado", sql.NVarChar(sql.MAX), formbody["shippingform-04-09"])  /*				int				-- shippingform-04-08*/
+      .input("PaqueteFirmado", sql.NVarChar(sql.MAX), formbody["shippingform-04-09"]) 
+      .input("PaqueteIdTemporal", sql.VarChar(50), formbody["guid"]??"") /*	 /*				int				-- shippingform-04-08*/
       //.input("PaqueteContenidoPaquetes", sql.NVarChar(sql.MAX), "")  /*				int				-- shippingform-04-08*/
       .execute("spCouPaquetes");
 
@@ -475,10 +470,84 @@ exports.saveNewForm = async function (req, res, next) {
      _empresa.InterDireccion="Mapony Building, Bldg 1, Unit 2 Duff Bottom, Tortola British Virgin Islands";
      _empresa.InterTelefono="Tel.:BVI: 284-441-3019 Rep. Dom.: 1-829-704-1067";
      _empresa.EmpresaName="Open Seas Shipping";
+
+    
       let respuesta={
         empresa:_empresa,
         ordenInfo:result[0]
       }
+
+    // let respuesta={
+    //   empresa: {
+    //     InterEmail: 'Email: info@openseasvi.com',
+    //     InterDireccion: 'Mapony Building, Bldg 1, Unit 2 Duff Bottom, Tortola British Virgin Islands',
+    //     InterTelefono: 'Tel.:BVI: 284-441-3019 Rep. Dom.: 1-829-704-1067',
+    //     EmpresaName: 'Open Seas Shipping'
+    //   },
+    //   ordenInfo: {
+    //     InterID: 'OPENSEASSHIPPING',
+    //     PaqueteID: 'OSS-0000046',
+    //     PaqueteNumero: 'AEEDAA7F-3876-41DB-865D-FDDAA41F1ABF',
+    //     PaqueteEnvioTipoID: 1,
+    //     PaqueteClienteID: '001',
+    //     PaqueteEstatusID: 'PEN',
+    //     PaqueteTracking: 'OSS-0000046',
+    //     PaqueteRetenido: 0,
+    //     PaqueteFechaEntrega: '2022-07-11T22:25:22.517Z',
+    //     PaqueteDestinoID: 'BVI',
+    //     PaqueteProveedor: 'OPENSEASSHIPPING',
+    //     PaqueteContenido: 'ITEMS: NEW CLOTHES-ROPA NUEVA',
+    //     PaqueteContenidoPaquetes: '5686868.00',
+    //     PaqueteContenidoFecha1: '11-07-2022',
+    //     PaqueteContenidoFecha2: '11-07-2022',
+    //     PaqueteContenidoTipoID: 'CON',
+    //     PaqueteContenidoTipo: 'DJDJX JF',
+    //     PaqueteContenidoL: 0,
+    //     PaqueteContenidoW: 0,
+    //     PaqueteContenidoH: 0,
+    //     PaqueteContenidoTipoCantidad: 5686868,
+    //     PaqueteContenidoTipoValor: 5888,
+    //     PaqueteContenidoTipoTotal: 5888,
+    //     PaqueteContenidoManejo: 'RXKZKX',
+    //     PaqueteContenidoPeso: 0,
+    //     PaqueteContenidoVolumen: 0,
+    //     PaqueteContenidoBalance: 5686868,
+    //     PaqueteFacturaTotal: 5888,
+    //     PaqueteAsegurado: 1,
+    //     PaqueteFacturaID: 'AEEDAA7F-3876-41DB-865D-FDDAA41F1ABF',
+    //     PaqueteSenderID: '001',
+    //     PaqueteSenderNombre: 'CJXNXNNX',
+    //     PaqueteSenderDireccion: 'CNXNCNMXNC',
+    //     PaqueteSenderTel1: '(889) 88-',
+    //     PaqueteSenderIdetificacionTipo: 2,
+    //     PaqueteSenderIdetificacionID: 'XJSCNDNXNZLS',
+    //     PaqueteRecieverID: '001',
+    //     PaqueteRecieverNombre: 'FJXJXNXNXB',
+    //     PaqueteRecieverDireccion: 'XNZNXNMXNX',
+    //     PaqueteRecieverTel1: '(889) 88-',
+    //     PaquetePrioridadID: 2,
+    //     RowAct: 1,
+    //     RowUsr: '0004',
+    //     RowCdt: '2022-07-11T22:25:22.517Z',
+    //     RowMdt: '2022-07-11T22:25:22.517Z',
+    //     RowIdx: 94,
+    //     PaqueteTrackingEstatusID: 0,
+    //     PaqueteCiudadID: 'BVI0001',
+    //     PaqueteCiudadTexto: 'BVI',
+    //     PaqueteSenderIdetificacionVence: '12/07/2022',
+    //     PaqueteEntregado: 0,
+    //     PaqueteEntregadoFecha: '',
+    //     PaqueteEntregadoNombre: '',
+    //     PaqueteEntregadoUsuarioID: '',
+    //     PaqueteEntregadoUsuarioNombre: '',
+    //     PaqueteEntregadoFirma: '',
+    //     PaqueteFirmado: 'https://res.cloudinary.com/dfbwtygxk/image/upload/v1657603521/itms/shipping/firmas/4eb13dbb-aac9-4b11-9641-99074cb6a68a.png',
+    //     PaquetePagado: 800,
+    //     PaquetePagadoTipo: 2,
+    //     PaqueteIdTemporal: ""
+    //   }}
+    
+
 
       console.log(respuesta);
       res.json({
@@ -486,6 +555,7 @@ exports.saveNewForm = async function (req, res, next) {
         message: "Order Complete.",
         result: respuesta,
       });
+
     } else {
       res.json({ success: false, message: "Not User", result: [] });
     }
