@@ -1,5 +1,5 @@
 ###
-GET https://itmsrdbackend.herokuapp.com/itmsshipping/apptoken/OPENSEASSHIPPING 
+GET http://192.168.0.3:8000/itmsshipping/apptoken/OPENSEASSHIPPING 
 
 {
 
@@ -7,8 +7,8 @@ GET https://itmsrdbackend.herokuapp.com/itmsshipping/apptoken/OPENSEASSHIPPING
 
 
 ###- Get Config
-GET https://itmsrdbackend.herokuapp.com/itmsshipping/userlist 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1ODE4NjM4NiwiZXhwIjoxNjU4MjA3OTg2fQ.lc-D4kEzzc_us224uKcl7aPYOHTMzmwuIvoa2EUSKRc
+GET http://192.168.0.3:8000/itmsshipping/userlist 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1ODg4NzkxMCwiZXhwIjoxNjU4OTA5NTEwfQ.EV3l99Y0jSZa3lYKKgEV12KH86zI4-6uu5hrPAsLhzg
 
 {
 
