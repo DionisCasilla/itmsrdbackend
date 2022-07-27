@@ -11,7 +11,7 @@ var configEmpresas = {
     "btnshippingform": false,
     "active": true,
     "appversion":10,
-    "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120422v10.apk"
+    "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120422.apk"
   }
 }
 
