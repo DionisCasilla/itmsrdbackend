@@ -10,8 +10,8 @@ var configEmpresas = {
   "OPENSEASSHIPPING": {
     "btnshippingform": false,
     "active": true,
-    "appversion":9,
-    "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120422.apk"
+    "appversion":10,
+    "urldonwload":"http://plus.itmsrd.com/apk/ItmsShippingApp-120422v10.apk"
   }
 }
 
@@ -21,6 +21,7 @@ var configEmpresas = {
 function getcnn(interID) {
 
   // _printConsole(cnxConfig[interID]);
+ // let newInterId="OPENSEASSHIPPINGDev";
 
   return {
     user: cnxConfig[interID]["user"],
@@ -98,15 +99,15 @@ exports.getUserDelivery = async function (req, res, next) {
 
     if (result.length > 0) {
 
-      result.push({
-        "InterID": "OPENSEASSHIPPING",
-        "UserID": "1000",
-        "UserName": "Dev",
-        "UserRole": "ITMS",
-        "KeyRequered": "true",
-        "UserLangID": "ES"
-      });
-console.log(result);
+      // result.push({
+      //   "InterID": "OPENSEASSHIPPING",
+      //   "UserID": "1000",
+      //   "UserName": "Dev",
+      //   "UserRole": "ITMS",
+      //   "KeyRequered": "true",
+      //   "UserLangID": "ES"
+      // });
+// console.log(result);
       res.json({
         success: true,
         message: "User List",
@@ -125,7 +126,7 @@ console.log(result);
 exports.getUserDeliverykey = async function (req, res, next) {
   // const  interId=req.params.interID;
 
-  _printConsole("header",req.headers);
+  // _printConsole("header",req.headers);
   let _tokenDecode = validatetoken(req.headers.authorization.replace("Bearer ", ""));
   const { interId, } = _tokenDecode.token;
 
@@ -457,7 +458,7 @@ exports.saveNewForm = async function (req, res, next) {
       //.input("PaqueteContenidoPaquetes", sql.NVarChar(sql.MAX), "")  /*				int				-- shippingform-04-08*/
       .execute("spCouPaquetes");
 
-    _printConsole("Data",pool.query)
+   // _printConsole("Data",pool.query)
       // _printConsole("asas",result2);
 
     let result = result2.recordset;
@@ -557,11 +558,11 @@ exports.saveNewForm = async function (req, res, next) {
       });
 
     } else {
-      res.json({ success: false, message: "Not User", result: [] });
+      res.json({ success: false, message: "Not User", result: {} });
     }
   } catch (err) {
     console.log(err);
-    res.json({ success: false, message: "Please Try again." });
+    res.json({ success: false, message: "Please Try again.", result: {} });
   }
 };
 
@@ -577,7 +578,7 @@ exports.getconfig = async function (req, res, next) {
       result: configEmpresas[interId],
     });
   } catch (error) {
-    console.log(error);
+  //  console.log(error);
     res.json({ success: false, message: error });
   }
 
