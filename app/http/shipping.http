@@ -1,5 +1,5 @@
 ###
-GET http://192.168.0.3:8000/itmsshipping/apptoken/OPENSEASSHIPPING 
+GET http://localhost:8001/itmsshipping/apptoken/OPENSEASSHIPPING 
 
 {
 
@@ -7,8 +7,8 @@ GET http://192.168.0.3:8000/itmsshipping/apptoken/OPENSEASSHIPPING
 
 
 ###- Get Config
-GET http://192.168.0.3:8000/itmsshipping/userlist 
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1ODg4NzkxMCwiZXhwIjoxNjU4OTA5NTEwfQ.EV3l99Y0jSZa3lYKKgEV12KH86zI4-6uu5hrPAsLhzg
+GET http://localhost:8001/itmsshipping/userlist 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY2Mzc4MjQ1NywiZXhwIjoxNjYzODA0MDU3fQ.Z5A1_5EXynRLp9Qlc3fOTN-98FwG-ORnFeQRdjnzIqk
 
 {
 
@@ -55,9 +55,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 
 
 ###- create Form
-get  http://192.168.0.3:8000/itmsshipping/createForm/ENU
+get  http://localhost:8001/itmsshipping/createForm/
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY1ODE4NjM4NiwiZXhwIjoxNjU4MjA3OTg2fQ.lc-D4kEzzc_us224uKcl7aPYOHTMzmwuIvoa2EUSKRc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY2Mzc3Mjk2MSwiZXhwIjoxNjYzNzk0NTYxfQ.DN96X7sFjWld65PAFNNgY9pFZlFUwrkLgnUDEs-knog
 
 {
 
