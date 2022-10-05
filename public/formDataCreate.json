@@ -430,7 +430,7 @@
               "requered": true,
               "order": 5,
               "values": "SDQ - REP.DOM|TOR - TORTOLA",
-              "type": "LIST",
+              "type": "LIST 2",
               "id": "shippingform-02-05",
               "createdDate": "2022-13-00T00:00:00.0000000-00:00"
             },
