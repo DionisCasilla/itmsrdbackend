@@ -64,39 +64,67 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFT
 }
 
 ###- create Form
-POST   http://192.168.0.3:8000/itmsshipping/saveNewForm
+POST   http://localhost:8001/itmsshipping/saveNewForm
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY2NDI0NDIwNiwiZXhwIjoxNjY0MjY1ODA2fQ.H1kCLiUOyYU7OKLfce4baGd7bWxPWTJm9VmvQHJ4EPE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnRlcklkIjoiT1BFTlNFQVNTSElQUElORyIsImlhdCI6MTY2NTc3NDQzMywiZXhwIjoxNjY1Nzk2MDMzfQ.lD63W-nGIw0tw8NNRFTXh6tQe7RWJ58yyU2xNyNbpNk
+
+# {
+# "RowUsr":"dfsdfsdfsdfs",
+#   "formbody":{
+#     "shippingform-01-01": "hkjhk",
+#     "shippingform-01-02": "yiytuityuit",
+#     "shippingform-01-03": "iityuity",
+#     "shippingform-01-04": "8967896789",
+#     "shippingform-01-05": "ID OR PASSPORT",
+#     "shippingform-01-06": "yuityui",
+#     "shippingform-01-07": "yuityi",
+#     "shippingform-02-01": "tityuity",
+#     "shippingform-02-02": "uitiut",
+#     "shippingform-02-03": "uitiu",
+#     "shippingform-02-04": "987976896",
+#     "shippingform-02-05": "SDQ - REP.DOM",
+#     "shippingform-02-06": "uioyuioyuoyuio",
+#     "shippingform-03-01": "COOKWAVRE",
+#     "shippingform-03-02": "jhkghkgjhk89",
+#     "shippingform-03-03": "898",
+#     "shippingform-03-04": "DOOR TO DOOR DELIVERY REQUIRED",
+#     "shippingform-04-01": "10",
+#     "shippingform-04-02": "gjhkgk",
+#     "shippingform-04-03": "789",
+#     "shippingform-04-04": "8",
+#     "shippingform-04-05": "8",
+#     "shippingform-04-06": "678",
+#     "shippingform-04-07": "hjkjhgkghjk hjk",
+#     "shippingform-04-08": "YES",
+#     "shippingform-04-09":  "https://res.cloudinary.com/dfbwtygxk/image/upload/v1648179601/itms/shipping/firmas/hfjq6zzkwta8ot2mxdsz.png"
+#   }
+
+# }
+
 
 {
-"RowUsr":"dfsdfsdfsdfs",
-  "formbody":{
-    "shippingform-01-01": "hkjhk",
-    "shippingform-01-02": "yiytuityuit",
-    "shippingform-01-03": "iityuity",
-    "shippingform-01-04": "8967896789",
-    "shippingform-01-05": "ID OR PASSPORT",
-    "shippingform-01-06": "yuityui",
-    "shippingform-01-07": "yuityi",
-    "shippingform-02-01": "tityuity",
-    "shippingform-02-02": "uitiut",
-    "shippingform-02-03": "uitiu",
-    "shippingform-02-04": "987976896",
-    "shippingform-02-05": "SDQ - REP.DOM",
-    "shippingform-02-06": "uioyuioyuoyuio",
-    "shippingform-03-01": "COOKWAVRE",
-    "shippingform-03-02": "jhkghkgjhk89",
-    "shippingform-03-03": "898",
+  "RowUsr": "0006",
+  "formbody": {
+    "shippingform-01-02": "francisca cruz peña",
+    "shippingform-01-03": "santiago ",
+    "shippingform-01-04": "8296412203",
+    "shippingform-01-05": "LICENCIA DE CONDUCIR",
+    "shippingform-01-06": "12100047138",
+    "shippingform-01-07": "02/06/2025",
+    "shippingform-02-02": "francisca cruz peña",
+    "shippingform-02-03": "virgen gorda ",
+    "shippingform-02-04": "12843438583",
+    "shippingform-02-05": "BVI0001",
+    "shippingform-03-01": "BEAUTY PRODUCTS-PRO.BELLEZA|HOME APPLIANCES-ELECTRODOMESTICOS",
+    "shippingform-03-03": "20.000",
     "shippingform-03-04": "DOOR TO DOOR DELIVERY REQUIRED",
-    "shippingform-04-01": "10",
-    "shippingform-04-02": "gjhkgk",
-    "shippingform-04-03": "789",
-    "shippingform-04-04": "8",
-    "shippingform-04-05": "8",
-    "shippingform-04-06": "678",
-    "shippingform-04-07": "hjkjhgkghjk hjk",
+    "shippingform-04-01": "2",
+    "shippingform-04-02": "UNA VITRINA Y UN LAVA  PELO ",
+    "shippingform-04-03": "2",
+    "shippingform-04-07": "fragil",
     "shippingform-04-08": "YES",
-    "shippingform-04-09":  "https://res.cloudinary.com/dfbwtygxk/image/upload/v1648179601/itms/shipping/firmas/hfjq6zzkwta8ot2mxdsz.png"
+    "shippingform-04-11": "1",
+    "shippingform-04-10": "400",
+    "shippingform-04-09": "https://res.cloudinary.com/dfbwtygxk/image/upload/v1665774115/itms/shipping/firmas/45e6c4af-a99e-439b-b913-46c6ce8c3eaa.png"
   }
-
 }
