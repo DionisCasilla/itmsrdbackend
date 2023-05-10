@@ -1,0 +1,13 @@
+
+GET http://localhost:8001/agua/sucursales
+
+###
+GET http://localhost:8001/agua/sucursales/0038
+
+###
+PUT  http://localhost:8001/agua/sucursales/0038
+content-type: application/json
+
+{
+	"coordenadas":"18.11,18.00"
+}

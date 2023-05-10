@@ -66,7 +66,8 @@ exports.validaciondeAuthenticacion = function (req, res, next) {
     "/procredito/submitForm",
     "/procredito/bcedula",
     "/procredito/loaddata",
-    "/itmsshipping/apptoken"
+    "/itmsshipping/apptoken",
+    "/agua/sucursales"
 
 
   ];

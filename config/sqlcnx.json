@@ -18,6 +18,13 @@
 		"database": "db_a4454e_itmsplus2",
 		"server": "192.168.0.3\\SQLEXPRESS"
 		
+	},
+	"AGUA":{
+		"user": "db_a962c9_itmsplus_admin",
+		"password": "sa@1234567890",
+		"database": "db_a962c9_itmsplus",
+		"server": "sql8002.site4now.net"
+		
 	}
 
 
