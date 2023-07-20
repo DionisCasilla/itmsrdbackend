@@ -67,19 +67,29 @@ exports.validaciondeAuthenticacion = function (req, res, next) {
     "/procredito/bcedula",
     "/procredito/loaddata",
     "/itmsshipping/apptoken",
-    "/agua/sucursales"
+    "/agua/sucursales",
+    "/agua/sucursales?"
 
 
   ];
-  // _printConsole(whiteListUrl.includes(req.originalUrl));
+
 
   var url2SegmentsSplit = req.originalUrl.split("/");
+
+
   var url2Segments =
     "/" +
     url2SegmentsSplit[1] +
     (typeof url2SegmentsSplit[2] !== "undefined"
       ? "/" + url2SegmentsSplit[2]
       : "");
+
+if(url2SegmentsSplit[2].includes("?")){
+
+  let newurl= url2Segments.split("?");
+  url2Segments=newurl[0];
+}
+    
 
   if (whiteListUrl.includes(url2Segments)) {
     return next();

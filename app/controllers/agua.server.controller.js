@@ -1,111 +1,102 @@
-const { getCnn } = require('../../config/sqlcnx');
+const { getCnn } = require("../../config/sqlcnx");
 
 const sql = require("mssql");
 
+exports.listaSucursales = async (req, res, next) => {
+
+  try {
+    let search=req.query["search"]??"";
+    
+    let pool = await sql.connect(getCnn("AGUA"));
+   let result2=await pool.request()
+  .input("InterID","OBED") 
+	.input("ModoID",search!=""?2:1) 
+	.input("ClienteID",search) 
+	// .input("@Direccion",)
+	// .input("@Ciudad",)
+	// .input("@MapUrl",) 
+	// .input("@MapPin",)
+.execute("spAqua_IntegracionMaps")
+                                
+
+    let result = result2.recordset;
 
 
-exports.listaSucursales=async(req, res, next)=>{
+    return res.json({
+      success: true,
+      message: "Sucursales List",
+      result: result,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.json({
+      success: false,
+      message: error,
+      result: {},
+    });
+  }
+};
 
-	try {
-		let pool = await sql.connect(getCnn("AGUA"));
-		let result2 = await pool.request().query(`SELECT ContactoID,
-		ContactoTexto,
-		ContactoDireccion,
-		ContactoLocation,-->Map Url
-		ContactoLocation2-->Geolocalización
-FROM	coreclientes
-WHERE	InterID = 'OBED'
-		AND ContactoGrupoID LIKE '%PLANTA%'
-		AND ClienteAqua = 1`)
+exports.getSucursalSearch = async (req, res, next) => {
+  const { id } = req.query;
 
-	
-		let result = result2.recordset;
-		console.log(result)
+  try {
+    let pool = await sql.connect(getCnn("AGUA"));
+    let result2 = await pool.request().input("InterID","OBED") 
+    .input("ModoID",2) 
+    .input("ClienteID",) 
+    // .input("@Direccion",)
+    // .input("@Ciudad",)
+    // .input("@MapUrl",) 
+    // .input("@MapPin",)
+  .execute("spAqua_IntegracionMaps")
 
-	return	res.json({
-			success: true,
-			message: "User List",
-			result: result,
-		  });
-	} catch (error) {
-		console.error(error)
-	return	res.json({
-			success: false,
-			message: error,
-			result: {},
-		  });
-	}
-}
+    let result = result2.recordset[0];
+    console.log(result);
 
-exports.getSucursalById=async(req, res, next)=>{
+    return res.json({
+      success: true,
+      message: "User List",
+      result: result,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.json({
+      success: false,
+      message: error,
+      result: {},
+    });
+  }
+};
 
-	const {id} = req.params;
+exports.updateLocationSucursal = async (req, res, next) => {
 
-	try {
-		let pool = await sql.connect(getCnn("AGUA"));
-		let result2 = await pool.request().query(`SELECT ContactoID,
-		ContactoTexto,
-		ContactoDireccion,
-		ContactoLocation,-->Map Url
-		ContactoLocation2-->Geolocalización
-FROM	coreclientes
-WHERE	InterID = 'OBED'
-		AND ContactoGrupoID LIKE '%PLANTA%'
-		AND ClienteAqua = 1
-		AND ContactoID='${id}'
-		`)
+  const  coordenadas  = req.body;
+  try {
+    let pool = await sql.connect(getCnn("AGUA"));
+    let result2=await pool.request()
+    .input("InterID","OBED") 
+    .input("ModoID",3) 
+    .input("ClienteID",coordenadas["CLIENTE_ID"]) 
+    .input("Direccion",coordenadas["DIRECCION"])
+    .input("Ciudad",coordenadas["CIUDAD"])
+    .input("MapUrl",coordenadas[""]) 
+    .input("MapPin",coordenadas["MAP_PIN"])
+  .execute("spAqua_IntegracionMaps")
 
-	
-		let result = result2.recordset[0];
-		console.log(result)
+    let result = result2;
 
-	return	res.json({
-			success: true,
-			message: "User List",
-			result: result,
-		  });
-	} catch (error) {
-		console.error(error)
-	return	res.json({
-			success: false,
-			message: error,
-			result: {},
-		  });
-	}
-}
-
-exports.updateLocationSucursal=async(req, res, next)=>{
-
-	const {id} = req.params;
-	const {coordenadas} = req.body;
-
-	
-
-	try {
-		let pool = await sql.connect(getCnn("AGUA"));
-		let result2 = await pool.request().query(`UPDATE coreclientes 
-		SET ContactoLocation2='${coordenadas}'
-        WHERE	InterID = 'OBED'
-		AND ContactoGrupoID LIKE '%PLANTA%'
-		AND ClienteAqua = 1
-		AND ContactoID='${id}'
-		`)
-
-	
-		let result = result2;
-		console.log(result)
-
-	return	res.json({
-			success: true,
-			message: "Coordenadas registra exitosamente.",
-			result: result,
-		  });
-	} catch (error) {
-		console.error(error)
-	return	res.json({
-			success: false,
-			message: error,
-			result: {},
-		  });
-	}
-}
+    return res.json({
+      success: true,
+      message: "Coordenadas registra exitosamente.",
+      result: result,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.json({
+      success: false,
+      message: error,
+      result: {},
+    });
+  }
+};
