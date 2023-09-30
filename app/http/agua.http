@@ -1,5 +1,5 @@
 
-GET http://localhost:8001/agua/sucursales
+GET http://192.168.0.3:8001/agua/sucursales
 
 ###
 GET http://localhost:8001/agua/sucursales/0038
