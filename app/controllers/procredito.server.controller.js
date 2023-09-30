@@ -161,7 +161,7 @@ exports.submitForm = async function (req, res, next) {
     },
 
     document: {
-      templateCode: "CONTRATODIGITAL",//Contratosparaclientes
+      templateCode: "Contratosparaclientes",//
       readRequired: false,
       watermarkText: "Borrador",
       formRequired: true,
