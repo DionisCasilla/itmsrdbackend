@@ -122,6 +122,7 @@ exports.loaddata = async function (req, res, next) {
 
   res.json({ success: true, result: data, message: "." });
 };
+
 exports.submitForm = async function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -129,8 +130,7 @@ exports.submitForm = async function (req, res, next) {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
 
-  _printConsole("body",req.body);
-
+try {
   let { emailDestino, infoCliente, tipoenvio } = req.body;
   let _tipoenvio = tipoenvio ?? 0;
   let notification = {};
@@ -161,10 +161,9 @@ exports.submitForm = async function (req, res, next) {
     },
 
     document: {
-      templateCode: "Contratosparaclientes",//
+      templateCode: "CONTRATODIGITAL",//
       readRequired: false,
-      watermarkText: "Borrador",
-      formRequired: true,
+      formRequired: false,
       formDisabled: true,
     },
     metadataList: [
@@ -177,23 +176,10 @@ exports.submitForm = async function (req, res, next) {
         value: infoCliente.cedula ?? "",
       },
       {
-        key: "direccion",
-        value: infoCliente.direccion ?? "",
-      },
-      {
         key: "celular",
         value: infoCliente.celular ?? "",
       },
-      {
-        key: "ciudad",
-        value: infoCliente.ciudad ?? "",
-      },
-      {
-        key: "celular2",
-        value: infoCliente.celular2 ?? "",
-      },
-    
-      {
+       {
         key: "dia",
         value: infoCliente.dia ?? "",
       },
@@ -206,6 +192,45 @@ exports.submitForm = async function (req, res, next) {
         value: infoCliente.ano ?? "",
       },
     ],
+    // metadataList: [
+    //   {
+    //     key: "nombre",
+    //     value: infoCliente.nombre ?? "",
+    //   },
+    //   {
+    //     key: "cedula",
+    //     value: infoCliente.cedula ?? "",
+    //   },
+    //   {
+    //     key: "direccion",
+    //     value: infoCliente.direccion ?? "",
+    //   },
+    //   {
+    //     key: "celular",
+    //     value: infoCliente.celular ?? "",
+    //   },
+    //   {
+    //     key: "ciudad",
+    //     value: infoCliente.ciudad ?? "",
+    //   },
+    //   {
+    //     key: "celular2",
+    //     value: infoCliente.celular2 ?? "",
+    //   },
+    
+    //   {
+    //     key: "dia",
+    //     value: infoCliente.dia ?? "",
+    //   },
+    //   {
+    //     key: "mes",
+    //     value: infoCliente.mes ?? "",
+    //   },
+    //   {
+    //     key: "a",
+    //     value: infoCliente.ano ?? "",
+    //   },
+    // ],
   };
 
 
@@ -217,9 +242,137 @@ exports.submitForm = async function (req, res, next) {
   let _resp = await axios.post("messages/dispatch", payload);
   const { scheme, link } = _resp.data.notification.sharedLink;
 
-  res.json({ success: true, result: link, message: "." ,moredata:_resp.data});
+  return res.json({ success: true, result: link, message: "." ,moredata:_resp.data});
+} catch (error) {
+  console.log(error)
+  return res.json({ success: false, result: "", message: error ,moredata:""});
+}
+
+ 
 };
 
+
+exports.submitFormV2 = async function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+
+try {
+  let { emailDestino, infoCliente, tipoenvio } = req.body;
+  let _tipoenvio = tipoenvio ?? 0;
+  let notification = {};
+  let _sharedLink = {};
+
+
+  // if (_tipoenvio == 1) {//SMS
+  //   _sharedLink.phone = infoCliente.celular;
+  // } else if (_tipoenvio == 2) {//email
+  //   // _sharedLink.phone=infoCliente.celular;
+  //   _sharedLink.email = emailDestino;
+  //   _sharedLink.subject = "Procredito Dominicana: firma de contrato";
+  // } else if (_tipoenvio == 0); {
+  //   _sharedLink.phone = infoCliente.celular;
+  //   _sharedLink.email = emailDestino;
+  //   _sharedLink.subject = "Procredito Dominicana: firma de contrato";
+  // }
+
+  //notification.sharedLink = _sharedLink;
+
+
+
+  let payload = {
+    "groupCode": "Procredito",
+      "recipients": [
+    {
+      "key":"signer01_key",
+      "name" : infoCliente.nombre,
+      "mail" : emailDestino,
+      "phone": infoCliente.celular,
+      "notificationType:" : "SMS",
+      "order": "1"
+    }
+  ], 
+     "messages" : [{
+            "document" : {
+                "templateCode": "CONTRATODIGITAL",
+                "readRequired": false,
+                "formRequired" : true,
+               
+            }
+        }
+        
+        ],
+        "metadataList" : [ 
+          {
+            "key": "signer01_key.mail",
+            "value": emailDestino,
+            "internal": false
+        },
+        {
+            "key": "signer01_key.phone",
+            "value": infoCliente.celular,
+            "internal": false
+        },
+          
+          {
+          "key" : "nombre",
+          "value" : infoCliente.nombre,
+          "internal" : false
+        }, {
+          "key" : "cedula",
+          "value" : infoCliente.cedula,
+          "internal" : false
+        }, {
+          "key" : "celular",
+          "value" : infoCliente.celular,
+          "internal" : false
+        }, {
+          "key" : "dia",
+          "value" : infoCliente.dia,
+          "internal" : false
+        }, {
+          "key" : "mes",
+          "value" : infoCliente.mes,
+          "internal" : false
+        }, {
+          "key" : "a",
+          "value" : infoCliente.ano,
+          "internal" : false
+        }]
+    };
+
+
+
+
+  _printConsole("payload",payload);
+
+const username = 'procredito_dominicana';
+const password = 'MD43SA';
+const base64Credentials = Buffer.from(`${username}:${password}`).toString('base64');
+// Configura las opciones de la solicitud, incluyendo la cabecera de autorización
+const options = {
+  method: 'POST', // Cambia el método HTTP según tu caso
+  url: 'api/v3/set', // Cambia la URL a la que deseas hacer la solicitud
+  headers: {
+    'Authorization': `Basic ${base64Credentials}`,
+    'Content-Type': 'application/json',
+  },
+  data:payload
+};
+  
+  let _resp = await axios(options);
+  //const { scheme, link } = _resp.data.notification.sharedLink;
+
+  return res.json({ success: true, result: _resp, message: "." ,moredata:_resp});
+} catch (error) {
+  console.log(error)
+  return res.json({ success: false, result: "", message: error ,moredata:""});
+}
+
+ 
+};
 
 function isEmptyObject(obj) {
   for(var prop in obj) {

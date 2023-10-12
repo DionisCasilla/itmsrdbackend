@@ -64,6 +64,7 @@ exports.validaciondeAuthenticacion = function (req, res, next) {
     "/tsrapi/actualizarpin",
     "/procredito/loginapi",
     "/procredito/submitForm",
+    "/procredito/submitFormV2",
     "/procredito/bcedula",
     "/procredito/loaddata",
     "/itmsshipping/apptoken",
