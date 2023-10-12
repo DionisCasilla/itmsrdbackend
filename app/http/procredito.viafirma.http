@@ -85,8 +85,9 @@ content-type: application/json
 #       } 
 # }
 
+####
 
-POST https://itmsrdbackend.onrender.com/procredito/submitForm
+POST https://itmsrdbackend.onrender.com/procredito/submitFormV2
 content-type: application/json
 
 {
@@ -111,7 +112,7 @@ content-type: application/json
 POST http://localhost:8001/procredito/submitFormV2
 content-type: application/json
 
-{"tipoenvio": 0,"emailDestino": "pedroybarsrl@gmail.com","infoCliente": {"nombre": "PEDRO AYBAR","cedula": "002-0129406-3","direccion": "SANTO DOMINGO","celular": "+18098537337","ciudad": "SANTO DOMINGO","celular2": "+18098537337","dia": 11,"mes": 3,"ano": 2022}}
+{"tipoenvio": 0,"emailDestino": "ing.dionisc@gmail.com","infoCliente": {"nombre": "PEDRO AYBAR","cedula": "002-0129406-3","direccion": "SANTO DOMINGO","celular": "+18096579005","ciudad": "SANTO DOMINGO","celular2": "+18098537337","dia": 11,"mes": 3,"ano": 2022}}
 
 # { 
 # "tipoenvio":"0",

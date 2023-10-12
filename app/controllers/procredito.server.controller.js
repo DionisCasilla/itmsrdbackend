@@ -261,113 +261,72 @@ exports.submitFormV2 = async function (req, res, next) {
 
 try {
   let { emailDestino, infoCliente, tipoenvio } = req.body;
-  let _tipoenvio = tipoenvio ?? 0;
-  let notification = {};
-  let _sharedLink = {};
-
-
-  // if (_tipoenvio == 1) {//SMS
-  //   _sharedLink.phone = infoCliente.celular;
-  // } else if (_tipoenvio == 2) {//email
-  //   // _sharedLink.phone=infoCliente.celular;
-  //   _sharedLink.email = emailDestino;
-  //   _sharedLink.subject = "Procredito Dominicana: firma de contrato";
-  // } else if (_tipoenvio == 0); {
-  //   _sharedLink.phone = infoCliente.celular;
-  //   _sharedLink.email = emailDestino;
-  //   _sharedLink.subject = "Procredito Dominicana: firma de contrato";
-  // }
-
-  //notification.sharedLink = _sharedLink;
-
-
-
+  
   let payload = {
-    "groupCode": "Procredito",
-      "recipients": [
+     groupCode: "procredito_dominicana",
+      recipients: [
     {
-      "key":"signer01_key",
-      "name" : infoCliente.nombre,
-      "mail" : emailDestino,
-      "phone": infoCliente.celular,
-      "notificationType:" : "SMS",
-      "order": "1"
+      key  : "signer01_key",
+      name : infoCliente.nombre,
+      mail : emailDestino,
+      phone: infoCliente.celular,
+      notificationType : "SMS",
+      order: "1"
     }
   ], 
-     "messages" : [{
-            "document" : {
-                "templateCode": "CONTRATODIGITAL",
-                "readRequired": false,
-                "formRequired" : true,
+     messages : [{
+            document : {
+                templateCode : "CONTRATODIGITAL",
+                readRequired : false,
+                formRequired : true,
                
             }
-        }
-        
-        ],
-        "metadataList" : [ 
+        }],
+        metadataList : [ 
           {
-            "key": "signer01_key.mail",
-            "value": emailDestino,
-            "internal": false
+            key      : "signer01_key.mail",
+            value    : emailDestino,
+            internal : false
         },
         {
-            "key": "signer01_key.phone",
-            "value": infoCliente.celular,
-            "internal": false
+            key      : "signer01_key.phone",
+            value    : infoCliente.celular,
+            internal : false
         },
           
           {
-          "key" : "nombre",
-          "value" : infoCliente.nombre,
-          "internal" : false
+          key : "nombre",
+          value : infoCliente.nombre,
+          internal : false
         }, {
-          "key" : "cedula",
-          "value" : infoCliente.cedula,
-          "internal" : false
+          key : "cedula",
+          value : infoCliente.cedula,
+          internal : false
         }, {
-          "key" : "celular",
-          "value" : infoCliente.celular,
-          "internal" : false
+          key : "celular",
+          value : infoCliente.celular,
+          internal : false
         }, {
-          "key" : "dia",
-          "value" : infoCliente.dia,
-          "internal" : false
+          key : "dia",
+          value : infoCliente.dia,
+          internal : false
         }, {
-          "key" : "mes",
-          "value" : infoCliente.mes,
-          "internal" : false
+          key : "mes",
+          value : infoCliente.mes,
+          internal : false
         }, {
-          "key" : "a",
-          "value" : infoCliente.ano,
-          "internal" : false
+          key : "a",
+          value : infoCliente.ano,
+          internal : false
         }]
     };
 
-
-
-
-  _printConsole("payload",payload);
-
-const username = 'procredito_dominicana';
-const password = 'MD43SA';
-const base64Credentials = Buffer.from(`${username}:${password}`).toString('base64');
-// Configura las opciones de la solicitud, incluyendo la cabecera de autorización
-const options = {
-  method: 'POST', // Cambia el método HTTP según tu caso
-  url: 'api/v3/set', // Cambia la URL a la que deseas hacer la solicitud
-  headers: {
-    'Authorization': `Basic ${base64Credentials}`,
-    'Content-Type': 'application/json',
-  },
-  data:payload
-};
   
-  let _resp = await axios(options);
-  //const { scheme, link } = _resp.data.notification.sharedLink;
+  let _resp = await axios.post("api/v3/set", payload);
 
-  return res.json({ success: true, result: _resp, message: "." ,moredata:_resp});
+  return res.json({ success: true, result: _resp.data, message: "." ,moredata:""});
 } catch (error) {
-  console.log(error)
+ console.log(error)
   return res.json({ success: false, result: "", message: error ,moredata:""});
 }
 
