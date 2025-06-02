@@ -1,4 +1,4 @@
-var shipping = require('../controllers/itmsshipping.server.controller');
+var shipping = require('../controllers/itmsshipping.server.controller.js');
 
 module.exports = function(app) {
     app.route('/itmsshipping/apptoken/:interID').get(shipping.apptoken);
@@ -10,6 +10,4 @@ module.exports = function(app) {
     app.route('/itmsshipping/saveForm').post(shipping.saveForm);
     app.route('/itmsshipping/saveNewForm').post(shipping.saveNewForm);
     app.route('/itmsshipping/createForm/:language').get(shipping.createForm);
-
-
 };

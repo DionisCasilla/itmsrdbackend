@@ -68,9 +68,9 @@ exports.validaciondeAuthenticacion = function (req, res, next) {
     "/procredito/loaddata",
     "/itmsshipping/apptoken",
     "/agua/sucursales",
-    "/agua/sucursales?"
-
-
+    "/agua/sucursales?",
+    "/gcp/index",
+    "/gcp/sendFile",
   ];
 
 
@@ -83,13 +83,14 @@ exports.validaciondeAuthenticacion = function (req, res, next) {
     (typeof url2SegmentsSplit[2] !== "undefined"
       ? "/" + url2SegmentsSplit[2]
       : "");
+ 
 
-if(url2SegmentsSplit[2].includes("?")){
+if(url2SegmentsSplit[2] !== undefined && url2SegmentsSplit[2].includes("?")){
 
   let newurl= url2Segments.split("?");
   url2Segments=newurl[0];
 }
-    
+    console.log(url2Segments);
 
   if (whiteListUrl.includes(url2Segments)) {
     return next();
