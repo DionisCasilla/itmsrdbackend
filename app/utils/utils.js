@@ -83,7 +83,7 @@ exports._printConsole = (paramMsg, paramData)=> {
 
 
 // async..await is not allowed in global scope, must use a wrapper
-exports._sendEmail=  async(EmailTo, EmailSubject, EmailBody)=> {
+exports._sendEmail=  async(EmailTo, EmailSubject, EmailBody,pdfBuffer, filename)=> {
 
 	//try {
 		// Generate test SMTP service account from ethereal.email
@@ -91,42 +91,40 @@ exports._sendEmail=  async(EmailTo, EmailSubject, EmailBody)=> {
 	 // let testAccount = await nodemailer.createTestAccount();
    
 	 // create reusable transporter object using the default SMTP transport
-	 var transporter = nodemailer.createTransport({
-	   host: "smtp-mail.outlook.com", // hostname
-	   secureConnection: false, // TLS requires secureConnection to be false
-	   port: 587, // port for secure SMTP
-	   tls: {
-		  ciphers:'SSLv3'
-	   },
-	   auth: {
-		   user: 'ing.dionisc@hotmail.com',
-		   pass: 'Casilla12345'
-	   }
-   });
+// 	 var transporter = nodemailer.createTransport({
+// 	   host: 'efacturacion.conditecrd.com',
+//   port: 465,
+//   secure: true,
+//   auth: {
+//     user: 'info@efacturacion.conditecrd.com',
+//     pass: 'LV{VcGoj]W1$'
+//   }
+//    });
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'ing.dionisc@gmail.com',
+    pass: 'slcm rpdb qfhs bfci' // No es tu contraseña de Gmail
+  }
+});
    
    //console.log(EmailSubject)
 	 // setup e-mail data, even with unicode symbols
    var mailOptions = {
 	 from:'"Condominos RD" <ing.dionisc@hotmail.com>', // sender address (who sends)
-	 to: /*EmailTo,*/'ing.dionisc@gmail.com', // list of receivers (who receives)
+	 to: /*EmailTo,*/'ing.dionisc@gmail.com,auribe@grupocruzpuello.com', // list of receivers (who receives)
 	 subject: EmailSubject,//'TRANSERSA APP ', // Subject line
 	 // text: 'Hello world ', // plaintext body
-	 html:EmailBody 
-	 // `<div>
-	 // <div><strong>Estimados,</strong></div>
-	 // <br />
-	 // <div>Solicito&nbsp;por&nbsp;esta&nbsp;v&iacute;a&nbsp;la&nbsp;planificaci&oacute;n&nbsp;de&nbsp;cirug&iacute;a</div>
-	 // <div><strong>Fecha</strong>:&nbsp;dd-mm-aaaa</div>
-	 // <div><strong>Hora</strong>:&nbsp;hh:mm</div>
-	 // <div><strong>CM</strong>:&nbsp;centro&nbsp;medico&nbsp;(es&nbsp;opcional)</div>
-	 // <div><strong>Paciente</strong>:&nbsp;paciente</div>
-	 // <br />
-	 // <div><strong>Motivos</strong>:&nbsp;motivo&nbsp;(es&nbsp;opcional)</div>
-	 // <br /><br />
-	 // <div>Cualquier&nbsp;duda&nbsp;quedamos&nbsp;a&nbsp;sus&nbsp;ordenes.</div>
-	 // <br /><br /><br />
-	 // <div>Saludos&nbsp;cordiales.</div>
-	 // </div>`
+	 html:EmailBody,
+	 attachments: [
+      {
+        filename: filename,
+        content: pdfBuffer,
+        contentType: 'application/pdf',
+      },
+    ],
+	
    };
    
    
@@ -137,6 +135,7 @@ exports._sendEmail=  async(EmailTo, EmailSubject, EmailBody)=> {
 	 }
    
 	 console.log('Message sent: ' + info.response);
+	 return info.response;
    });
 	 // send mail with defined transport object
    //   let info = await transporter.sendMail({
