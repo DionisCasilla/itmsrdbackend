@@ -9,9 +9,6 @@ const { setupAxios } = require('../app/utils/axios.config');
 const { default: axios } = require('axios');
 
 
-    
-
-
 module.exports = function() {
     var app = express();
     app.use(express.static('public'));
@@ -30,17 +27,6 @@ module.exports = function() {
     setupAxios();
     app.use(bodyParser.json());
     app.use(validaciondeAuthenticacion);
-    // app.use(loggerserver);
-    // app.use(loggerResponseserver);
-
-    // console.log(axios)
-  
-    // require('../app/routes/utilities.server.router.js')(app);
-    // require('../app/routes/config.server.router.js')(app);
-    // require('../app/routes/usuarios.server.router.js')(app);
-    // require('../app/routes/clientes.server.router.js')(app);
-    // require('../app/routes/notification.server.router.js')(app);
-    // require('../app/routes/trsapi.server.router.js')(app);
 
     var routePath = "app/routes/"; //add one folder then put your route files there my router folder name is routers
     fs.readdirSync(routePath).forEach(function(file) {
