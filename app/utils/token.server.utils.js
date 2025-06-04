@@ -70,6 +70,7 @@ exports.validaciondeAuthenticacion = function (req, res, next) {
     "/agua/sucursales",
     "/agua/sucursales?",
     "/gcp/index",
+    "/gcp/index?",
     "/gcp/sendFile",
   ];
 
