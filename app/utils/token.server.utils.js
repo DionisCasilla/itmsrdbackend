@@ -76,7 +76,7 @@ exports.validaciondeAuthenticacion = function (req, res, next) {
 
 
   var url2SegmentsSplit = req.originalUrl.split("/");
-
+  
 
   var url2Segments =
     "/" +
@@ -85,7 +85,8 @@ exports.validaciondeAuthenticacion = function (req, res, next) {
       ? "/" + url2SegmentsSplit[2]
       : "");
  
-
+    console.log(url2Segments);
+    
 if(url2SegmentsSplit[2] !== undefined && url2SegmentsSplit[2].includes("?")){
 
   let newurl= url2Segments.split("?");
