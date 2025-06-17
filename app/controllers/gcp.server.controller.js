@@ -97,6 +97,7 @@ function renderTemplate(html, data,ordenNo,periodoPago ) {
 async function generatePdfBuffer(html) {
   const browser = await puppeteer.launch({
     headless: true,
+     executablePath: process.env.CHROME_PATH || '/opt/google/chrome/chrome',
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 

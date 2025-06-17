@@ -1,0 +1,45 @@
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build output
+dist/
+build/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Editor folders
+.vscode/
+.idea/
+
+# Optional npm cache directory
+.npm/
+
+# Coverage directory
+coverage/
+
+# Puppeteer/Playwright browser binaries (if used)
+.puppeteer/
+.playwright/
+
+# Mac/Linux system files
+*.swp
