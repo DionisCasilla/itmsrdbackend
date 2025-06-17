@@ -50,13 +50,13 @@ const uploadandprocess=async (req, res) => {
         await _sendEmail("ing.dionisc@gmail.com", "Comprobante", html, pdfBuffer, `Comprobante_${employer.CODIGO}.pdf`);
       }
 
-    return res.status(200).json({ data });
+    return res.status(200).json({ datafilter });
   } catch (error) {
     console.error('Error al leer el Excel:', error);
     return res.status(500).json({ error: 'Error al procesar el archivo' });
   }
 
-  return res.sendFile(url);
+ 
 }
 
 function renderTemplate(html, data,ordenNo,periodoPago ) {
