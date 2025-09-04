@@ -1,16 +1,9 @@
 const path = require('path');
 const XLSX = require('xlsx');
-const {
-  _getDataModel,
-  _printConsole,
-  _insertDataModel,
-  _sendEmail,
-  _validarEmpty,
-  _isNumber,
-} = require("../utils/utils");
+const {  _sendEmail } = require("../utils/utils");
 const fs = require('fs');
 const html_to_pdf = require('html-pdf-node');
-const moment = require('moment');
+var moment = require('moment');
 
 
 const getIndex= (req, res) => {
@@ -122,13 +115,13 @@ function renderTemplate(html, data,ordenNo,periodoPago ) {
  * @param {number} [opts.timeoutMs=30000]
  * @returns {Promise<Buffer>}
  */
-export async function generatePdfBuffer(html) {
+ async function generatePdfBuffer(html) {
   const options = {
     format: 'A4',
     landscape: false,
     printBackground: true,
     margin: { top: '10mm', right: '10mm', bottom: '10mm', left: '10mm' },
-    baseUrl,
+    baseUrl: null,
     timeoutMs: 30000,
   } ;
 
@@ -141,12 +134,13 @@ export async function generatePdfBuffer(html) {
 });
     return pdfBuffer;
   } finally {
-    await browser.close();
+    console.log("PDF Buffer:-", pdfBuffer);
   }
 }
 
 
 module.exports = {
    getIndex,
-    uploadandprocess
+    uploadandprocess,
+    generatePdfBuffer
 };
