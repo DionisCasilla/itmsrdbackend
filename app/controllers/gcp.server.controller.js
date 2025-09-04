@@ -9,8 +9,8 @@ const {
   _isNumber,
 } = require("../utils/utils");
 const fs = require('fs');
-const puppeteer = require('puppeteer');
-var moment = require('moment');
+const html_to_pdf = require('html-pdf-node');
+const moment = require('moment');
 
 
 const getIndex= (req, res) => {
@@ -89,23 +89,60 @@ function renderTemplate(html, data,ordenNo,periodoPago ) {
     .replace(/{{noComprobante}}/g, data['SALARIO QUINCENAL']);
 }
 
-/**
- * Convierte HTML en un PDF buffer usando Puppeteer
- * @param {string} html HTML a renderizar
- * @returns {Buffer} PDF en memoria (Buffer)
+// /**
+//  * Convierte HTML en un PDF buffer usando Puppeteer
+//  * @param {string} html HTML a renderizar
+//  * @returns {Buffer} PDF en memoria (Buffer)
+//  */
+// async function generatePdfBuffer(html) {
+//     const browser = await puppeteer.launch({
+//     args: puppeteer.defaultArgs({ args: chromium.args, headless: "shell" }),
+//     defaultViewport: viewport,
+//     executablePath: await chromium.executablePath(),
+//     headless: "shell",
+//   });
+
+//   const page = await browser.newPage();
+//   await page.setContent(html, { waitUntil: 'networkidle0' });
+//   const pdfBuffer = await page.pdf({ format: 'A4', landscape: true, printBackground: true });
+
+//   await browser.close();
+//   return pdfBuffer;
+// }
+
+ /**
+ * Convierte HTML en PDF (Buffer), usando puppeteer-core + @sparticuz/chromium
+ * @param {string} html - HTML a renderizar
+ * @param {object} [opts]
+ * @param {string} [opts.format='A4'] - 'A4','Letter','Legal', etc.
+ * @param {boolean} [opts.landscape=false]
+ * @param {boolean} [opts.printBackground=true]
+ * @param {object} [opts.margin] - { top,right,bottom,left } (mm/px/in)
+ * @param {string} [opts.baseUrl] - base para recursos relativos (img/css)
+ * @param {number} [opts.timeoutMs=30000]
+ * @returns {Promise<Buffer>}
  */
-async function generatePdfBuffer(html) {
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox'],
-  });
+export async function generatePdfBuffer(html) {
+  const options = {
+    format: 'A4',
+    landscape: false,
+    printBackground: true,
+    margin: { top: '10mm', right: '10mm', bottom: '10mm', left: '10mm' },
+    baseUrl,
+    timeoutMs: 30000,
+  } ;
 
-  const page = await browser.newPage();
-  await page.setContent(html, { waitUntil: 'networkidle0' });
-  const pdfBuffer = await page.pdf({ format: 'A4', landscape: true, printBackground: true });
-
-  await browser.close();
-  return pdfBuffer;
+ let pdfBuffer;
+  try {
+   html_to_pdf.generatePdfs(html, options).then(output => {
+       console.log("PDF Buffer:-", output); 
+       pdfBuffer=output[0].buffer;
+       // PDF Buffer:- [{url: "https://example.com", name: "example.pdf", buffer: <PDF buffer>}]
+});
+    return pdfBuffer;
+  } finally {
+    await browser.close();
+  }
 }
 
 
