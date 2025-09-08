@@ -2,7 +2,7 @@ const path = require('path');
 const XLSX = require('xlsx');
 const {  _sendEmail } = require("../utils/utils");
 const fs = require('fs');
-const html_to_pdf = require('html-pdf-node');
+const { jsPDF } = require('jspdf'); 
 var moment = require('moment');
 
 
@@ -82,65 +82,30 @@ function renderTemplate(html, data,ordenNo,periodoPago ) {
     .replace(/{{noComprobante}}/g, data['SALARIO QUINCENAL']);
 }
 
-// /**
-//  * Convierte HTML en un PDF buffer usando Puppeteer
-//  * @param {string} html HTML a renderizar
-//  * @returns {Buffer} PDF en memoria (Buffer)
-//  */
-// async function generatePdfBuffer(html) {
-//     const browser = await puppeteer.launch({
-//     args: puppeteer.defaultArgs({ args: chromium.args, headless: "shell" }),
-//     defaultViewport: viewport,
-//     executablePath: await chromium.executablePath(),
-//     headless: "shell",
-//   });
-
-//   const page = await browser.newPage();
-//   await page.setContent(html, { waitUntil: 'networkidle0' });
-//   const pdfBuffer = await page.pdf({ format: 'A4', landscape: true, printBackground: true });
-
-//   await browser.close();
-//   return pdfBuffer;
-// }
-
- /**
- * Convierte HTML en PDF (Buffer), usando puppeteer-core + @sparticuz/chromium
- * @param {string} html - HTML a renderizar
- * @param {object} [opts]
- * @param {string} [opts.format='A4'] - 'A4','Letter','Legal', etc.
- * @param {boolean} [opts.landscape=false]
- * @param {boolean} [opts.printBackground=true]
- * @param {object} [opts.margin] - { top,right,bottom,left } (mm/px/in)
- * @param {string} [opts.baseUrl] - base para recursos relativos (img/css)
- * @param {number} [opts.timeoutMs=30000]
- * @returns {Promise<Buffer>}
+/**
+ * Convierte HTML en un PDF buffer usando Puppeteer
+ * @param {string} html HTML a renderizar
+ * @returns {Buffer} PDF en memoria (Buffer)
  */
- async function generatePdfBuffer(html) {
-  const options = {
-    format: 'A4',
-    landscape: false,
-    printBackground: true,
-    margin: { top: '10mm', right: '10mm', bottom: '10mm', left: '10mm' },
-    baseUrl: null,
-    timeoutMs: 30000,
-  } ;
+async function generatePdfBuffer(html) {
+    const browser = await puppeteer.launch({
+    args: puppeteer.defaultArgs({ args: chromium.args, headless: "shell" }),
+    defaultViewport: viewport,
+    executablePath: await chromium.executablePath(),
+    headless: "shell",
+  });
 
- let pdfBuffer;
-  try {
-   html_to_pdf.generatePdfs(html, options).then(output => {
-       console.log("PDF Buffer:-", output); 
-       pdfBuffer=output[0].buffer;
-       // PDF Buffer:- [{url: "https://example.com", name: "example.pdf", buffer: <PDF buffer>}]
-});
-    return pdfBuffer;
-  } finally {
-    console.log("PDF Buffer:-", pdfBuffer);
-  }
+  const page = await browser.newPage();
+  await page.setContent(html, { waitUntil: 'networkidle0' });
+  const pdfBuffer = await page.pdf({ format: 'A4', landscape: true, printBackground: true });
+
+  await browser.close();
+  return pdfBuffer;
 }
+
 
 
 module.exports = {
    getIndex,
-    uploadandprocess,
-    generatePdfBuffer
+    uploadandprocess
 };

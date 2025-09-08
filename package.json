@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha",
-    "start": "pm2-runtime start ecosystem.config.js --env production"
+    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "dev": "nodemon pm2-runtime start ecosystem.config.js --env development"
   },
   "keywords": [
     "mobile",
@@ -27,8 +28,8 @@
     "express": "^4.21.2",
     "formidable": "^1.2.2",
     "fs": "0.0.1-security",
-    "html-pdf-node": "^1.0.8",
     "jsonwebtoken": "^8.5.1",
+    "jspdf": "^3.0.2",
     "md5": "^2.3.0",
     "moment": "^2.15.1",
     "moment-timezone": "^0.5.13",

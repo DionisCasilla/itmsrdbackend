@@ -1,0 +1,384 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 5693
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 16 Tf
+18.3999999999999986 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(<!DOCTYPE html>) Tj
+T* (<html lang="es">) Tj
+T* (<head>) Tj
+T* (  <meta charset="UTF-8" />) Tj
+T* (  <meta name="viewport" content="width=device-width, initial-scale=1" />) Tj
+T* (  <title>Comprobante de Pago</title>) Tj
+T* (  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">) Tj
+T* (  <style>) Tj
+T* (    body { font-size: 12px; }) Tj
+T* (    .logo { max-width: 80px; }) Tj
+T* (    .table-bordered td, .table-bordered th { border: 1px solid #000 !important; }) Tj
+T* (    .fw-bold { font-weight: bold; }) Tj
+T* (  </style>) Tj
+T* (</head>) Tj
+T* (<body class="container my-4">) Tj
+T* (  <div class="d-flex align-items-center mb-3">) Tj
+T* (    <img src="https://res.cloudinary.com/dfbwtygxk/image/upload/v1748627415/logoEmpresas/WhatsApp_Image_2025-05-29_at_1.55.31_PM_l8ncx1.jpg" class="logo me-3" alt="Logo" />) Tj
+T* (    <div>) Tj
+T* (      <h4 class="mb-0">GRUPO CRUZ PUELLO, SRL</h4>) Tj
+T* (      <div>RNC 130785988</div>) Tj
+T* (    </div>) Tj
+T* (  </div>) Tj
+T* () Tj
+T* (  <h5 class="text-center">Documento Soporte de Pago Nómina Electrónica</h5>) Tj
+T* () Tj
+T* (  <div class="row mt-4">) Tj
+T* (<div class="col-12">) Tj
+T* (   <table class="table">) Tj
+T* (  <tbody>) Tj
+T* (    <tr>) Tj
+T* (      <th scope="row">Código</th>) Tj
+T* (      <td>undefined</td>) Tj
+T* (      <th>Período de pago</th>) Tj
+T* (      <td>01/09/2025 - 15/09/2025</td>) Tj
+T* (    </tr>) Tj
+T* (    <tr>) Tj
+T* (      <th scope="row">Nombre</th>) Tj
+T* (      <td>Wilmy Leudy Alcantara Puello</td>) Tj
+T* (      <th>Comprobante no.</th>) Tj
+T* (      <td>5</td>) Tj
+T* (    </tr>) Tj
+T* (    <tr>) Tj
+T* (      <th scope="row">Cédula de Identidad</th>) Tj
+T* (      <td>402-2528488-0</td>) Tj
+T* (      <th>Fecha Generación</th>) Tj
+T* (      <td>06/09/2025</td>) Tj
+T* (    </tr>) Tj
+T* (    <tr>) Tj
+T* (      <th scope="row">No. Cuenta</th>) Tj
+T* (      <td>2271292-001-0</td>) Tj
+T* (      <th>Fecha Emisión</th>) Tj
+T* (      <td>06/09/2025</td>) Tj
+T* (    </tr>) Tj
+T* (    <tr>) Tj
+T* (      <th scope="row">Cargo</th>) Tj
+T* (      <td>Supervisor</td>) Tj
+T* (      <th>Salario Base</th>) Tj
+T* (      <td>209.91</td>) Tj
+T* (    </tr>) Tj
+T* (    <tr>) Tj
+T* (      <th scope="row">Email</th>) Tj
+T* (      <td>operaciones1@grupocruzpuello.com </td>) Tj
+T* (      <th>Salario por Hora</th>) Tj
+T* (      <td>26.24</td>) Tj
+T* (    </tr>) Tj
+T* (  </tbody>) Tj
+T* (</table>) Tj
+T* (  </div>) Tj
+T* (  </div>) Tj
+T* () Tj
+T* (  <div class="row mt-4">) Tj
+T* (    <div class="col-md-6">) Tj
+T* (    ) Tj
+T* (      <table class="table table-bordered">) Tj
+T* (        <thead class="table-light">) Tj
+T* (             <tr>) Tj
+T* (              <th colspan="4" class="text-center">Ingresos</th>) Tj
+T* (            </tr>) Tj
+T* (          <tr>) Tj
+T* (            <th>Concepto</th>) Tj
+T* (            <th>Cantidad</th>) Tj
+T* (            <th>Precio</th>) Tj
+T* (            <th>Valor</th>) Tj
+T* (          </tr>) Tj
+T* (        </thead>) Tj
+T* (        <tbody>) Tj
+T* (          <tr><td>Sueldo</td><td>1</td><td></td><td>2500</td></tr>) Tj
+T* (          <tr><td>Hora Extra al 35%</td><td>0.0</td><td>2500</td><td>-</td></tr>) Tj
+T* (          <tr><td>Hora Extra al 100%</td><td>0.0</td><td>2500</td><td>-</td></tr>) Tj
+T* (          <tr><td>Hora Extra al 15%</td><td>0.0</td><td>2500</td><td>-</td></tr>) Tj
+T* (          <tr><td>Incentivo</td><td>1</td><td></td><td>2500</td></tr>) Tj
+T* (          <tr><td>Otros Ingresos</td><td>1</td><td></td><td>0</td></tr>) Tj
+T* (        </tbody>) Tj
+T* (        <tfoot>) Tj
+T* (          <tr><th colspan="3" class="text-end">Total Ingresos</th>) Tj
+T* (            <th class="text-end">2500</th></tr>) Tj
+T* (        </tfoot>) Tj
+T* (      </table>) Tj
+T* (    </div>) Tj
+T* () Tj
+T* (    <div class="col-md-6">) Tj
+T* (     ) Tj
+T* (      <table class="table table-bordered">) Tj
+T* (        <thead class="table-light">) Tj
+T* (            <tr>) Tj
+T* (              <th colspan="3" class="text-center">Deducciones</th>) Tj
+T* (            </tr>) Tj
+T* (          <tr>) Tj
+T* (            <th>Concepto</th>) Tj
+T* (            <th>Cantidad</th>) Tj
+T* (            <th>Valor</th>) Tj
+T* () Tj
+T* (          </tr>) Tj
+T* (        </thead>) Tj
+T* (        <tbody>) Tj
+T* (          <tr><td>Administradora de fondos de pensiones</td><td>1</td><td>71.75</td></tr>) Tj
+T* (          <tr><td>Seguro Familiar de Salud</td><td>1</td><td>76.00</td></tr>) Tj
+T* (          <tr><td>Impuesto sobre la Renta</td><td>1</td><td>1557.92</td></tr>) Tj
+T* (          <tr><td>Otros</td><td>1</td><td>2500</td></tr>) Tj
+T* (          <tr><td>-</td><td>-</td><td>-</td></tr>) Tj
+T* (          <tr><td>-</td><td>-</td><td>-</td></tr>) Tj
+T* (        </tbody>) Tj
+T* (        <tfoot>) Tj
+T* (          <tr><th colspan="2" class="text-end">Total Deducciones</th>) Tj
+T* (            <th class="text-end">147.75</th></tr>) Tj
+T* (        </tfoot>) Tj
+T* (      </table>) Tj
+T* (    </div>) Tj
+T* (  </div>) Tj
+T* () Tj
+T* (  <div class="text-end mt-4">) Tj
+T* (    <h5>NETO A PAGAR <strong class="text-dark">794.325</strong></h5>) Tj
+T* (  </div>) Tj
+T* () Tj
+T* () Tj
+T* () Tj
+T* (<!-- Bootstrap JS \(si aún no está incluido\) -->) Tj
+T* (<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>) Tj
+T* (<!-- jQuery -->) Tj
+T* (<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>) Tj
+T* (<!-- SheetJS -->) Tj
+T* (<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>) Tj
+T* () Tj
+T* (</body>) Tj
+T* (</html>) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R ]
+/Count 1
+>>
+endobj
+5 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+7 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 5 0 R
+/F2 6 0 R
+/F3 7 0 R
+/F4 8 0 R
+/F5 9 0 R
+/F6 10 0 R
+/F7 11 0 R
+/F8 12 0 R
+/F9 13 0 R
+/F10 14 0 R
+/F11 15 0 R
+/F12 16 0 R
+/F13 17 0 R
+/F14 18 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+19 0 obj
+<<
+/Producer (jsPDF 3.0.2)
+/CreationDate (D:20250906172806-04'00')
+>>
+endobj
+20 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 21
+0000000000 65535 f 
+0000005897 00000 n 
+0000007714 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000005954 00000 n 
+0000006079 00000 n 
+0000006209 00000 n 
+0000006342 00000 n 
+0000006479 00000 n 
+0000006602 00000 n 
+0000006731 00000 n 
+0000006863 00000 n 
+0000006999 00000 n 
+0000007127 00000 n 
+0000007254 00000 n 
+0000007383 00000 n 
+0000007516 00000 n 
+0000007618 00000 n 
+0000007962 00000 n 
+0000008048 00000 n 
+trailer
+<<
+/Size 21
+/Root 20 0 R
+/Info 19 0 R
+/ID [ <12C19EF513F6E988DE1CC4E6405B7642> <12C19EF513F6E988DE1CC4E6405B7642> ]
+>>
+startxref
+8152
+%%EOF
