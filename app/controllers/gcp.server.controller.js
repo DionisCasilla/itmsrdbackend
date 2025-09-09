@@ -1,10 +1,13 @@
+'use strict';
 const path = require('path');
 const XLSX = require('xlsx');
 const {  _sendEmail } = require("../utils/utils");
 const fs = require('fs');
-const { jsPDF } = require('jspdf'); 
-var moment = require('moment');
+const puppeteer = require('puppeteer-core');
+const chromium = require('@sparticuz/chromium');
 
+var moment = require('moment');
+let browserSingleton = null;
 
 const getIndex= (req, res) => {
   const url=path.join(__dirname, '../../public/gcp/gcpComprobantes.html');
@@ -87,22 +90,149 @@ function renderTemplate(html, data,ordenNo,periodoPago ) {
  * @param {string} html HTML a renderizar
  * @returns {Buffer} PDF en memoria (Buffer)
  */
-async function generatePdfBuffer(html) {
-    const browser = await puppeteer.launch({
-    args: puppeteer.defaultArgs({ args: chromium.args, headless: "shell" }),
-    defaultViewport: viewport,
-    executablePath: await chromium.executablePath(),
-    headless: "shell",
-  });
+// async function generatePdfBuffer(html) {
+//      let browser;
+//      const outputPath = path.join(__dirname, `../../public/gcp/comprobante_${Date.now()}.pdf`);
+//     try {
+//         browser = await puppeteer.launch();
+//         const page = await browser.newPage();
 
-  const page = await browser.newPage();
-  await page.setContent(html, { waitUntil: 'networkidle0' });
-  const pdfBuffer = await page.pdf({ format: 'A4', landscape: true, printBackground: true });
+//         // Set the HTML content
+//         await page.setContent(html, { waitUntil: 'networkidle0' });
 
-  await browser.close();
-  return pdfBuffer;
+//         // Emulate screen media type for CSS rendering
+//         await page.emulateMediaType('screen');
+
+//         // Generate the PDF
+//         await page.pdf({
+//                         format: 'A4',
+//             printBackground: true,
+//             // Add other options as needed, e.g., landscape: true, margin: { top: '1in' }
+//         });
+
+//         console.log(`PDF generated successfully at ${outputPath}`);
+//     } catch (error) {
+//         console.error('Error generating PDF:', error);
+//     } finally {
+//         if (browser) {
+//             await browser.close();
+//         }
+//     }
+// }
+
+async function getBrowser() {
+  if (browserSingleton && browserSingleton.isConnected()) return browserSingleton;
+
+  if (isServerless()) {
+    // Render / Lambda -> puppeteer-core + @sparticuz/chromium
+    const puppeteer = require('puppeteer-core');
+    const chromium = require('@sparticuz/chromium');
+
+    browserSingleton = await puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: { width: 1280, height: 800, deviceScaleFactor: 1 },
+      executablePath: process.env.CHROMIUM_PATH || await chromium.executablePath(),
+      headless: chromium.headless
+    });
+  } else {
+    // Local dev -> preferir puppeteer completo (descarga su Chromium)
+    let puppeteer;
+    try {
+      puppeteer = require('puppeteer'); // devDependency
+      browserSingleton = await puppeteer.launch({
+        headless: 'new', // o true según tu versión
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+      });
+    } catch {
+      // Fallback: puppeteer-core + Chrome del sistema
+      puppeteer = require('puppeteer-core');
+      const chromePath = resolveLocalChrome();
+      if (!chromePath) {
+        throw new Error(
+          'No se encontró Chrome local. Instala Google Chrome o define CHROME_PATH con la ruta al binario.'
+        );
+      }
+      browserSingleton = await puppeteer.launch({
+        executablePath: chromePath,
+        headless: 'new',
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        defaultViewport: { width: 1280, height: 800, deviceScaleFactor: 1 }
+      });
+    }
+  }
+
+  return browserSingleton;
 }
 
+/**
+ * Genera un PDF desde HTML y devuelve Buffer.
+ * @param {string} html
+ * @param {object} [opts]
+ * @param {'A4'|'Letter'} [opts.format='A4']
+ * @param {boolean} [opts.landscape=true]
+ * @param {string} [opts.margin='10mm']
+ * @param {number} [opts.timeoutMs=60000]
+ */
+async function generatePdfBuffer(html, {
+  format = 'A4',
+  landscape = true,
+  margin = '10mm',
+  timeoutMs = 60000
+} = {}) {
+  const browser = await getBrowser();
+  const page = await browser.newPage();
+  try {
+    await page.emulateMediaType('print');
+    await page.setCacheEnabled(false);
+    await page.setContent(html, { waitUntil: 'domcontentloaded', timeout: timeoutMs });
+
+    const buffer = await page.pdf({
+      format,
+      landscape,
+      printBackground: true,
+      margin: { top: margin, right: margin, bottom: margin, left: margin }
+    });
+    return buffer;
+  } finally {
+    await page.close();
+  }
+}
+
+/** Detecta si estamos en entorno serverless (Render/AWS) */
+function isServerless() {
+  return !!(
+    process.env.AWS_LAMBDA_FUNCTION_NAME ||
+    process.env.RENDER ||
+    process.env.CHROMIUM_PATH // si lo defines explícitamente
+  );
+}
+
+/** Intenta resolver la ruta local de Chrome/Chromium en macOS/Windows/Linux */
+function resolveLocalChrome() {
+  const platform = process.platform;
+  const candidates = [];
+
+  if (process.env.CHROME_PATH) {
+    candidates.push(process.env.CHROME_PATH);
+  }
+
+  if (platform === 'darwin') {
+    candidates.push(
+      '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+      '/Applications/Chromium.app/Contents/MacOS/Chromium'
+    );
+  } else if (platform === 'win32') {
+    candidates.push(
+      path.join(process.env.PROGRAMFILES || 'C:\\Program Files', 'Google/Chrome/Application/chrome.exe'),
+      path.join(process.env['PROGRAMFILES(X86)'] || 'C:\\Program Files (x86)', 'Google/Chrome/Application/chrome.exe')
+    );
+  } else {
+    // Linux desktop
+    candidates.push('/usr/bin/google-chrome', '/usr/bin/chromium', '/usr/bin/chromium-browser');
+  }
+
+  return candidates.find(p => p && fs.existsSync(p));
+}
 
 
 module.exports = {
