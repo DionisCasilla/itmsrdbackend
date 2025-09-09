@@ -43,3 +43,8 @@ coverage/
 
 # Mac/Linux system files
 *.swp
+
+# Puppeteer / Chromium
+**/.local-chromium/
+**/Chromium.app/
+**/chrome-*/
