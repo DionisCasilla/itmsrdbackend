@@ -26,15 +26,17 @@ const uploadandprocess=async (req, res) => {
     const rows = XLSX.utils.sheet_to_json(worksheet,{ header: 1,defval: ''});
     const headers = rows[0];
 
-    const data = rows.slice(1).map(row => {
+    const datafilter = rows.slice(1).map(row => {
     const obj = {};
     headers.forEach((key, i) => {
         obj[key.toString().trim()] = row[i];
     });
     return obj;
     });
+
   const periodoPago=req.body.desde+ " - "+req.body.hasta;
-  const datafilter = data.filter(x => x.CORREO && x.CORREO.trim() !== '');
+  const requestBody=req.body.textbody??"";
+  
         
   const url=path.join(__dirname, '../../public/gcp/gcpComprobantesbody.html');
   let htmlTemplate = fs.readFileSync(url, 'utf8');
@@ -43,7 +45,7 @@ const uploadandprocess=async (req, res) => {
         const html = renderTemplate(htmlTemplate, employer,ordenNomber,periodoPago);
         ordenNomber++;
         const pdfBuffer = await generatePdfBuffer(html);
-        await _sendEmail("ing.dionisc@gmail.com", "Comprobante", html, pdfBuffer, `Comprobante_${employer.CODIGO}.pdf`);
+        await _sendEmail("ing.dionisc@gmail.com", "Comprobante Pago", requestBody, pdfBuffer, `Comprobante_${employer.CODIGO}.pdf`);
       }
 
     return res.status(200).json({ datafilter });
@@ -56,6 +58,7 @@ const uploadandprocess=async (req, res) => {
 }
 
 function renderTemplate(html, data,ordenNo,periodoPago ) {
+  console.log(data)
   return html
     .replace(/{{codigo}}/g, data.CODIGO)
     .replace(/{{empleado}}/g, data.NOMBRE)
@@ -70,55 +73,28 @@ function renderTemplate(html, data,ordenNo,periodoPago ) {
     .replace(/{{correo}}/g, data.CORREO)
     .replace(/{{salarioHora}}/g, parseFloat(data['$ SALARIO HR']).toFixed(2))
     .replace(/{{quincena}}/g, data['SALARIO QUINCENAL'])
-    .replace(/{{extra35}}/g, data['SALARIO QUINCENAL'])
-    .replace(/{{extra100}}/g, data['SALARIO QUINCENAL'])
-    .replace(/{{extra15}}/g, data['SALARIO QUINCENAL'])
-    .replace(/{{incentivo}}/g, data['SALARIO QUINCENAL'])
+    .replace(/{{extra35}}/g, parseFloat(data['TOTAL 35%']).toFixed(2))
+    .replace(/{{extra35Cantidad}}/g, data['CANT. HR AL 35%'])
+    .replace(/{{extra35Precio}}/g, parseFloat(data['TOTAL 35%']).toFixed(2))
+    .replace(/{{extra15}}/g, parseFloat(data['TOTAL 15%']).toFixed(2))
+    .replace(/{{extra15Cantidad}}/g, data['CANT. HR AL 15%'])
+    .replace(/{{extra15Precio}}/g,  parseFloat(data['TOTAL 15%']).toFixed(2))
+    .replace(/{{extra100}}/g, parseFloat(data['TOTAL 100%']).toFixed(2))
+    .replace(/{{extra100Cantidad}}/g, data['CANT. HR AL 100%'])
+    .replace(/{{extra100Precio}}/g, parseFloat(data['TOTAL 100%']).toFixed(2))
+    .replace(/{{incentivo}}/g, parseFloat(data['INCENTIVO']||0).toFixed(2))
     .replace(/{{otroIngresos}}/g, data['OTROS INGRESOS'])
-    .replace(/{{totalQuincena}}/g, data['TOTAL.QUINC.'])
+    .replace(/{{totalQuincena}}/g, parseFloat(data['TOTAL.QUINC.']).toFixed(2))
     .replace(/{{afpMonto}}/g, parseFloat(data['AFP NORMAL']).toFixed(2))
     .replace(/{{sfsMonto}}/g,parseFloat(data['SFS NORMAL']).toFixed(2))
-    .replace(/{{isrMonto}}/g, parseFloat(data.ISR).toFixed(2))
+    .replace(/{{isrMonto}}/g, parseFloat(data.ISR||0).toFixed(2))
     .replace(/{{afpMonto}}/g, data['SALARIO QUINCENAL'])
     .replace(/{{otrosDesMonto}}/g, data['SALARIO QUINCENAL'])
-    .replace(/{{neto}}/g, data['NETO NOMINA QUINCENAL DIC.'])
+    .replace(/{{neto}}/g, parseFloat(data['NETO NOMINA QUINCENAL DIC.']).toFixed(2))
     .replace(/{{noComprobante}}/g, data['SALARIO QUINCENAL']);
 }
 
-/**
- * Convierte HTML en un PDF buffer usando Puppeteer
- * @param {string} html HTML a renderizar
- * @returns {Buffer} PDF en memoria (Buffer)
- */
-// async function generatePdfBuffer(html) {
-//      let browser;
-//      const outputPath = path.join(__dirname, `../../public/gcp/comprobante_${Date.now()}.pdf`);
-//     try {
-//         browser = await puppeteer.launch();
-//         const page = await browser.newPage();
 
-//         // Set the HTML content
-//         await page.setContent(html, { waitUntil: 'networkidle0' });
-
-//         // Emulate screen media type for CSS rendering
-//         await page.emulateMediaType('screen');
-
-//         // Generate the PDF
-//         await page.pdf({
-//                         format: 'A4',
-//             printBackground: true,
-//             // Add other options as needed, e.g., landscape: true, margin: { top: '1in' }
-//         });
-
-//         console.log(`PDF generated successfully at ${outputPath}`);
-//     } catch (error) {
-//         console.error('Error generating PDF:', error);
-//     } finally {
-//         if (browser) {
-//             await browser.close();
-//         }
-//     }
-// }
 
 async function getBrowser() {
   if (browserSingleton && browserSingleton.isConnected()) return browserSingleton;
@@ -176,7 +152,7 @@ async function getBrowser() {
 async function generatePdfBuffer(html, {
   format = 'A4',
   landscape = true,
-  margin = '10mm',
+  margin = '5mm',
   timeoutMs = 60000
 } = {}) {
   const browser = await getBrowser();
